@@ -1,20 +1,9 @@
-import Background from "./public/images/title.png";
 import './App.css';
 
 function App() {
   return (
-    <div style={{background: 'url(Background)'}}>
-      {/* <header className="App-header">
-       
-        <a
-          className="App-link"
-          href="src\home.js"
-          // target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+    <div className="div1">
+      {/* <button><img src="/public/images/StartBtn.png"/></button> */}
     </div>
   );
 }

@@ -1,10 +1,19 @@
 
-.App {
-
+.div1{
+  width: 100vw;
+  height: 100vh;
   /* text-align: center; */
+  background: url(/public/images/title.png) no-repeat;
+  background-size: cover;
+}
+
+button{
+  background: url(/public/images/StartBtn.png) no-repeat;
+  /* width: 400px;
+  height: 200px; */
 }
 /* 
-.App-logo {
+.App-logo {s
   height: 40vmin;
   pointer-events: none;
 }
