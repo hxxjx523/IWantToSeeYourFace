@@ -1,14 +1,20 @@
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Start from './components/Start';
+import Question from './components/Question';
 
-function App() {
+
+  export default function App() {
+  
   return (
-    <div className="background">
-      <div className="btn">
-        <button className="StartBtn"></button>
-        <button className="EndingCntBtn"></button>
+    <div className="App">
+     
+    <BrowserRouter>
+          <Routes>
+              <Route path={"/start"} element={<Start />}></Route>
+              <Route path={"/question"} element={<Question />}></Route>
+          </Routes>
+        </BrowserRouter>
       </div>
-    </div>
   );
 }
-
-export default App;
