@@ -2,10 +2,10 @@ import './App.css';
 
 function App() {
   return (
-    <div className="div1">
+    <div className="background">
       <div className="btn">
-        <button className="btn1"></button>
-        <button className="btn2"></button>
+        <button className="StartBtn"></button>
+        <button className="EndingCntBtn"></button>
       </div>
     </div>
   );
