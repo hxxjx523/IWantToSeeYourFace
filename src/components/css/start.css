@@ -6,6 +6,7 @@
     background: url(/public/images/title.png) no-repeat;
     background-size: cover;
     flex-direction: flex-end;
+    position: absolute;
   }
   
   .btn{
@@ -45,4 +46,12 @@
   .StartBtn:hover,
   .EndingCntBtn:hover {
     animation: moveUp 0.3s ease forwards; /* 호버 시 애니메이션 적용 */
+  }
+
+  .loading{
+    width: 100vw;
+    height: 100vh;
+    background: url(/public/images/김여주.gif);
+    background-size: cover;
+    position: relative;
   }
