@@ -1,0 +1,9 @@
+/* @font-face {
+    font-family: 'neodgm';
+    src: url(../fonts/neodgm.woff) format('opentype');
+} */
+
+*{
+    cursor: url(/public/images/cursor.png), auto;
+    /* font-family: 'neodgm'; */
+}

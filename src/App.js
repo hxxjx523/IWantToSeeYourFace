@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Start from './components/Start';
+import Start from './components/start';
 import Question from './components/Question';
 
 
