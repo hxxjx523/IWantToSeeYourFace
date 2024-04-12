@@ -1,0 +1,28 @@
+body{
+    background-color: black;
+}
+
+.container{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+.kimyeoju{
+    position: absolute;
+    bottom: 0;
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+    display: flex;
+    justify-content: space-between;
+    width: 200px; /* 이미지의 너비에 맞게 조절하세요 */
+}
+
+.kimyeojuImg{
+    width: 480px;
+    height: auto; /* 비율 유지를 위해 */
+}
+
+.dialogueWindow1{
+    width: 1000px;
+    height: auto;
+}
