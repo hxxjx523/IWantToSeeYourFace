@@ -17,7 +17,7 @@ export default function Start() {
     }
   
     return (
-      <div className="background">
+      <div id="background">
         <div className="btn">
           <button className="StartBtn" onClick={Loading}></button>
           <button className="EndingCntBtn"></button>
