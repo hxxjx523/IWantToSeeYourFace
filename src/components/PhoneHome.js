@@ -6,7 +6,7 @@ export default function phoneHome(){
     return (
         <div className="background">
 
-        <div class="app">
+        <div className="app">
             <a href="phone_phoneNumber.html"><button><img src="./images/phone_address.png" alt="" width="70px"/></button></a>
             <a href=""><button><img src="./images/phone_call.png" alt="" width="70px"/></button></a>
             <a href="message.html"><button><img src="./images/phone_message.png" alt="" width="70px"/></button></a>
