@@ -1,10 +1,13 @@
 body{
-    /* background-image: url(../../../public/images/phone_wallpaper.png); */
     background-size: cover;
     background-repeat: no-repeat;
+    overflow: hidden; 
+}
+
+.background{
+    background-image: url(../../../public/images/phone_wallpaper.png);
     width: 400px; 
     height: 600px; 
-    overflow: hidden; 
 }
 
 .underbar{
