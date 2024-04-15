@@ -30,7 +30,7 @@
   .EndingCntBtn, .StartBtn{
     border: none;
     width: 40em;
-    height: 10em;
+    height: 7em;
   }
   
   @keyframes moveUp {

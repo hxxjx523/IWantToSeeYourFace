@@ -1,15 +1,25 @@
-/* @font-face {
-    font-family: 'neodgm';
-    src: url(../fonts/neodgm.woff) format('opentype');
-} */
+@font-face {
+    font-family: 'HBIOS-SYS';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/HBIOS-SYS.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
 
-*{
+* {
     margin: 0;
     padding: 0;
     max-width: 100%;
     max-height: 100%;
     overflow: hidden;
     background-repeat: no-repeat;
-    cursor: url(/public/images/cursor.png), auto;
-    /* font-family: 'neodgm'; */
+    font-family: 'HBIOS-SYS';
+}
+
+body {
+    cursor: url('/public/images/cursor.png'), auto;
+}
+
+a:hover,
+button:hover {
+    cursor: url('/public/images/cursor2.png'), auto;
 }
