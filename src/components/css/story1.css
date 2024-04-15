@@ -1,8 +1,8 @@
 body{
-    background-color: black;
 }
 
 .kimyeoju{
+    background-color: black;
     display: flex;
     position: relative;
     width: 100vw;
@@ -10,16 +10,23 @@ body{
     align-items: flex-end;
 }
 
+.name{
+    font-size: 50px;
+    z-index: 5;
+    margin-bottom: 22%;
+    margin-left: 39.5%;
+}
+
 .kimyeojuImg{
     position: absolute;
-    width: 600px;
+    width: 40vw;
     height: auto; 
     z-index: 1;
 }
 
 .dialogueWindow1{
     position: absolute;
-    width: 1170px;
+    width: 75vw;
     height: auto;
     z-index: 2;
     right: 0;
