@@ -2,7 +2,7 @@ body{
 }
 
 .kimyeoju{
-    background-color: black;
+    /* background-color: black; */
     display: flex;
     position: relative;
     width: 100vw;
@@ -13,8 +13,27 @@ body{
 .name{
     font-size: 50px;
     z-index: 5;
-    margin-bottom: 22%;
-    margin-left: 39.5%;
+    margin-bottom: 6%;
+    padding-left: 3.5%;
+}
+
+.dialogue{
+    font-size: 40px;
+    /* margin-left: -9%;
+    margin-bottom: 14%; */
+    z-index: 5;
+}
+
+.nameAndDialogue{
+    z-index: 5;
+    width: 60vw;
+    height: 26vw;
+    margin-right: 3vw;
+    margin-bottom: 2vw;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
 }
 
 .kimyeojuImg{
