@@ -1,0 +1,34 @@
+.qbackground{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient( #2341AA, #08102B);
+    display: flex;
+    justify-content: center;
+}
+
+.question{
+    color: white;
+    /* float: right; */
+    text-align: center;  
+}
+
+.questionImg{
+    width: 600px;
+    height: 600px;
+    background-color: aquamarine;
+}
+
+.questionTitle{
+    width: 700px;
+    height: auto;
+    font-size: 40px;
+    padding: 20px;
+    border: solid white;
+    border-left: 2px;
+    border-right: 2px;
+}
+
+.qRadio{
+    font-size: 35px;
+    margin: 5%;
+}
