@@ -47,10 +47,23 @@
     animation: moveUp 0.3s ease forwards; /* 호버 시 애니메이션 적용 */
   }
 
-  .loading{
+  .loading {
     width: 100vw;
     height: 100vh;
-    background: url(/public/images/김여주.gif);
-    background-size: cover;
+    background-color: rgb(255, 197, 250);
     position: relative;
-  }
+    display: flex;
+    justify-content: center; /* 텍스트를 수평으로 가운데로 정렬 */
+    align-items: center; /* 텍스트를 수직으로 가운데로 정렬 */
+}
+
+.loading img {
+    position: absolute;
+    bottom: 0; /* 하단에 정렬 */
+    right: 0; /* 오른쪽에 정렬 */
+    width: 40vw;
+}
+
+.loadingText {
+    font-size: 60px;
+}

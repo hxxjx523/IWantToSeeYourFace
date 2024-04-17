@@ -1,8 +1,5 @@
-body{
-}
-
-.kimyeoju{
-    /* background-color: black; */
+.container{
+    background-image: url(/public/images/background_img1.png);
     display: flex;
     position: relative;
     width: 100vw;
@@ -41,6 +38,12 @@ body{
     width: 40vw;
     height: auto; 
     z-index: 1;
+}
+
+.BaekleehyunImg{
+    margin-left: 3%;
+    margin-bottom: 7%;
+    width: 30vw;
 }
 
 .dialogueWindow1{
