@@ -11,6 +11,23 @@
 .silhouette{
     z-index: 2;
     position: absolute;
+    
+}
+
+.selectImgDiv{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    z-index: 5;
+    position: absolute;
+}
+
+.selectImg{
+    position: relative;
+    z-index: 4;
+    animation: fadeInLeft 1s;
 }
 
 @keyframes fadeInLeft {
@@ -24,16 +41,11 @@
     }
 }
 
-.ss{
-    position: relative;
-    z-index: 4;
-    animation: fadeInLeft 1s;
-}
-
-.btn{
+.selectButton{
     position: relative;
     z-index: 6;
-    width: 600px;
+    width: 500px;
+    margin-bottom: 100px;
 }
 
 @keyframes moveUp {
@@ -45,6 +57,6 @@
     }
   }
   
-  .btn:hover{
+  .selectButton:hover{
     animation: moveUp 0.3s ease forwards; /* 호버 시 애니메이션 적용 */
   }
