@@ -7,9 +7,7 @@ export default function Phone(){
     let popupY= (window.screen.height /2) - (600 / 2);
     const phoneHome = () => {
         window.open(
-            '/PhoneHome', 
-            '_blank', 
-            'status=no, height=600, width=400, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY + ', resizable=no'
+            '/PhoneHome', '_blank', 'status=no, height=600, width=400, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY + ', resizable=no'
         );
     }
 
