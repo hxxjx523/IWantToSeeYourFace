@@ -36,6 +36,7 @@ body {
 }
 
 a:hover,
-button:hover {
+button:hover,
+input[type="radio"]:hover {
     cursor: url('/public/images/cursor2.png'), auto;
 }

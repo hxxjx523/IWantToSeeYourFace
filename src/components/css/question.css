@@ -45,6 +45,7 @@ input[type='radio']{
     border: 2px solid #fff;
     border-radius: 50%;
     margin-left: 50px;
+    margin-top: 5%;
 }
 
 input[type='radio']:checked {
