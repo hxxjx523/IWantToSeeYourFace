@@ -18,8 +18,8 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center; /* 수평 가운데 정렬 */
-    align-items: center; /* 수직 가운데 정렬 */
+    justify-content: center; 
+    align-items: center; 
     z-index: 5;
     position: absolute;
 }
@@ -58,5 +58,5 @@
   }
   
   .selectButton:hover{
-    animation: moveUp 0.3s ease forwards; /* 호버 시 애니메이션 적용 */
+    animation: moveUp 0.3s ease forwards; 
   }
