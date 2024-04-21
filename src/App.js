@@ -1,12 +1,14 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Start from './components/start';
-import Question from './components/Question';
+import Question from './components/question';
 import Story1 from './components/story1'
 import Story2 from './components/story2'
-import Phone from './components/Phone'
-import PhoneHome from './components/PhoneHome'
-import PhoneNumber from './components/PhoneNumber'
+import Phone from './components/phone'
+import PhoneHome from './components/phoneHome'
+import PhoneNumber from './components/phoneNumber'
+import PhoneMessage from './components/phoneMessage'
+import PhoneMessage_page1 from './components/phoneMessage_page1'
 
 
   export default function App() {
@@ -23,6 +25,8 @@ import PhoneNumber from './components/PhoneNumber'
               <Route path={"/phone"} element={<Phone />}></Route>
               <Route path={"/phoneHome"} element={<PhoneHome />}></Route>
               <Route path={"/phoneNumber"} element={<PhoneNumber />}></Route>
+              <Route path={"/phoneMessage"} element={<PhoneMessage />}></Route>
+              <Route path={"/phoneMessage_page1"} element={<PhoneMessage_page1 />}></Route>
           </Routes>
         </BrowserRouter>
       </div>

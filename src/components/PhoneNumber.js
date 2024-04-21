@@ -4,7 +4,7 @@ import "./css/phoneNumber.css";
 export default function PhoneNumber(){
     return (
         <div className="background2">
-            <a href="phone_home.html"><button className="homeBtn">X</button></a>
+            <a href="/PhoneHome"><button className="preBtn">X</button></a>
             <br/>
             <br/>
             <br/>
