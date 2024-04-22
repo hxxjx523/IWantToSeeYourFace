@@ -3,7 +3,10 @@
     height: 670px; 
 }
 
-.background4{
-    background-image: url(../../../public/images/message1.png);
+.background3{
+    background-color: blue;
+}
 
+.background4{
+    background-image: url(../../../public/images/phone_message1.png);
 }

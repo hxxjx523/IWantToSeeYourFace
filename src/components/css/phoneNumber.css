@@ -1,11 +1,10 @@
 .background2{
-    background-color: rgb(235, 153, 216);
+    background-color: rgb(252, 102, 217);
+    width: 420px; 
+    height: 670px;
 }
 
-.homeBtn{
-    float: right;
-    margin-top: 0.6em;
-}
+
 
 .container2{
     background-color: rgb(255, 245, 253);
@@ -19,3 +18,4 @@ button{
 .name{
     margin-top: 1em;
 }
+
