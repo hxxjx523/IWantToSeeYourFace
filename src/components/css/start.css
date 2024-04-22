@@ -20,11 +20,11 @@
   
   .StartBtn{
       /* background-color: transparent;/ */
-      background: url(/public/images/StartBtn.png) no-repeat;
+      background: url(/public/images/title_startBtn.png) no-repeat;
   }
   .EndingCntBtn{
     /* background-color: transparent;/ */
-    background: url(/public/images/EndingCntBtn.png) no-repeat;
+    background: url(/public/images/title_endingCntBtn.png) no-repeat;
   }
   
   .EndingCntBtn, .StartBtn{
