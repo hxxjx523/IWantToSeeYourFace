@@ -3,7 +3,7 @@ import "./css/phoneMessage.css";
 
 export default function PhoneMessage_page1(){
     return(
-         <div style={{backgroundImage: "../../public/images/message1.png" }}>
+         <div className="background4 back">
              <a href="/phoneMessage"><button className="preBtn">X</button></a>
          </div>
     );
