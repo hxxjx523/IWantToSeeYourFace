@@ -1,5 +1,5 @@
 import "./css/all.css";
-import "./css/story.css";
+import styles from "./css/story.module.css";
 
 export default function Phone(){
 
@@ -16,7 +16,7 @@ export default function Phone(){
     };
 
     return(
-        <button onClick={phoneHome} className="phone">
+        <button onClick={phoneHome} className={styles.phone}>
             <img src="./images/phone.png" alt="" width="150px" />
         </button>
     );

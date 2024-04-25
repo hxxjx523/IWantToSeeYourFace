@@ -1,10 +1,10 @@
 import "./css/all.css";
-import "./css/phoneNumber.css";
+import styles from "./css/phoneNumber.module.css";
 
 export default function PhoneNumber(){
     return (
-        <div className="background2">
-            <a href="/PhoneHome"><button className="preBtn"></button></a>
+        <div className={styles.background}>
+            <a href="/PhoneHome"><button className={styles.preBtn}></button></a>
             <br/>
             <br/>
             <br/>
