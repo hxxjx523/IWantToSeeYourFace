@@ -6,7 +6,8 @@ export default function ChapterTitle(){
     return (
         <div>
             <div className="background5">
-                
+                <div className="txt">첫번째</div>
+                <div className="titleTxt">첫만남</div>
             </div>
         </div>
     );

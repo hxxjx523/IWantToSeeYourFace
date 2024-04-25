@@ -1,5 +1,5 @@
 import "./css/all.css";
-import "./css/start.css";
+import styles from  "./css/start.module.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -33,10 +33,10 @@ export default function Start() {
     };
 
     return (
-        <div id="background">
-            <div className="btn">
-                <button className="StartBtn" onClick={handleStartClick}></button>
-                <button className="EndingCntBtn"></button>
+        <div id={styles.background}>
+            <div className={styles.btn}>
+                <button className={styles.StartBtn} onClick={handleStartClick}></button>
+                <button className={styles.EndingCntBtn}></button>
             </div>
             {
               isLoading && 
