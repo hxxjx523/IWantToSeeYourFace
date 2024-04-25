@@ -1,18 +1,16 @@
 import "./css/all.css";
 import styles from "./css/phoneNumber.module.css";
+import { useNavigate } from "react-router-dom";
 
 export default function PhoneNumber(){
+    const navigate = useNavigate();
+
     return (
         <div className={styles.background}>
-            <a href="/PhoneHome"><button className={styles.preBtn}></button></a>
+            <button className={styles.preBtn} onClick={() => navigate('/PhoneHome')}></button>
             <br/>
             <br/>
             <br/>
-            {/* <div className="container2">
-                <br/><a href="profile_Doyoon.html" className="name"><button>도윤</button></a><br/><br/>
-                <a href="profile_Baekleehyun.html" className="name"><button>백이현</button></a><br/><br/>
-                <a href="profile_Choijaeyul.html" className="name"><button>최재율</button></a>
-            </div> */}
         </div>
     );
 }

@@ -19,3 +19,11 @@ button{
     margin-top: 1em;
 }
 
+.preBtn{
+    background-image: url(../../../public/images/phone_previousIcon.png);
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px;
+}

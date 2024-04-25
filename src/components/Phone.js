@@ -17,7 +17,7 @@ export default function Phone(){
 
     return(
         <button onClick={phoneHome} className={styles.phone}>
-            <img src="./images/phone.png" alt="" width="150px" />
+            <img src="./images/phone.png" alt="" width="180px" />
         </button>
     );
 }
