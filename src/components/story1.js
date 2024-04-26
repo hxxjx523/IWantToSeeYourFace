@@ -7,8 +7,8 @@ export default function Story(){
         <div className={styles.container}>
                 <img src="./images/Kimyeoju_face1.png" className={styles.kimyeojuImg}/>
                 <img src="./images/Kimyeoju_dialogueWindow1.png" className={styles.dialogueWindow1}/>
-                <img src="./images/Baekleehyun_face1-1.png" className={styles.BaekleehyunImg}/>
-                <img src="./images/Baekleehyun_dialogueWindow.png" className={styles.dialogueWindow1}/>
+                {/* <img src="./images/Baekleehyun_face1-1.png" className={styles.BaekleehyunImg}/>
+                <img src="./images/Baekleehyun_dialogueWindow.png" className={styles.dialogueWindow1}/> */}
                 <div className={styles.nameAndDialogue}>
                     <div className={styles.name}>김여주</div>
                     <div className={styles.dialogue}>텍스트텍스트텍스트</div>

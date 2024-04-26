@@ -6,13 +6,15 @@
     height: 100vh;
     align-items: flex-end;
     justify-content: center;
+    background-size: cover;
 }
 
 .name{
     font-size: 50px;
     z-index: 5;
     margin-bottom: 6%;
-    padding-left: 3.5%;
+    margin-top: 4.5%;
+    padding-left: 4.5%;
 }
 
 .dialogue{
@@ -36,6 +38,7 @@
 
 .kimyeojuImg{
     position: absolute;
+    left: -0.7%;
     width: 40vw;
     height: auto; 
     z-index: 1;
