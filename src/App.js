@@ -1,14 +1,14 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Start from './components/Start';
+import Start from './components/Start.js';
 import Question from './components/Question';
 import Opening from './components/Opening'
 import BaekLeeHyunRoute from './components/BaekLeeHyunRoute'
 import Phone from './components/Phone'
 import PhoneHome from './components/PhoneHome'
 import PhoneNumber from './components/PhoneNumber'
-import PhoneMessage from './components/PhoneMessage'
-import PhoneMessage_page1 from './components/PhoneMessage_page1.js'
+import PhoneMessage from './components/PhoneMessage.js'
+import PhoneMessage_page1 from './components/PhoneMessage_page1'
 import ChapterTitle from './components/ChapterTitle';
 
 
