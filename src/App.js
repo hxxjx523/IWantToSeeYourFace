@@ -8,7 +8,7 @@ import Phone from './components/Phone'
 import PhoneHome from './components/PhoneHome'
 import PhoneNumber from './components/PhoneNumber'
 import PhoneMessage from './components/PhoneMessage'
-import PhoneMessage_page1 from './components/PhoneMessage_page1'
+import PhoneMessage_page1 from './components/PhoneMessage_page1.js'
 import ChapterTitle from './components/ChapterTitle';
 
 
