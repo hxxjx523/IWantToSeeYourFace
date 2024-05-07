@@ -2,7 +2,21 @@ import "./css/all.css";
 import styles from "./css/story1.module.css"
 // import { useNavigate } from "react-router-dom";
 // import { useState } from "react";
-export default function Story(){
+import openingTxt from './txt/openingTxt'
+export default function Opening(){
+
+    useEffect(() => {
+        // Opening 텍스트 파일을 가져오기
+        fetch(openingTxt)
+          .then(response => response.text())
+          .then(text => {
+            setOpeningText(text);
+            parseOpeningText(text); // 텍스트를 파싱하여 변수에 할당
+          })
+      }, []);
+
+      console.log(openingTxt)
+
     return(
         <div className={styles.container}>
                 <img src="./images/Kimyeoju_face1.png" className={styles.kimyeojuImg}/>
