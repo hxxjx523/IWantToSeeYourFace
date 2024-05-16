@@ -1,37 +1,45 @@
 import "./css/all.css";
 import styles from "./css/story1.module.css"
 // import { useNavigate } from "react-router-dom";
-// import { useState } from "react";
+import { useState } from "react";
 import { useEffect } from "react";
-// import openingTxt from './txt/openingTxt'
+import opening from './json/opening.json'; // JSON 파일 경로에 맞게 수정
 export default function Opening(){
 
-    // useEffect(() => {
-    //     // Opening 텍스트 파일을 가져오기
-    //     fetch(openingTxt)
-    //       .then(response => response.text())
-    //       .then(text => {
-    //         setOpeningText(text);
-    //         parseOpeningText(text); // 텍스트를 파싱하여 변수에 할당
-    //       })
-    //   }, []);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-    //   console.log(openingTxt)
+    useEffect(() => {
+        const handleKeyPress = (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                setCurrentIndex(prevIndex => prevIndex + 1);
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyPress);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyPress);
+        };
+    }, []);
+
+    const getNextDialogue = () => {
+        const nextDialogue = opening[currentIndex];
+        return {
+            name: nextDialogue.name,
+            text: nextDialogue.text,
+            imgSrc: nextDialogue.img
+        };
+    };
 
     return(
         <div className={styles.container}>
-                <img src="./images/Kimyeoju_face1.png" className={styles.kimyeojuImg}/>
+                <img src={getNextDialogue().imgSrc} className={styles.kimyeojuImg}/>
                 <img src="./images/Kimyeoju_dialogueWindow1.png" className={styles.dialogueWindow1}/>
-                {/* <img src="./images/Baekleehyun_face1-1.png" className={styles.BaekleehyunImg}/>
-                <img src="./images/Baekleehyun_dialogueWindow.png" className={styles.dialogueWindow1}/> */}
                 <div className={styles.nameAndDialogue}>
-                    <div className={styles.name}>김여주</div>
-                    <div className={styles.dialogue}>텍스트텍스트텍스트</div>
-                </div>
+                <div className={styles.name}>{getNextDialogue().name}</div>
+                <div className={styles.dialogue}>{getNextDialogue().text}</div>
+        </div>
                 
-                {/* <img src="./images/선택지발생.png" className="ss"/>
-                <button className="btn"><img src="./images/StartBtn.png"/></button>
-                <button className="btn"><img src="./images/StartBtn.png"/></button> */}
         </div>
     )
 }
