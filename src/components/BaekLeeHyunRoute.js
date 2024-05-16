@@ -2,7 +2,12 @@ import "./css/all.css";
 import styles from "./css/story2.module.css"
 // import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-export default function Story2(){
+
+
+
+
+
+export default function BaekLeeHyunRoute(){
     const [showImage, setShowImage] = useState(true);
     const [showButtons, setShowButtons] = useState(false); 
 
@@ -23,7 +28,8 @@ export default function Story2(){
                 <img src="./images/Baekleehyun_silhouette.png" className={styles.silhouette} alt="실루엣" />
 
                 <div className={styles.selectImgDiv}>
-                    {showImage && <img src="./images/선택지발생.png" className={`${styles.selectImg} ${showImage ? "show" : ""}`} alt="선택지 발생" />}  
+                    {showImage && <img src="./images/optionImg.png" 
+                    className={`${styles.selectImg} ${showImage ? "show" : ""}`} alt="선택지 발생" />}  
                 </div>
 
                 {showButtons && (
