@@ -1,4 +1,4 @@
-.container2{
+.container{
     background-image: url(/public/images/background_img1.png);
     display: flex;
     position: relative;
@@ -9,55 +9,44 @@
     background-size: cover;
 }
 
-.silhouette{
-    z-index: 2;
-    position: absolute;
-    
-}
-
-.selectImgDiv{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
+.name{
+    font-size: 50px;
     z-index: 5;
+    margin-bottom: 6%;
+    margin-top: 4.5%;
+    padding-left: 4.5%;
+}
+
+.dialogue{
+    font-size: 40px;
+    margin-top: 30px;
+    z-index: 5;
+}
+
+.nameAndDialogue{
+    z-index: 5;
+    width: 60vw;
+    height: 26vw;
+    margin-right: 3vw;
+    margin-bottom: 2vw;
     position: absolute;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
 }
 
-.selectImg{
-    position: relative;
-    z-index: 4;
-    animation: fadeInLeft 1s;
+.kimyeojuImg{
+    position: absolute;
+    left: -0.7%;
+    width: 40vw;
+    height: auto; 
+    z-index: 1;
 }
 
-@keyframes fadeInLeft {
-    0% {
-        opacity: 0;
-        transform: translate3d(-100%, 0, 0);
-    }
-    to {
-        opacity: 1;
-        transform: translateZ(0);
-    }
+.dialogueWindow1{
+    position: absolute;
+    width: 75vw;
+    height: auto;
+    z-index: 2;
+    right: 0;
 }
-
-.selectButton{
-    position: relative;
-    z-index: 6;
-    width: 500px;
-    margin-bottom: 100px;
-}
-
-@keyframes moveUp {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-10px);
-    }
-  }
-  
-  .selectButton:hover{
-    animation: moveUp 0.3s ease forwards; 
-  }
