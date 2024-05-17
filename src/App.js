@@ -9,7 +9,7 @@ import PhoneHome from './components/PhoneHome'
 import PhoneNumber from './components/PhoneNumber'
 import PhoneMessage from './components/PhoneMessage.js'
 import PhoneMessage_page1 from './components/PhoneMessage_page1'
-import ChapterTitle from './components/ChapterTitle';
+import Chapter1 from './components/Chapter1';
 
 
   export default function App() {
@@ -28,7 +28,7 @@ import ChapterTitle from './components/ChapterTitle';
               <Route path={"/phoneNumber"} element={<PhoneNumber />}></Route>
               <Route path={"/phoneMessage"} element={<PhoneMessage />}></Route>
               <Route path={"/phoneMessage_page1"} element={<PhoneMessage_page1 />}></Route>
-              <Route path={"/chapterTitle"} element={<ChapterTitle />}></Route>
+              <Route path={"/chapter1"} element={<Chapter1 />}></Route>
           </Routes>
         </BrowserRouter>
       </div>
