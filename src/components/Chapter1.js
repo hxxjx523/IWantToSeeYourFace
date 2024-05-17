@@ -1,6 +1,6 @@
 import "./css/all.css";
 import styles from "./css/chapterTitle.module.css";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Chapter1(){
 
