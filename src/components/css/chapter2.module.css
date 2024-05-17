@@ -1,0 +1,30 @@
+.background{
+    background-image: url(/public/images/background_chapter1.png);
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    flex-direction: flex-end;
+    position: absolute;
+}
+
+.chapter2{
+    padding: 4%;
+}
+
+.chapter2 img{
+    width: 13%;
+    height: auto;
+    opacity: 0; /* 시작할 때 이미지를 보이지 않게 설정 */
+    animation: fadeInUp 1s ease-out forwards; /* 애니메이션 설정 */
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

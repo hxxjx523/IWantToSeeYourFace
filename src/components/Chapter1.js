@@ -1,5 +1,5 @@
 import "./css/all.css";
-import styles from "./css/chapterTitle.module.css";
+import styles from "./css/chapter1.module.css";
 import { useNavigate } from "react-router-dom";
 
 export default function Chapter1(){
@@ -7,13 +7,13 @@ export default function Chapter1(){
     const navigate = useNavigate();
 
     const next = () => {
-        setTimeout(navigate('/baekLeeHyunRoute'), 2500)
+        setTimeout(()=> navigate('/baekLeeHyunRoute'), 6000)
     }
 
     return (
         <div>
             <div className={styles.background}>
-                <div className={styles.chapter1}><img src="./images/chapter1.png"/></div>
+                <div className={styles.chapter1}><img src="./images/chapter1.png" onChange={next()}/></div>
             </div>
         </div>
     );
