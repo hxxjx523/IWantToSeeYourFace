@@ -1,6 +1,5 @@
 .background{
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #A87BE2);
-    animation: gradient 15s ease infinite;
+    background-image: url(/public/images/background_chapter1.png);
     width: 100vw;
     height: 100vh;
     background-size: cover;
@@ -8,8 +7,24 @@
     position: absolute;
 }
 
+.chapter1{
+    padding: 4%;
+}
 
-@keyframes gradient {
-0%  {background-position: 0% 50%;}
-50% {background-position: 100% 50%;}
-100% {background-position: 0% 50%;}}
+.chapter1 img{
+    width: 13%;
+    height: auto;
+    opacity: 0; /* 시작할 때 이미지를 보이지 않게 설정 */
+    animation: fadeInUp 1s ease-out forwards; /* 애니메이션 설정 */
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
