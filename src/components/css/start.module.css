@@ -67,3 +67,10 @@
 .loadingText {
     font-size: 60px;
 }
+
+.MusicBtn{
+  width: 30px;
+  position: relative;
+  margin-right: 30px;
+  margin-top: 30px;
+}
