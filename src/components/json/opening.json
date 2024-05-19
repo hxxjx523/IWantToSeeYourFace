@@ -13,7 +13,7 @@
     {"name": "ㅤ", "text": "날개가 달린 작은 사람 형체를 한.. 뭔가 요정 같다", "img": "", "window": "./images/Nomal_dialogueWindow1.png", "background": ""},
     {"name": "???", "text": " 아, 미안 천천히 내려 온다는 게 가속도가 붙어버렸네", "img": "./images/Mindlerea_silhouette.png", "window": "./images/Mindlerea_dialogueWindow.png", "background": ""},
     {"name": "김여주", "text": "말을 해?!", "img": "./images/Kimyeoju_face11.png", "window": "./images/Kimyeoju_dialogueWindow0.png", "background": ""},
-    {"name": "???", "text": "후후, 나는 민들레야", "img": "./images/Mindlerea_silhouette.png", "window": "./images/Mindlerea_dialogueWindow.png", "background": ""},
+    {"name": "???", "text": "후후, 나는 민들레야", "img": "./images/Mindlerea.png", "window": "./images/Mindlerea_dialogueWindow.png", "background": ""},
     {"name": "김여주", "text": "으응..?", "img": "./images/Kimyeoju_face5.png", "window": "./images/Kimyeoju_dialogueWindow0.png", "background": ""},
     {"name": "민들레", "text": "사랑의 요정이고, 너는 선택받았네!", "img": "./images/Mindlerea.png", "window": "./images/Mindlerea_dialogueWindow.png", "background": ""},
     {"name": "ㅤ", "text": "꿈을 꾸고 있는 게 분명하다..", "img": "", "window": "./images/Nomal_dialogueWindow1.png", "background": ""},

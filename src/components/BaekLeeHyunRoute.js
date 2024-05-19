@@ -2,7 +2,7 @@ import "./css/all.css";
 import styles from "./css/story2.module.css"
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import baekLeeHyunRoute from './json/baekLeeHyunRoute.json'; // JSON 파일 경로에 맞게 수정
+import baekLeeHyunRoute from './json/baekLeeHyunRoute.json'; 
 
 
 

@@ -7,7 +7,7 @@ export default function Chapter1(){
     const navigate = useNavigate();
 
     const next = () => {
-        setTimeout(()=> navigate('/baekLeeHyunRoute'), 6000)
+        setTimeout(()=> navigate('/baekLeeHyunRoute'), 3000)
     }
 
     return (

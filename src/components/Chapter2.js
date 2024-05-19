@@ -1,6 +1,6 @@
-import { useEffect } from "react";
 import "./css/all.css";
 import styles from "./css/chapter2.module.css";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Chapter2(){
@@ -8,7 +8,7 @@ export default function Chapter2(){
     const navigate = useNavigate();
 
     useEffect(() => {
-        const timer = setTimeout(() => navigate('/baekLeeHyunRoute'), 6000);
+        const timer = setTimeout(() => navigate('/baekLeeHyunRoute'), 3000);
         return () => clearTimeout(timer); // 타이머 클리어
     }, [navigate]);
 
