@@ -15,6 +15,10 @@ export default function Start() {
             audio.play(); 
             audioRef.current = audio; 
             setAudioPlayed(true); 
+        }else{
+            audioRef.current.pause();
+            audioRef.current.currentTime = 0; 
+            setAudioPlayed(false); 
         }
     };
 
