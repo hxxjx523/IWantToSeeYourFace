@@ -42,14 +42,8 @@ const handleNextQuestion = () => {
     } else {
       // 마지막 질문 이후의 로직을 여기에 추가
       const sum = answers.reduce((total, current) => total + parseInt(current), 0);
-      if(sum >= 4 || sum <= 6){
-          navigate("/DoYoon1")
-      }else if( sum >= 7 || sum <= 9){
-        navigate("/baekLeeHyunRoute1")
-      }else if( sum >= 10 || sum <= 12){
-        navigate("/choiJaeYul1")
-      }
       console.log('Sum of answers:', sum);
+      navigate("/opening")
     }
   }
 };
@@ -67,9 +61,9 @@ const question = getNextQuestion();
               <span className={styles.radio}>{getNextQuestion().a2}<input type="radio" name="answer" value={2} onChange={handleRadioValue}/></span> <br />
               <span className={styles.radio}>{getNextQuestion().a3}<input type="radio" name="answer" value={3} onChange={handleRadioValue}/></span> 
             </div>
-            {isButtonVisible && (
-          <button onClick={handleNextQuestion}>Next</button>
-        )}
+          {isButtonVisible && (
+          <button onClick={handleNextQuestion} className="nextBtn">Next</button>
+          )}
           </div>
       </div>
     );

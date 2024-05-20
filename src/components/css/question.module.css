@@ -53,3 +53,9 @@ input[type='radio']:checked {
     background-color: white;
     box-shadow: 0 0 0 2px white;
 }
+
+button{
+    width: 100px;
+    height: 40px;
+    background-color: #fff;
+}
