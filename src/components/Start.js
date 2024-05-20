@@ -23,9 +23,11 @@ export default function Start() {
     };
 
     const handleStartClick = () => {
-        audioRef.current.pause();
-        audioRef.current.currentTime = 0; 
-        setAudioPlayed(false); 
+        if(audioPlayed){
+            audioRef.current.pause();
+            audioRef.current.currentTime = 0; 
+            setAudioPlayed(false); 
+        }
         movePage('/question');
     }
 
