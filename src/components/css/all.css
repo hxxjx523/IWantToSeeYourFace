@@ -38,7 +38,7 @@ body {
 a:hover,
 button:hover,
 input[type="radio"]:hover {
-    cursor: url('/public/images/cursor2.png'), auto;
+    cursor: url('/public/images/cursor.png'), auto;
 }
 
 .background{

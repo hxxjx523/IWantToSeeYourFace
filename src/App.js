@@ -11,7 +11,7 @@ import PhoneMessage from './components/PhoneMessage.js'
 import PhoneMessage_page1 from './components/PhoneMessage_page1'
 import Chapter1 from './components/Chapter1';
 import Chapter2 from './components/Chapter2';
-import MiniGame from './components/MiniGame';
+// import MiniGame from './components/MiniGame';
 
 
   export default function App() {
@@ -32,7 +32,7 @@ import MiniGame from './components/MiniGame';
               <Route path={"/phoneMessage_page1"} element={<PhoneMessage_page1 />}></Route>
               <Route path={"/chapter1"} element={<Chapter1 />}></Route>
               <Route path={"/chapter2"} element={<Chapter2 />}></Route>
-              <Route path={"/miniGame"} element={<MiniGame />}></Route>
+              {/* <Route path={"/miniGame"} element={<MiniGame />}></Route> */}
           </Routes>
         </BrowserRouter>
       </div>
