@@ -1,12 +1,13 @@
-import { Suspense, useState } from 'react';
-import styles from './css/question.module.css'
+import { useState, useEffect } from 'react';
+import styles from './css/question.module.css';
 import { useNavigate } from 'react-router-dom';
+
 export default function Question() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState('');
   const [isButtonVisible, setIsButtonVisible] = useState(false);
-  const [answers, setAnswers] = useState([]); // 누적될 답변을 저장할 배열
-  const navigate = useNavigate()
+  const [answers, setAnswers] = useState([]); 
+  const navigate = useNavigate();
 
   const questions = [
     {"q1": "당신은 어떤 사람으로 기억되고 싶은가?", "a1": "훌륭한 사람", "a2": "지혜로운 사람", "a3": "용감한 사람"},
@@ -23,48 +24,53 @@ export default function Question() {
         a2: nextQuestion.a2,
         a3: nextQuestion.a3
     };
-};
+  };
 
-const handleRadioValue = (e) => {
-  setSelectedAnswer(e.target.value);
-  setIsButtonVisible(true);
-  console.log(e.target.value);
-};
+  const handleRadioValue = (e) => {
+    setSelectedAnswer(e.target.value);
+    setIsButtonVisible(true);
+  };
 
-const handleNextQuestion = () => {
-  if (selectedAnswer) {
-    // answer에 value 값 저장
-    setAnswers([...answers, selectedAnswer]);
-    if (currentIndex < questions.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-      setSelectedAnswer('');
-      setIsButtonVisible(false);
-    } else {
-      // 마지막 질문 이후의 로직을 여기에 추가
-      const sum = answers.reduce((total, current) => total + parseInt(current), 0);
-      console.log('Sum of answers:', sum);
-      navigate("/opening")
+  const handleNextQuestion = () => {
+    if (selectedAnswer) {
+      setAnswers([...answers, selectedAnswer]);
+      if (currentIndex < questions.length - 1) {
+        setCurrentIndex(currentIndex + 1);
+        setSelectedAnswer('');
+        setIsButtonVisible(false);
+      } else {
+        const sum = answers.reduce((total, current) => total + parseInt(current), 0);
+        console.log(sum);
+        navigate("/opening");
+      }
     }
-  }
-};
+  };
 
-const question = getNextQuestion();
+  useEffect(() => {
+    const radioButtons = document.querySelectorAll("input[name='answer']");
+    radioButtons.forEach(radio => radio.checked = false);
+  }, [currentIndex]);
 
-  
-    return (
-      <div className={styles.qbackground}>
-        <div className={styles.questionImg}><img src='./images/Mindlerea_silhouette.png'/></div>
-          <div className={styles.question}>
-            <div className={styles.questionTitle}>{getNextQuestion().q1}</div>
-            <div className={styles.qRadio}>
-              <span className={styles.radio}>{getNextQuestion().a1}<input type="radio" name="answer" value={1} onChange={handleRadioValue}/></span> <br />
-              <span className={styles.radio}>{getNextQuestion().a2}<input type="radio" name="answer" value={2} onChange={handleRadioValue}/></span> <br />
-              <span className={styles.radio}>{getNextQuestion().a3}<input type="radio" name="answer" value={3} onChange={handleRadioValue}/></span> 
-            </div>
-          {isButtonVisible && (
-          <button onClick={handleNextQuestion} className="nextBtn">Next</button>
-          )}
-          </div>
+  const question = getNextQuestion();
+
+  return (
+    <div className={styles.qbackground}>
+      <div className={styles.questionImg}>
+        <img src='./images/Mindlerea_silhouette.png' alt=''/>
       </div>
-    );
+      <div className={styles.question}>
+        <div className={styles.questionTitle}>{question.q1}</div>
+        <div className={styles.qRadio}>
+          <span className={styles.radio}>{question.a1}<input type="radio" name="answer" value={1} onChange={handleRadioValue}/></span> <br />
+          <span className={styles.radio}>{question.a2}<input type="radio" name="answer" value={2} onChange={handleRadioValue}/></span> <br />
+          <span className={styles.radio}>{question.a3}<input type="radio" name="answer" value={3} onChange={handleRadioValue}/></span>
+        </div>
+        {isButtonVisible && (
+          <button onClick={handleNextQuestion} className="nextBtn">
+            <img src='./images/nextBtn.png' alt=''/>
+          </button>
+        )}
+      </div>
+    </div>
+  );
 };

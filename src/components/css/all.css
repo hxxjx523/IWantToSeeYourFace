@@ -31,13 +31,10 @@
     font-family: 'HeirofLight';
 }
 
-body {
-    cursor: url('/public/images/cursor.png'), auto;
-}
-
 a:hover,
 button:hover,
-input[type="radio"]:hover {
+input[type="radio"]:hover,
+body {
     cursor: url('/public/images/cursor.png'), auto;
 }
 
