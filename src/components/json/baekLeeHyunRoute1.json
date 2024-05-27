@@ -19,7 +19,5 @@
     {"name": "ㅤ", "text": "재빨리 내 이름이 적힌 책상에 앉았다", "img": "", "window": "./images/Nomal_dialogueWindow.png", "background": ""},
     {"name": "담임쌤", "text": "자 다 왔으니깐 소개부터 할게요", "img": "", "window": "./images/Extra_dialogueWindow.png", "background": ""},
     {"name": "담임쌤", "text": "저는 이번 담임을 맡은 …", "img": "", "window": "./images/Extra_dialogueWindow.png", "background": ""},
-    {"name": "ㅤ", "text": "이렇게 다사다난한 하루가 지나가 새학기가 시작되었다", "img": "", "window": "./images/Nomal_dialogueWindow.png", "background": ""},
-    {"name": "chapter2"},
-    {"name": "담임쌤", "text": "저는 이번 담임을 맡은 …", "img": "", "window": "./images/Extra_dialogueWindow.png", "background": ""}
+    {"name": "ㅤ", "text": "이렇게 다사다난한 하루가 지나가 새학기가 시작되었다", "img": "", "window": "./images/Nomal_dialogueWindow.png", "background": ""}
 ]
