@@ -40,8 +40,16 @@ export default function Question() {
         setIsButtonVisible(false);
       } else {
         const sum = answers.reduce((total, current) => total + parseInt(current), 0);
+        let route = "";
+        if (sum >= 4 && sum <= 6) {
+          route = "baekLeeHyunRoute";
+        } else if (sum >= 7 && sum <= 9) {
+          route = "doYoonRoute";
+        } else if (sum >= 10 && sum <= 12) {
+          route = "choiJaeYulRoute";
+        }
         console.log(sum);
-        navigate("/opening");
+        navigate(`/opening?route=${route}`);
       }
     }
   };

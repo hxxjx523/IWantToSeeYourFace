@@ -1,51 +1,42 @@
 import "../css/all.css";
 import styles from "../css/Dialogue.module.css";
 
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import baekLeeHyunRoute from '../json/baekLeeHyunRoute2.json'; // JSON 파일 경로에 맞게 수정
+import Route from '../json/Route.json'; 
 
-export default function BaekLeeHyunRoute2() {
+export default function Route2() {
     const [showImage, setShowImage] = useState(true);
     const [showButtons, setShowButtons] = useState(false); 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isExiting, setIsExiting] = useState(false);
     const [showContainer2, setShowContainer2] = useState(false);
     const navigate = useNavigate();
-    const location = useLocation();
 
-    const getRouteFromQuery = () => {
-        const params = new URLSearchParams(location.search);
-        return params.get('route');
-    };
-
+   
     useEffect(() => {
         if (showContainer2) {
             const timeout = setTimeout(() => {
                 setShowImage(false);
                 setTimeout(() => {
                     setShowButtons(true);
-                }, 100); 
+                }, 100);
             }, 3000); 
             
-            // 컴포넌트가 언마운트될 때 timeout을 클리어하여 메모리 누수를 방지
             return () => clearTimeout(timeout);
         }
     }, [showContainer2]);
-    
+
     useEffect(() => {
         const handleKeyPress = (event) => {
             const { key } = event;
-            
+
             if (key === 'Enter' || key === ' ' || key === 'ArrowRight') {
                 setCurrentIndex(prevIndex => {
-                    const newIndex = Math.min(prevIndex + 1, baekLeeHyunRoute.length - 1);
-                    if (baekLeeHyunRoute[newIndex]?.select) {
+                    const newIndex = Math.min(prevIndex + 1, Route.length - 1);
+                    if (newIndex === Route.length - 1) {
                         setShowContainer2(true);
-                    }else if (newIndex === baekLeeHyunRoute.length - 1) {
-                        const route = getRouteFromQuery();
-                        navigate(`/chapter3?route=${route}`)
                     }
                     return newIndex;
                 });
@@ -62,7 +53,7 @@ export default function BaekLeeHyunRoute2() {
     }, [navigate]);
 
     const getNextDialogue = () => {
-        const nextDialogue = baekLeeHyunRoute[currentIndex];
+        const nextDialogue = Route[currentIndex];
         return {
             name: nextDialogue.name,
             text: nextDialogue.text,
@@ -72,18 +63,14 @@ export default function BaekLeeHyunRoute2() {
     };
 
     const handleButtonClick = (event) => {
-        const btnValue = event.target.value;
-        console.log(btnValue);
 
-        if (btnValue === "select1") {
-            // '기다린다'를 선택했을 때
-            setShowContainer2(false);
-            setShowButtons(false);
-            setShowImage(true);
-            setCurrentIndex(prevIndex => prevIndex + 1); // 'select:true' 다음으로 이동
-        } else {
-            // '기다리지 않는다'를 선택했을 때
-            navigate("/waitingPersonEND");
+        const btnValue = event.target.value
+        console.log(btnValue)
+        
+        if(btnValue==="select1"){
+            navigate("/Route3_1")
+        }else{
+            navigate("/waitingPersonEND")
         }
     };
 

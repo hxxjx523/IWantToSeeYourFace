@@ -1,6 +1,6 @@
 import "../css/all.css";
-import styles from "../css/story2.module.css"
-import { useNavigate } from "react-router-dom";
+import styles from "../css/Dialogue.module.css"
+import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import baekLeeHyunRoute from '../json/baekLeeHyunRoute1.json'; // JSON 파일 경로에 맞게 수정
 
@@ -14,6 +14,20 @@ export default function BaekLeeHyunRoute1(){
     const [isExiting, setIsExiting] = useState(false);
     const [isReturning, setIsReturning] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const getRouteFromQuery = () => {
+        const params = new URLSearchParams(location.search);
+        return params.get('route');
+    };
+    
+    useEffect(() => {
+        const route = getRouteFromQuery();
+        if (currentIndex + 1 >= baekLeeHyunRoute.length) {
+            setIsExiting(true);
+            setTimeout(() => navigate(`/chapter2?route=${route}`), 3000);
+        }
+    }, [currentIndex, location, navigate]);
 
     useEffect(() => {
         
@@ -33,7 +47,7 @@ export default function BaekLeeHyunRoute1(){
                 setCurrentIndex(prevIndex => {
                     const newIndex = Math.min(prevIndex + 1, baekLeeHyunRoute.length - 1);
                     if (newIndex === baekLeeHyunRoute.length - 1) {
-                        navigate('/chapter2');
+                        // navigate('/chapter2');
                     }
                     return newIndex;
                 });
@@ -85,7 +99,7 @@ export default function BaekLeeHyunRoute1(){
             //     )}
             // </div>
 
-            <div className={`${styles.container} ${isExiting ? styles.fadeOut : ''}`}>
+            <div className={`${styles.container1} ${isExiting ? styles.fadeOut : ''}`}>
                 <img src={getNextDialogue().img} className={styles.kimyeojuImg}/>
                 <img src={getNextDialogue().window} className={styles.dialogueWindow1}/>
                 <div className={styles.nameAndDialogue}>

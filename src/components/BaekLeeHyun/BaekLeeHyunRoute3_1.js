@@ -1,5 +1,5 @@
 import "../css/all.css";
-import styles from "../css/story2.module.css";
+import styles from "../css/Dialogue.module.css";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import baekLeeHyunRoute from '../json/baekLeeHyunRoute3.json'; // JSON 파일 경로에 맞게 수정
@@ -47,7 +47,7 @@ export default function BaekLeeHyunRoute3_1() {
     };
 
     return (
-        <div className={`${styles.container} ${isExiting ? styles.fadeOut : ''}`}>
+        <div className={`${styles.container1} ${isExiting ? styles.fadeOut : ''}`}>
             <img src={getNextDialogue().img} className={styles.kimyeojuImg} />
             <img src={getNextDialogue().window} className={styles.dialogueWindow1} />
             <div className={styles.nameAndDialogue}>
