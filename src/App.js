@@ -3,7 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Start from './components/Start.js';
 import Question from './components/Question';
 import Opening from './components/Opening'
-import BaekLeeHyunRoute1 from './components/BaekLeeHyunRoute1'
+import BaekLeeHyunRoute1 from './components/BaekLeeHyun/BaekLeeHyunRoute1'
+import BaekLeeHyunRoute2 from './components/BaekLeeHyun/BaekLeeHyunRoute2'
 import Phone from './components/Phone'
 import PhoneHome from './components/PhoneHome'
 import PhoneNumber from './components/PhoneNumber'
@@ -25,6 +26,7 @@ import Chapter2 from './components/Chapter2';
               <Route path={"/question"} element={<Question />}></Route>
               <Route path={"/opening"} element={<Opening />}></Route>
               <Route path={"/baekLeeHyunRoute1"} element={<BaekLeeHyunRoute1 />}></Route>
+              <Route path={"/baekLeeHyunRoute2"} element={<BaekLeeHyunRoute2 />}></Route>
               <Route path={"/phone"} element={<Phone />}></Route>
               <Route path={"/phoneHome"} element={<PhoneHome />}></Route>
               <Route path={"/phoneNumber"} element={<PhoneNumber />}></Route>
@@ -32,7 +34,7 @@ import Chapter2 from './components/Chapter2';
               <Route path={"/phoneMessage_page1"} element={<PhoneMessage_page1 />}></Route>
               <Route path={"/chapter1"} element={<Chapter1 />}></Route>
               <Route path={"/chapter2"} element={<Chapter2 />}></Route>
-              {/* <Route path={"/miniGame"} element={<MiniGame />}></Route> */}
+              
           </Routes>
         </BrowserRouter>
       </div>

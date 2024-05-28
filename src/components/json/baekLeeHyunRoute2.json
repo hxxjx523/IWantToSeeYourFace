@@ -1,0 +1,8 @@
+[
+   
+    {"name": "백이현", "text": "아.. 잠깐 갔다 올게요, 잠깐만 기다려줄 수 있어요?", "img": "./images/Baekleehyun_face2-1.png", "window": "./images/Baekleehyun_dialogueWindow.png", "background": ""},
+    {"name": "김여주", "text": "네네..! 다녀오세요!", "img": "./images/Kimyeoju_face5.png", "window": "./images/Kimyeoju_dialogueWindow2.png", "background": ""},
+    {"name": "ㅤ", "text": "백이현 선배는 학생회 임원 쪽으로 빠르게 뛰어갔다", "img": "", "window": "./images/Nomal_dialogueWindow.png", "background": ""},
+    {"name": "ㅤ", "text": "음.. 기다려야겠지?", "img": "", "window": "./images/Nomal_dialogueWindow.png", "background": ""},
+    {"name": "ㅤ", "text": "더 기다릴까?", "img": "", "window": "./images/Nomal_dialogueWindow.png", "background": ""}
+]

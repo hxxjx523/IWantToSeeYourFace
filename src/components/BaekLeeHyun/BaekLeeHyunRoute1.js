@@ -1,8 +1,8 @@
-import "./css/all.css";
-import styles from "./css/story2.module.css"
+import "../css/all.css";
+import styles from "../css/story2.module.css"
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import baekLeeHyunRoute from './json/baekLeeHyunRoute.json'; // JSON 파일 경로에 맞게 수정
+import baekLeeHyunRoute from '../json/baekLeeHyunRoute1.json'; // JSON 파일 경로에 맞게 수정
 
 
 
@@ -27,44 +27,27 @@ export default function BaekLeeHyunRoute1(){
 
     useEffect(() => {
         const handleKeyPress = (event) => {
-            if (event.key === 'Enter' || event.key === ' ' || event.key === 'ArrowRight') {
+            const { key } = event;
+    
+            if (key === 'Enter' || key === ' ' || key === 'ArrowRight') {
                 setCurrentIndex(prevIndex => {
-                    if (prevIndex + 1 >= baekLeeHyunRoute.length) {
-                        return prevIndex; // 마지막 인덱스를 넘지 않도록 방지
+                    const newIndex = Math.min(prevIndex + 1, baekLeeHyunRoute.length - 1);
+                    if (newIndex === baekLeeHyunRoute.length - 1) {
+                        navigate('/chapter2');
                     }
-
-                    if (baekLeeHyunRoute[prevIndex].name === 'chapter2' && !isReturning) {
-                        navigate('/chapter2'); // /chapter2 경로로 이동
-                        setIsReturning(true); // 플래그 설정
-                        return prevIndex; // 다음 대화로 넘어가지 않음
-                    }
-
-                    return prevIndex + 1;
+                    return newIndex;
                 });
-            } else if (event.key === 'ArrowLeft') {
+            } else if (key === 'ArrowLeft') {
                 setCurrentIndex(prevIndex => Math.max(prevIndex - 1, 0));
             }
         };
-
+    
         window.addEventListener('keydown', handleKeyPress);
-
+    
         return () => {
             window.removeEventListener('keydown', handleKeyPress);
         };
     }, [isReturning, navigate]);
-
-    useEffect(() => {
-        // chapter2에서 돌아왔을 때 상태 초기화
-        if (isReturning) {
-            const nextIndex = baekLeeHyunRoute.findIndex((dialogue, index) => 
-                index > currentIndex && dialogue.name !== 'chapter2'
-            );
-            if (nextIndex !== -1) {
-                setCurrentIndex(nextIndex);
-            }
-            setIsReturning(false); // 플래그 초기화
-        }
-    }, [isReturning, currentIndex]);
 
     const getNextDialogue = () => {
         const nextDialogue = baekLeeHyunRoute[currentIndex];

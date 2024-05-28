@@ -8,7 +8,7 @@ export default function Chapter2(){
     const navigate = useNavigate();
 
     useEffect(() => {
-        const timer = setTimeout(() => navigate('/baekLeeHyunRoute'), 3000);
+        const timer = setTimeout(() => navigate('/baekLeeHyunRoute2'), 3000);
         return () => clearTimeout(timer); // 타이머 클리어
     }, [navigate]);
 

@@ -74,3 +74,79 @@
         transform: translateY(0);
     }
 }
+
+.container2{
+    background-image: url(/public/images/background_img1.png);
+    display: flex;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    align-items: flex-end;
+    justify-content: center;
+}
+.silhouette{
+    z-index: 2;
+    position: absolute;
+
+}
+
+.selectImgDiv{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    z-index: 5;
+    position: absolute;
+}
+
+.selectImg{
+    position: relative;
+    z-index: 4;
+    animation: fadeInLeft 1s;
+}
+
+.selectButtons{
+    width: 400px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.selectButton{
+    position: relative;
+    z-index: 6;
+    min-width: 400px;
+    height: 80px;
+    /* margin: 100px; */
+    background-color: aquamarine;
+    font-size: 2rem;
+}
+
+.selectButton:hover{
+    animation: moveUp 0.3s ease forwards; /* 호버 시 애니메이션 적용 */
+    background-color: blue;
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translate3d(-100%, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translateZ(0);
+    }
+}
+
+@keyframes moveUp {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-10px);
+    }
+  }
+
+
+
