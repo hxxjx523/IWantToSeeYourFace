@@ -1,16 +1,10 @@
 import "../css/all.css";
 import styles from "../css/story2.module.css";
-
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import baekLeeHyunRoute from '../json/baekLeeHyunRoute3.json'; // JSON 파일 경로에 맞게 수정
 
-import baekLeeHyunRoute from '../json/baekLeeHyunRoute2.json'; // JSON 파일 경로에 맞게 수정
-import select1 from '../json/BLHselect2-1.json';
-import select2 from '../json/BLHselect2-1.json';
-import select3 from '../json/BLHselect2-1.json';
-import select4 from '../json/BLHselect2-1.json';
-
-export default function BaekLeeHyunRoute2() {
+export default function BaekLeeHyunRouteEnd() {
     const [showImage, setShowImage] = useState(true);
     const [showButtons, setShowButtons] = useState(false); 
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -18,7 +12,6 @@ export default function BaekLeeHyunRoute2() {
     const [showContainer2, setShowContainer2] = useState(false);
     const navigate = useNavigate();
 
-   
     useEffect(() => {
         if (showContainer2) {
             const timeout = setTimeout(() => {
@@ -73,12 +66,11 @@ export default function BaekLeeHyunRoute2() {
         console.log(btnValue)
         
         if(btnValue==="select1"){
-            navigate("/baekLeeHyunRoute3_1")
+            navigate("/baekLeeHyunGoodEnding")
         }else{
-            navigate("/waitingPersonEND")
+            navigate("/goodStudentCouncil")
         }
     };
-
     return (
         <>
             {!showContainer2 ? (
@@ -107,10 +99,10 @@ export default function BaekLeeHyunRoute2() {
                     {showButtons && (
                         <div className={styles.selectButtons}>
                             <button className={styles.selectButton} onClick={handleButtonClick} value={"select1"}>
-                                <p>기다린다</p>
+                                <p>아니요 진짜 재밌는 것 같아요!</p>
                             </button>
                             <button className={styles.selectButton} onClick={handleButtonClick} value={"select2"}>
-                                <p>기다리지 않는다</p>
+                                <p>하하, 저는 그런 거에 관여하지 않습니다, 선배님.</p>
                             </button>
                         </div>
                     )}

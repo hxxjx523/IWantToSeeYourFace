@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'ChosunGs';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGs.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+html, body{
+    font-family: 'ChosunGs';
+
+}
+
+.background{
+    /* font-family: 'ChosunGs'; */
+    background-image: url(/public/images/END_GoodStudentCouncil.png);
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    /* flex-direction: flex-end; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.endingTitle{
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 20px;
+    top: 10px;
+    font-size: 2.5rem;
+}
+
+.endingComment{
+    position: absolute;
+    width: 1500px;
+    height: 140px;
+    bottom: 0px;
+    font-size: 4rem;
+    text-align: center;
+    background-color: rgba(ff, ff, ff, 0.9);
+    box-shadow: 20px 20px 20px 20px #000;
+    border-radius: 300px 300px 0 0;
+}

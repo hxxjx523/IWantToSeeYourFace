@@ -81,13 +81,13 @@
     position: relative;
     width: 100vw;
     height: 100vh;
-    align-items: flex-end;
+    /* align-items: flex-end; */
     justify-content: center;
 }
 .silhouette{
     z-index: 2;
     position: absolute;
-
+    bottom: 0;
 }
 
 .selectImgDiv{
@@ -107,20 +107,29 @@
 }
 
 .selectButtons{
-    width: 400px;
-    height: 100vh;
-    display: flex;
-    align-items: center;
+    display: flex; /* Flexbox 컨테이너로 설정 */
+    flex-direction: row; /* 가로 방향으로 배치 */
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    position: relative;
+    z-index: 6;
+    width: auto; /* 가로 너비 자동 설정 */
+    height: auto; /* 높이 자동 설정 */
 }
 
 .selectButton{
+    background-image: url(/public/images/selectBtn1.svg);
     position: relative;
     z-index: 6;
     min-width: 400px;
-    height: 80px;
-    /* margin: 100px; */
+    height: 600px;
+    /* min-width: 800px;
+    height: 200px; */
     background-color: aquamarine;
-    font-size: 2rem;
+    font-size: 2.35rem;
+    margin: 50px; /* 버튼 사이에 여백 추가 */
+    border: 2px #000 solid;
+    border-radius: 15px;
 }
 
 .selectButton:hover{
