@@ -3,9 +3,9 @@ import styles from "../css/goodEnd.module.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import End from '../json/WaitingPerson.json'
+import End from '../json/BaekLeeHyunGoodEnding.json'
 
-export default function GoodStudentCouncil(){
+export default function BaekLeeHyunGoodEnding(){
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showContainer, setShowContainer] = useState(true)
@@ -47,9 +47,9 @@ export default function GoodStudentCouncil(){
 
     return (
         <div>
-            { !showContainer ? (<div className={styles.WaitingPerson}>
-                <div className={styles.endingTitle}><p style={{fontFamily: "ChosunGs"}}> END(1/9) - WAITING PERSON</p></div>
-                <div className={styles.endingComment}><p style={{fontFamily: "ChosunGs"}}>인연은 만드는 것이다</p></div>
+            { !showContainer ? (<div className={styles.BaekLeeHyunGoodEnding}>
+                <div className={styles.endingTitle}><p style={{fontFamily: "ChosunGs"}}>END(3/9) - BAEK LEE HYUN GOOD ENDING</p></div>
+                <div className={styles.endingComment}><p style={{fontFamily: "ChosunGs"}}>그렇게 인연이 되었다는 것</p></div>
             </div>) : 
             (<div className={styles.container1}>
                 <img src={getNextDialogue().img} className={styles.kimyeojuImg} />

@@ -45,7 +45,6 @@
     {"name": "ㅤ", "text": ".....", "img": "", "window": "./images/Nomal_dialogueWindow.png", "background": ""},
     {"name": "ㅤ", "text": "......", "img": "", "window": "./images/Nomal_dialogueWindow.png", "background": ""},
     {"name": "ㅤ", "text": "더 기다릴까?", "img": "", "window": "./images/Nomal_dialogueWindow.png", "background": ""},
-    {"name": "ㅤ", "text": "더 기다릴까?", "img": "", "window": "./images/Nomal_dialogueWindow.png", "background": ""},
     {"select":true},
     {"name": "ㅤ", "text": "...", "img": "", "window": "./images/Nomal_dialogueWindow.png", "background": ""},
     {"name": "ㅤ", "text": "....", "img": "", "window": "./images/Nomal_dialogueWindow.png", "background": ""},

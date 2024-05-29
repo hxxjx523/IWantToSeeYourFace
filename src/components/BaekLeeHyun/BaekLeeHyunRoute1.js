@@ -20,14 +20,6 @@ export default function BaekLeeHyunRoute1(){
         const params = new URLSearchParams(location.search);
         return params.get('route');
     };
-    
-    useEffect(() => {
-        const route = getRouteFromQuery();
-        if (currentIndex + 1 >= baekLeeHyunRoute.length) {
-            setIsExiting(true);
-            setTimeout(() => navigate(`/chapter2?route=${route}`), 3000);
-        }
-    }, [currentIndex, location, navigate]);
 
     useEffect(() => {
         
@@ -47,7 +39,8 @@ export default function BaekLeeHyunRoute1(){
                 setCurrentIndex(prevIndex => {
                     const newIndex = Math.min(prevIndex + 1, baekLeeHyunRoute.length - 1);
                     if (newIndex === baekLeeHyunRoute.length - 1) {
-                        // navigate('/chapter2');
+                        const route = getRouteFromQuery();
+                        navigate(`/chapter2?route=${route}`);
                     }
                     return newIndex;
                 });
@@ -79,35 +72,14 @@ export default function BaekLeeHyunRoute1(){
     
 
     return (
-            // <div className={styles.container2}>
-            //     <img src="./images/Baekleehyun_silhouette.png" className={styles.silhouette} alt="실루엣" />
-
-            //     <div className={styles.selectImgDiv}>
-            //         {showImage && <img src="./images/optionImg.png" 
-            //         className={`${styles.selectImg} ${showImage ? "show" : ""}`} alt="선택지 발생" />}  
-            //     </div>
-
-            //     {showButtons && (
-            //         <>
-            //             <button className={styles.selectButton} onClick={handleButtonClick}>
-            //                 <img src="./images/title_startBtn.png" alt="시작 버튼" />
-            //             </button>
-            //             <button className={styles.selectButton} onClick={handleButtonClick}>
-            //                 <img src="./images/title_startBtn.png" alt="시작 버튼" />
-            //             </button>
-            //         </>
-            //     )}
-            // </div>
-
-            <div className={`${styles.container1} ${isExiting ? styles.fadeOut : ''}`}>
-                <img src={getNextDialogue().img} className={styles.kimyeojuImg}/>
-                <img src={getNextDialogue().window} className={styles.dialogueWindow1}/>
-                <div className={styles.nameAndDialogue}>
-                    <div className={styles.name}>{getNextDialogue().name}</div>
-                    <div className={styles.dialogue}>{getNextDialogue().text}</div>
-                </div>
-                    
+        <div className={`${styles.container1} ${isExiting ? styles.fadeOut : ''}`}>
+            <img src={getNextDialogue().img} className={styles.kimyeojuImg}/>
+            <img src={getNextDialogue().window} className={styles.dialogueWindow1}/>
+            <div className={styles.nameAndDialogue}>
+                <div className={styles.name}>{getNextDialogue().name}</div>
+                <div className={styles.dialogue}>{getNextDialogue().text}</div>
             </div>
+        </div>
     );
 
 }

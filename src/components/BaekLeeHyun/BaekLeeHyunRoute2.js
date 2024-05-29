@@ -83,7 +83,7 @@ export default function BaekLeeHyunRoute2() {
             setCurrentIndex(prevIndex => prevIndex + 1); // 'select:true' 다음으로 이동
         } else {
             // '기다리지 않는다'를 선택했을 때
-            navigate("/waitingPersonEND");
+            navigate("/waitingPerson");
         }
     };
 

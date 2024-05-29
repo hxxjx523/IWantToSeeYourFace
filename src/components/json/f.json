@@ -1,0 +1,18 @@
+[
+    {"name":"김여주","text":"허억허억…","image":"./images/Kimyeoju_face6.png","window":"./images/Kimyeoju_dialogueWindow1.png","background":""},
+    {"name":"ㅤ","text":"급하게 뛰어 도착한 곳은 학교 교문이다","image":"","window":"./images/Nomal_dialogueWindow.png","background":""},
+    {"name":"ㅤ","text":"교문을 보니깐 실감이 났다","image":"","window":"./images/Nomal_dialogueWindow.png","background":""},
+    {"name":"ㅤ","text":"내가 장미고에 왔다는 것을!","image":"","window":"./images/Nomal_dialogueWindow.png","background":""},
+    {"name":"ㅤ","text":"장미고는 모두가 원하는 꿈의 학교로 수많은 연예인을 양성했다","image":"","window":"./images/Nomal_dialogueWindow.png","background":""},
+    {"name":"ㅤ","text":"내가 이 학교에 왔다는 것은 이 학교의 학생이라는 것이다!","image":"","window":"./images/Nomal_dialogueWindow.png","background":""},
+    {"name":"ㅤ","text":"중학교 시절 정말 힘들게 입시 준비를 했고 그 결과가 이 곳인 셈이다","image":"","window":"./images/Nomal_dialogueWindow.png","background":""},
+    {"name":"ㅤ","text":"힘겨운 입시를 이겨낸 나, 장하다!","image":"","window":"./images/Nomal_dialogueWindow.png","background":""},
+    {"name":"ㅤ","text":"생각에 잠겨 있던 것도 잠시, 교문에 이상한 게 있다..","image":"","window":"./images/Nomal_dialogueWindow.png","background":""},
+    {"name":"김여주","text":"으엑?","image":"./images/Kimyeoju_face12.png","window":"./images/Kimyeoju_dialogueWindow1.png","background":""},
+    {"name":"ㅤ","text":"저게 뭐야.. 픽셀? 픽셀아니야?","image":"","window":"./images/Nomal_dialogueWindow.png","background":""},
+    {"name":"ㅤ","text":"{픽셀이 지나가는 가는 효과}","image":"","window":"./images/Nomal_dialogueWindow.png","background":""},
+    {"name":"ㅤ","text":"이거 그 저주인가 뭐시기인가?","image":"","window":"./images/Nomal_dialogueWindow.png","background":""},
+    {"name":"ㅤ","text":"하… 실화냐고…","image":"","window":"./images/Nomal_dialogueWindow.png","background":""},
+    {"name":"ㅤ","text":"입학식이라 그런지 학교가 빨리 끝났다.","image":"","window":"./images/Nomal_dialogueWindow.png","background":""},
+    {"name":"ㅤ","text":"나는 집에 가서 내 방 침대에 누웠다.","image":"","window":"./images/Nomal_dialogueWindow.png","background":"김여주 방"}
+]

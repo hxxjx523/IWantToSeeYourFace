@@ -74,7 +74,7 @@ export default function BaekLeeHyunRouteEnd() {
     return (
         <>
             {!showContainer2 ? (
-                <div className={`${styles.container} ${isExiting ? styles.fadeOut : ''}`}>
+                <div className={`${styles.container1} ${isExiting ? styles.fadeOut : ''}`}>
                     <img src={getNextDialogue().img} className={styles.kimyeojuImg} />
                     <img src={getNextDialogue().window} className={styles.dialogueWindow1} />
                     <div className={styles.nameAndDialogue}>

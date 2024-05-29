@@ -29,8 +29,8 @@
 
 .EndingCntBtn, .StartBtn{
   border: none;
-  width: 40em;
-  height: 7em;
+  width: 400px;
+  height: 120px;
 }
 
 @keyframes moveUp {
@@ -69,8 +69,11 @@
 }
 
 .MusicBtn{
+  position: absolute;
+  right: 0;
   width: 30px;
-  position: relative;
   margin-right: 30px;
   margin-top: 30px;
+  background-color: transparent;
+  border: 0;
 }
