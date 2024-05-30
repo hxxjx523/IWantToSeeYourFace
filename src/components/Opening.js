@@ -18,7 +18,7 @@ function Opening() {
         const route = getRouteFromQuery();
         if (currentIndex >= opening.length) {
             setIsExiting(true);
-            setTimeout(() => navigate(`/chapter1?route=${route}`), 300);
+            setTimeout(() => navigate(`/firstStory?route=${route}`), 300);
         }
     }, [currentIndex, location, navigate]);
 
@@ -52,7 +52,7 @@ function Opening() {
     };
 
     return (
-        <div className={`${styles.container} ${isExiting ? styles.fadeOut : ''}`}>
+        <div>
             {currentIndex < opening.length && (
                 <>
                     <img src={getNextDialogue().img} className={styles.kimyeojuImg} alt="Character" />
