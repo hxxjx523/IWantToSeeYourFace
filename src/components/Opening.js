@@ -1,5 +1,5 @@
 import "./css/all.css";
-import styles from "./css/story1.module.css"
+import styles from "./css/Dialogue.module.css"
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import opening from './json/opening.json'; 
@@ -52,17 +52,13 @@ function Opening() {
     };
 
     return (
-        <div>
-            {currentIndex < opening.length && (
-                <>
-                    <img src={getNextDialogue().img} className={styles.kimyeojuImg} alt="Character" />
-                    <img src={getNextDialogue().window} className={styles.dialogueWindow1} alt="Dialogue Window" />
-                    <div className={styles.nameAndDialogue}>
-                        <div className={styles.name}>{getNextDialogue().name}</div>
-                        <div className={styles.dialogue}>{getNextDialogue().text}</div>
-                    </div>
-                </>
-            )}
+        <div className={`${styles.container1} ${isExiting ? styles.fadeOut : ''}`}>
+            <img src={getNextDialogue().img} className={styles.kimyeojuImg}/>
+            <img src={getNextDialogue().window} className={styles.dialogueWindow1}/>
+            <div className={styles.nameAndDialogue}>
+                <div className={styles.name}>{getNextDialogue().name}</div>
+                <div className={styles.dialogue}>{getNextDialogue().text}</div>
+            </div>
         </div>
     );
 }

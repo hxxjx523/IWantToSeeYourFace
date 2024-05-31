@@ -16,6 +16,7 @@ import GoodStudentCouncil from './components/BaekLeeHyun/GoodStudentCouncil'
 import WaitingPerson from './components/BaekLeeHyun/WaitingPerson'
 import BaekLeeHyunGoodEnding from './components/BaekLeeHyun/BaekLeeHyunGoodEnding.js';
 import FirstStory from './components/FirstStory.js';
+import DoYoonRoute1 from './components/DoYoon/DoYoonRoute1.js';
 // import MiniGame from './components/MiniGame';
 
 
@@ -30,12 +31,21 @@ import FirstStory from './components/FirstStory.js';
               <Route path={"/question"} element={<Question />}></Route>
               <Route path={"/opening"} element={<Opening />}></Route>
               <Route path={"/firstStory"} element={<FirstStory />}></Route>
+
+
               <Route path={"/baekLeeHyunRoute1"} element={<BaekLeeHyunRoute1 />}></Route>
               <Route path={"/baekLeeHyunRoute2"} element={<BaekLeeHyunRoute2 />}></Route>
               <Route path={"/baekLeeHyunRouteEnd"} element={<BaekLeeHyunRouteEnd />}></Route>
               <Route path={"/goodStudentCouncil"} element={<GoodStudentCouncil />}></Route>
               <Route path={"/waitingPerson"} element={<WaitingPerson />}></Route>
               <Route path={"/baekLeeHyunGoodEnding"} element={<BaekLeeHyunGoodEnding />}></Route>
+
+              <Route path={"/doYoonRoute1"} element={<DoYoonRoute1 />}></Route>
+
+
+
+
+
               <Route path={"/chapter1"} element={<Chapter1 />}></Route>
               <Route path={"/chapter2"} element={<Chapter2 />}></Route>
               <Route path={"/chapter3"} element={<Chapter3 />}></Route>

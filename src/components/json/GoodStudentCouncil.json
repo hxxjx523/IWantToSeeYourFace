@@ -1,6 +1,6 @@
 [
-    {"name": "백이현", "text": "어…? 그으래….?", "img": "./images/Baekleehyun_face3-3.png", "window": "./images/Baekleehyun_dialogueWindow.png", "background": ""},
-    {"name": "ㅤ", "text": "백이현 선배님과 나의 사이에 긴장만 흘렀다", "img": "", "window": "./images/Nomal_dialogueWindow.png", "background": ""},
-    {"name": "ㅤ", "text": "그렇게 그냥 깍듯한 학생회 임원이 되었다…", "img": "", "window": "./images/Nomal_dialogueWindow.png", "background": ""},
-    {"name": "ㅤ", "text": "", "img": "", "window": "./images/Nomal_dialogueWindow.png", "background": ""}
+    {"name": "백이현", "text": "어…? 그으래….?", "img": "./images/Baekleehyun/Baekleehyun_face3-3.png", "window": "./images/Baekleehyun/Baekleehyun_dialogueWindow.png", "background": ""},
+    {"name": "ㅤ", "text": "백이현 선배님과 나의 사이에 긴장만 흘렀다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": ""},
+    {"name": "ㅤ", "text": "그렇게 그냥 깍듯한 학생회 임원이 되었다…", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": ""},
+    {"name": "ㅤ", "text": "", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": ""}
 ]

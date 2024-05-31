@@ -1,5 +1,5 @@
 .container{
-    background-image: url(/public/images/background_school.png);
+    background-image: url(/public/images/background/background_school.png);
     display: flex;
     position: relative;
     width: 100vw;

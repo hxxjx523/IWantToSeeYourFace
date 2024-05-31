@@ -27,7 +27,7 @@ function Chapter1() {
     return (
         <div>
             <div className={styles.background}>
-                <div className={styles.chapter1}><img src="./images/chapter1.png"/></div>
+                <div className={styles.chapter1}><img src="./images/chapter/chapter1.png"/></div>
             </div>
         </div>
     );

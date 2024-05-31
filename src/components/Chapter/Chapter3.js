@@ -15,7 +15,7 @@ export default function Chapter2(){
     return (
         <div>
             <div className={styles.background}>
-                <div className={styles.chapter2}><img src="./images/chapter3.png"/></div>
+                <div className={styles.chapter2}><img src="./images/chapter/chapter3.png"/></div>
             </div>
         </div>
     );

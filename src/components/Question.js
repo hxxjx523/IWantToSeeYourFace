@@ -41,11 +41,11 @@ export default function Question() {
       } else {
         const sum = answers.reduce((total, current) => total + parseInt(current), 0);
         let route = "";
-        if (sum >= 4 && sum <= 6) {
+        if (sum >= 1 && sum <= 3) {
           route = "baekLeeHyunRoute";
-        } else if (sum >= 7 && sum <= 9) {
+        } else if (sum >= 4 && sum <= 5) {
           route = "doYoonRoute";
-        } else if (sum >= 10 && sum <= 12) {
+        } else if (sum >= 7 && sum <= 9) {
           route = "choiJaeYulRoute";
         }
         console.log(sum);
@@ -64,7 +64,7 @@ export default function Question() {
   return (
     <div className={styles.qbackground}>
       <div className={styles.questionImg}>
-        <img src='./images/Mindlerea_silhouette.png' alt=''/>
+        <img src='./images/Mindlerea/Mindlerea_silhouette.png' alt=''/>
       </div>
       <div className={styles.question}>
         <div className={styles.questionTitle}>{question.q1}</div>

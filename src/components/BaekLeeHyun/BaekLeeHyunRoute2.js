@@ -100,7 +100,7 @@ export default function BaekLeeHyunRoute2() {
                 </div>
             ) : (
                 <div className={styles.container2}>
-                    <img src="./images/Baekleehyun_silhouette.png" className={styles.silhouette} alt="실루엣" />
+                    <img src="./images/Baekleehyun/Baekleehyun_silhouette.png" className={styles.silhouette} alt="실루엣" />
 
                     <div className={styles.selectImgDiv}>
                         {showImage && (

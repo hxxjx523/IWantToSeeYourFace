@@ -67,7 +67,7 @@ export default function BaekLeeHyunRouteEnd() {
         
         if(btnValue==="select1"){
             navigate("/baekLeeHyunGoodEnding")
-        }else{
+        }else if(btnValue==="select2"){
             navigate("/goodStudentCouncil")
         }
     };
@@ -84,7 +84,7 @@ export default function BaekLeeHyunRouteEnd() {
                 </div>
             ) : (
                 <div className={styles.container2}>
-                    <img src="./images/Baekleehyun_silhouette.png" className={styles.silhouette} alt="실루엣" />
+                    <img src="./images/Baekleehyun/Baekleehyun_silhouette.png" className={styles.silhouette} alt="실루엣" />
 
                     <div className={styles.selectImgDiv}>
                         {showImage && (
