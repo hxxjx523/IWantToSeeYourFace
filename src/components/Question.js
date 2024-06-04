@@ -43,7 +43,7 @@ export default function Question() {
         let route = "";
         if (sum >= 1 && sum <= 3) {
           route = "baekLeeHyunRoute";
-        } else if (sum >= 4 && sum <= 5) {
+        } else if (sum >= 4 && sum <= 6) {
           route = "doYoonRoute";
         } else if (sum >= 7 && sum <= 9) {
           route = "choiJaeYulRoute";

@@ -17,6 +17,7 @@ import WaitingPerson from './components/BaekLeeHyun/WaitingPerson'
 import BaekLeeHyunGoodEnding from './components/BaekLeeHyun/BaekLeeHyunGoodEnding.js';
 import FirstStory from './components/FirstStory.js';
 import DoYoonRoute1 from './components/DoYoon/DoYoonRoute1.js';
+import DoYoonRoute2 from './components/DoYoon/DoYoonRoute2.js';
 // import MiniGame from './components/MiniGame';
 
 
@@ -41,6 +42,7 @@ import DoYoonRoute1 from './components/DoYoon/DoYoonRoute1.js';
               <Route path={"/baekLeeHyunGoodEnding"} element={<BaekLeeHyunGoodEnding />}></Route>
 
               <Route path={"/doYoonRoute1"} element={<DoYoonRoute1 />}></Route>
+              <Route path={"/doYoonRoute2"} element={<DoYoonRoute2 />}></Route>
 
 
 

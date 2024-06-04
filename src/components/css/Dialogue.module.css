@@ -1,5 +1,5 @@
 .container1{
-    background-image: url(/public/images/background/background_school.png);
+    /* background-image: url(/public/images/background/background_school.png); */
     display: flex;
     position: relative;
     width: 100vw;
@@ -7,6 +7,12 @@
     align-items: flex-end;
     justify-content: center;
     background-size: cover;
+}
+
+.background{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
 }
 
 .name{

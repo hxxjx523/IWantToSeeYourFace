@@ -3,7 +3,7 @@ import "../css/all.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import baekLeeHyunRoute from '../json/baekLeeHyunRoute2.json'; // JSON 파일 경로에 맞게 수정
+import baekLeeHyunRoute from '../json/DoYoonRoute2.json'; // JSON 파일 경로에 맞게 수정
 import Dialogue from "../Dialogue";
 import ChoiceContainer from "../ChoiceContainer";
 
@@ -68,8 +68,7 @@ export default function BaekLeeHyunRoute2() {
             name: nextDialogue.name,
             text: nextDialogue.text,
             img: nextDialogue.img,
-            window: nextDialogue.window,
-            background: nextDialogue.background
+            window: nextDialogue.window
         };
     };
 
@@ -84,8 +83,6 @@ export default function BaekLeeHyunRoute2() {
         }
     };
 
-    
-
     return (
         <>
             {!showContainer2 ? (
@@ -94,7 +91,6 @@ export default function BaekLeeHyunRoute2() {
                     text={getNextDialogue().text} 
                     img={getNextDialogue().img} 
                     window={getNextDialogue().window} 
-                    background={getNextDialogue().background} 
                     isExiting={isExiting} 
                 />
             ) : (
@@ -106,4 +102,4 @@ export default function BaekLeeHyunRoute2() {
             )}
         </>
     );
-}
+}   

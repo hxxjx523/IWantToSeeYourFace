@@ -1,16 +1,27 @@
 import "../css/all.css";
 import styles from "../css/chapter3.module.css";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function Chapter2(){
 
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const getRouteFromQuery = () => {
+        const params = new URLSearchParams(location.search);
+        return params.get('route');
+    };
 
     useEffect(() => {
-        const timer = setTimeout(() => navigate('/baekLeeHyunRouteEnd'), 3000);
-        return () => clearTimeout(timer); // 타이머 클리어
-    }, [navigate]);
+        const route = getRouteFromQuery();
+
+        const next = () => {
+            setTimeout(() => navigate(`/${route}End?route=${route}`), 3000);
+        };
+
+        next();
+    }, [location, navigate]);
 
     return (
         <div>

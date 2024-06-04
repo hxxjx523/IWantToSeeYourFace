@@ -21,11 +21,11 @@
 }
 
 .WaitingPerson{
-    /* 배경이미지 */
+    background-image: url(/public/images/END/END_WaitingPerson.png);
 }
 
 .BaekLeeHyunGoodEnding{
-    /* 배경이미지 */
+    background-image: url(/public/images/END/END_BaekleehyunGoodEnding.png);
 }
 
 .endingTitle{

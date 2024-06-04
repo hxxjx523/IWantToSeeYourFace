@@ -1,5 +1,5 @@
 // import "../css/all.css";
-import styles from "../css/goodEnd.module.css";
+import styles from "../css/End.module.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 

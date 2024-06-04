@@ -3,6 +3,7 @@ import styles from "../css/Dialogue.module.css";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import baekLeeHyunRoute from '../json/baekLeeHyunRoute3.json'; // JSON 파일 경로에 맞게 수정
+import Dialogue from "../Dialogue";
 
 export default function BaekLeeHyunRouteEnd() {
     const [showImage, setShowImage] = useState(true);
@@ -56,7 +57,8 @@ export default function BaekLeeHyunRouteEnd() {
             name: nextDialogue.name,
             text: nextDialogue.text,
             img: nextDialogue.img,
-            window: nextDialogue.window
+            window: nextDialogue.window,
+            background: nextDialogue.background
         };
     };
 
@@ -74,14 +76,14 @@ export default function BaekLeeHyunRouteEnd() {
     return (
         <>
             {!showContainer2 ? (
-                <div className={`${styles.container1} ${isExiting ? styles.fadeOut : ''}`}>
-                    <img src={getNextDialogue().img} className={styles.kimyeojuImg} />
-                    <img src={getNextDialogue().window} className={styles.dialogueWindow1} />
-                    <div className={styles.nameAndDialogue}>
-                        <div className={styles.name}>{getNextDialogue().name}</div>
-                        <div className={styles.dialogue}>{getNextDialogue().text}</div>
-                    </div>
-                </div>
+                <Dialogue 
+                    name={getNextDialogue().name} 
+                    text={getNextDialogue().text} 
+                    img={getNextDialogue().img} 
+                    window={getNextDialogue().window} 
+                    background={getNextDialogue().background} 
+                    isExiting={isExiting} 
+                />
             ) : (
                 <div className={styles.container2}>
                     <img src="./images/Baekleehyun/Baekleehyun_silhouette.png" className={styles.silhouette} alt="실루엣" />

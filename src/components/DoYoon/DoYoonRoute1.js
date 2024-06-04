@@ -3,7 +3,7 @@ import styles from "../css/Dialogue.module.css"
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import baekLeeHyunRoute from '../json/DoYoonRoute1.json'; // JSON 파일 경로에 맞게 수정
-
+import Dialogue from "../Dialogue";
 
 
 
@@ -62,7 +62,8 @@ export default function DoYoonRoute1(){
             name: nextDialogue.name,
             text: nextDialogue.text,
             img: nextDialogue.img,
-            window: nextDialogue.window
+            window: nextDialogue.window,
+            background: nextDialogue.background
         };
     };
 
@@ -72,14 +73,14 @@ export default function DoYoonRoute1(){
     
 
     return (
-        <div className={`${styles.container1} ${isExiting ? styles.fadeOut : ''}`}>
-            <img src={getNextDialogue().img} className={styles.kimyeojuImg}/>
-            <img src={getNextDialogue().window} className={styles.dialogueWindow1}/>
-            <div className={styles.nameAndDialogue}>
-                <div className={styles.name}>{getNextDialogue().name}</div>
-                <div className={styles.dialogue}>{getNextDialogue().text}</div>
-            </div>
-        </div>
+        <Dialogue 
+            name={getNextDialogue().name} 
+            text={getNextDialogue().text} 
+            img={getNextDialogue().img} 
+            window={getNextDialogue().window} 
+            background={getNextDialogue().background} 
+            isExiting={isExiting} 
+        />
     );
 
 }
