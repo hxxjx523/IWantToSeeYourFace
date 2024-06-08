@@ -63,44 +63,77 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
     };
 
     useEffect(() => {
-        const timeout = setTimeout(() => {
-            setShowImage(false);
-            setShowButtons(true);
-        }, 2000);
+        if (showContainer2) {
+            const timeout = setTimeout(() => {
+                setShowImage(false);
+                setTimeout(() => {
+                    setShowButtons(true);
+                }, 100);
+            }, 3000);
 
-        return () => clearTimeout(timeout);
-    }, []);
+            return () => clearTimeout(timeout);
+        }
+    }, [showContainer2]);
+
+    const handleKeyPress = (event) => {
+        const { key } = event;
+
+        if (!bothChecked && routeData[currentIndex].text === "어??? 민들레?!!") {
+            return; // 아무것도 안하도록 이벤트 기본 동작 방지
+        } else if (key === 'Enter' || key === ' ' || key === 'ArrowRight') {
+            setCurrentIndex(prevIndex => {
+                const newIndex = Math.min(prevIndex + 1, routeData.length - 1);
+                if (routeData[newIndex]?.select) {
+                    setShowContainer2(true);
+                } else if (newIndex === routeData.length - 1) {
+                    const route = getRouteFromQuery();
+                    navigate(`/${chapter}?route=${route}`);
+                }
+                return newIndex;
+            });
+        } else if (key === 'ArrowLeft') {
+            setCurrentIndex(prevIndex => Math.max(prevIndex - 1, 0));
+        }
+    };
+
+
+    //     // 이벤트 핸들러 등록
+    //     document.addEventListener('keydown', handleKeyPress);
+
+    //     // 컴포넌트가 언마운트될 때 이벤트 핸들러 제거
+    //     return () => {
+    //         document.removeEventListener('keydown', handleKeyPress);
+    //     };
+    // }, [navigate, routeData, chapter]);
 
     useEffect(() => {
-        const handleKeyPress = (event) => {
-            const { key } = event;
-
-            if (!bothChecked && routeData[currentIndex].text === "어??? 민들레?!!") {
-                return; // 아무것도 안하도록 이벤트 기본 동작 방지
-            } else if (key === 'Enter' || key === ' ' || key === 'ArrowRight') {
-                setCurrentIndex(prevIndex => {
-                    const newIndex = Math.min(prevIndex + 1, routeData.length - 1);
-                    if (routeData[newIndex]?.select) {
-                        setShowContainer2(true);
-                    } else if (newIndex === routeData.length - 1) {
-                        const route = getRouteFromQuery();
-                        navigate(`/${chapter}?route=${route}`);
-                    }
-                    return newIndex;
-                });
-            } else if (key === 'ArrowLeft') {
-                setCurrentIndex(prevIndex => Math.max(prevIndex - 1, 0));
-            }
-        };
-
-        // 이벤트 핸들러 등록
         document.addEventListener('keydown', handleKeyPress);
-
-        // 컴포넌트가 언마운트될 때 이벤트 핸들러 제거
         return () => {
             document.removeEventListener('keydown', handleKeyPress);
         };
-    }, [navigate, routeData, chapter]);
+    }, [bothChecked, currentIndex, navigate]);
+
+    useEffect(() => {
+        const interval = setInterval(async () => {
+            try {
+                const response = await fetch('/status');
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.bothChecked) {
+                        setBothChecked(true);
+                        clearInterval(interval); 
+                    }
+                } else {
+                    console.error('상태 확인 실패');
+                }
+            } catch (error) {
+                console.error('에러 -> ', error);
+            }
+        }, 3000); 
+
+        return () => clearInterval(interval); 
+    }, []);
+
 
     const getNextDialogue = () => {
         const nextDialogue = routeData[currentIndex];
@@ -142,13 +175,6 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
             navigate(end); // end에 해당하는 주소로 이동
         }
     };
-
-
-    useEffect(() => {
-        if (text === "(핸드폰을 보자)") {
-            sendSign();
-        }
-    }, [text]);
 
     return (
         <>
@@ -193,4 +219,4 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
     );
 }
 
-export default Dialogue;
+export default Dialogue
