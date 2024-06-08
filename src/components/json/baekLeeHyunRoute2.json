@@ -3,7 +3,7 @@
     {"name": "ㅤ", "text": "나는 집에 가서 내 방 침대에 누웠다.", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "김여주 방"},
     {"name": "ㅤ", "text": "아침부터 그런 일들이 벌어지는 탓에 핸드폰을 못 봤었다.", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": ""},
     {"name": "ㅤ", "text": "무슨 일이 있었는지 볼까?", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": ""},
-    {"name": "ㅤ", "text": "(핸드폰을 눌러보자)", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": ""},
+    {"name": "ㅤ", "text": "(핸드폰을 보자)", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": ""},
     {"name": "김여주", "text": "어??? 민들레?!!", "img": "./images/Kimyeoju/Kimyeoju_face11.png", "window": "./images/dialogueWindow/Kimyeoju_dialogueWindow0.png", "background": ""},
     {"name": "김여주", "text": "이게 무슨 농락이냐고!", "img": "./images/Kimyeoju/Kimyeoju_face11.png", "window": "./images/dialogueWindow/Kimyeoju_dialogueWindow0.png", "background": "./images/background/background_KimyeojuRoom.png"},
     {"name": "김여주", "text": "으으..!", "img": "./images/Kimyeoju/Kimyeoju_face14.png", "window": "./images/dialogueWindow/Kimyeoju_dialogueWindow0.png", "background": ""},
