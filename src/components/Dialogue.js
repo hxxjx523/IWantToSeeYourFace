@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./css/Dialogue.module.css";
-import 
+
 function Dialogue({ name, text, img, window, background, isExiting }){
     async function sendSign(){
         try {
