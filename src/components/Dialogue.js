@@ -4,59 +4,16 @@ import styles from "./css/Dialogue.module.css";
 
 function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
     const [showImage, setShowImage] = useState(true);
-    const [showButtons, setShowButtons] = useState(false);
+    const [showButtons, setShowButtons] = useState(false); 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isExiting, setIsExiting] = useState(false);
-    const [showContainer2, setShowContainer2] = useState(false);
+    const [showContainer2, setShowContainer2] = useState(false); // 추가된 상태
     const [bothChecked, setBothChecked] = useState(false);
+    const [confirmation, setConfirmation] = useState(false);
+
     const navigate = useNavigate();
     const location = useLocation();
 
-    const getRouteFromQuery = () => {
-        const params = new URLSearchParams(location.search);
-        return params.get('route');
-    };
-
-    useEffect(() => {
-        if (showContainer2) {
-            const timeout = setTimeout(() => {
-                setShowImage(false);
-                setTimeout(() => {
-                    setShowButtons(true);
-                }, 100);
-            }, 3000);
-
-            return () => clearTimeout(timeout);
-        }
-    }, [showContainer2]);
-
-    const handleKeyPress = (event) => {
-        const { key } = event;
-
-        if (!bothChecked && routeData[currentIndex].text === "어??? 민들레?!!") {
-            return; // 아무것도 안하도록 이벤트 기본 동작 방지
-        } else if (key === 'Enter' || key === ' ' || key === 'ArrowRight') {
-            setCurrentIndex(prevIndex => {
-                const newIndex = Math.min(prevIndex + 1, routeData.length - 1);
-                if (routeData[newIndex]?.select) {
-                    setShowContainer2(true);
-                } else if (newIndex === routeData.length - 1) {
-                    const route = getRouteFromQuery();
-                    navigate(`/${chapter}?route=${route}`);
-                }
-                return newIndex;
-            });
-        } else if (key === 'ArrowLeft') {
-            setCurrentIndex(prevIndex => Math.max(prevIndex - 1, 0));
-        }
-    };
-
-    useEffect(() => {
-        document.addEventListener('keydown', handleKeyPress);
-        return () => {
-            document.removeEventListener('keydown', handleKeyPress);
-        };
-    }, [bothChecked, currentIndex, navigate]);
 
     useEffect(() => {
         const interval = setInterval(async () => {
@@ -65,7 +22,7 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
                 if (response.ok) {
                     const data = await response.json();
                     if (data.bothChecked) {
-                        setBothChecked(true);
+                        setConfirmation(true);
                         clearInterval(interval); 
                     }
                 } else {
@@ -78,6 +35,73 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
 
         return () => clearInterval(interval); 
     }, []);
+
+    async function sendSign() {
+        try {
+            const response = await fetch('/send', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: 'sign' })
+            });
+
+            if (response.ok) {
+                console.log('전송 성공');
+            } else {
+                console.error('전송 실패');
+            }
+        } catch (error) {
+            console.error('에러 -> ', error);
+        }
+    }
+
+
+    
+    const getRouteFromQuery = () => {
+        const params = new URLSearchParams(location.search);
+        return params.get('route');
+    };
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setShowImage(false);
+            setShowButtons(true);
+        }, 2000);
+
+        return () => clearTimeout(timeout);
+    }, []);
+
+    useEffect(() => {
+        const handleKeyPress = (event) => {
+            const { key } = event;
+
+            if (!bothChecked && routeData[currentIndex].text === "어??? 민들레?!!") {
+                return; // 아무것도 안하도록 이벤트 기본 동작 방지
+            } else if (key === 'Enter' || key === ' ' || key === 'ArrowRight') {
+                setCurrentIndex(prevIndex => {
+                    const newIndex = Math.min(prevIndex + 1, routeData.length - 1);
+                    if (routeData[newIndex]?.select) {
+                        setShowContainer2(true);
+                    } else if (newIndex === routeData.length - 1) {
+                        const route = getRouteFromQuery();
+                        navigate(`/${chapter}?route=${route}`);
+                    }
+                    return newIndex;
+                });
+            } else if (key === 'ArrowLeft') {
+                setCurrentIndex(prevIndex => Math.max(prevIndex - 1, 0));
+            }
+        };
+
+        // 이벤트 핸들러 등록
+        document.addEventListener('keydown', handleKeyPress);
+
+        // 컴포넌트가 언마운트될 때 이벤트 핸들러 제거
+        return () => {
+            document.removeEventListener('keydown', handleKeyPress);
+        };
+    }, [navigate, routeData, chapter]);
 
     const getNextDialogue = () => {
         const nextDialogue = routeData[currentIndex];
@@ -119,6 +143,13 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
             navigate(end); // end에 해당하는 주소로 이동
         }
     };
+
+
+    useEffect(() => {
+        if (text === "(핸드폰을 보자)") {
+            sendSign();
+        }
+    }, [text]);
 
     return (
         <>
@@ -163,4 +194,4 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
     );
 }
 
-export default Dialogue
+export default Dialogue;
