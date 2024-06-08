@@ -18,6 +18,7 @@ import BaekLeeHyunGoodEnding from './components/BaekLeeHyun/BaekLeeHyunGoodEndin
 import FirstStory from './components/FirstStory.js';
 import DoYoonRoute1 from './components/DoYoon/DoYoonRoute1.js';
 import DoYoonRoute2 from './components/DoYoon/DoYoonRoute2.js';
+import NotMe from './components/DoYoon/NotMe.js';
 // import MiniGame from './components/MiniGame';
 
 
@@ -43,6 +44,7 @@ import DoYoonRoute2 from './components/DoYoon/DoYoonRoute2.js';
 
               <Route path={"/doYoonRoute1"} element={<DoYoonRoute1 />}></Route>
               <Route path={"/doYoonRoute2"} element={<DoYoonRoute2 />}></Route>
+              <Route path={"/notMe"} element={<NotMe />}></Route>
 
 
 

@@ -52,6 +52,8 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isExiting, setIsExiting] = useState(false);
     const [showContainer2, setShowContainer2] = useState(false); // 추가된 상태
+    const [bothChecked, setBothChecked] = useState(false);
+
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -72,8 +74,10 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
     useEffect(() => {
         const handleKeyPress = (event) => {
             const { key } = event;
-    
-            if (key === 'Enter' || key === ' ' || key === 'ArrowRight') {
+
+            if (!bothChecked && routeData[currentIndex].text === "어??? 민들레?!!") {
+                return; // 아무것도 안하도록 이벤트 기본 동작 방지
+            } else if (key === 'Enter' || key === ' ' || key === 'ArrowRight') {
                 setCurrentIndex(prevIndex => {
                     const newIndex = Math.min(prevIndex + 1, routeData.length - 1);
                     if (routeData[newIndex]?.select) {
@@ -100,13 +104,23 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
 
     const getNextDialogue = () => {
         const nextDialogue = routeData[currentIndex];
-        return {
-            name: nextDialogue.name,
-            text: nextDialogue.text,
-            img: nextDialogue.img,
-            window: nextDialogue.window,
-            background: nextDialogue.background
-        };
+        if (nextDialogue.text === "어??? 민들레?!!" && !bothChecked) {
+            return {
+                name: "",
+                text: "핸드폰을 봐주세요!",
+                img: "",
+                window: "./images/dialogueWindow/Nomal_dialogueWindow.png",
+                background: ""
+            };
+        } else {
+            return {
+                name: nextDialogue.name,
+                text: nextDialogue.text,
+                img: nextDialogue.img,
+                window: nextDialogue.window,
+                background: nextDialogue.background
+            };
+        }
     };
 
     const { name, text, img, window, background } = getNextDialogue();

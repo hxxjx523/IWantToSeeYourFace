@@ -3,6 +3,7 @@ import styles from "./css/End.module.css";
 function Ending({ endTitle, endContent, background }){
 
     const backgroundClassName = `${styles[background]}`;
+    console.log(background)
 
     return (
         <>

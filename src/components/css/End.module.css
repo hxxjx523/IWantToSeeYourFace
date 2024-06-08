@@ -16,17 +16,13 @@
     justify-content: center;
 }
 
-.GoodStudentCouncil{
-    background-image: url(/public/images/END/END_GoodStudentCouncil.png);
-}
+.GoodStudentCouncil{background-image: url(/public/images/END/END_GoodStudentCouncil.png);}
 
-.WaitingPerson{
-    background-image: url(/public/images/END/END_WaitingPerson.png);
-}
+.WaitingPerson{background-image: url(/public/images/END/END_WaitingPerson.png);}
 
-.BaekLeeHyunGoodEnding{
-    background-image: url(/public/images/END/END_BaekleehyunGoodEnding.png);
-}
+.BaekLeeHyunGoodEnding{background-image: url(/public/images/END/END_BaekleehyunGoodEnding.png);}
+
+.NotMe{background-image: url(/public/images/END/END_NotMe.png);}
 
 .endingTitle{
     position: absolute;
