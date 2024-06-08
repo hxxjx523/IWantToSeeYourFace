@@ -1,8 +1,8 @@
 // import "../css/all.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import End from '../json/GoodStudentCouncil.json'
-import Dialogue from "../Dialogue";
+import EndingDialogue from '../EndingDialogue'
 
 import Ending from '../Ending'
 
@@ -15,15 +15,16 @@ function GoodStudentCouncil(){
         setShowEnding(true);
     };
 
+    const background = "GoodStudentCouncil"
     const endTitle = " END(2/9) - GOOD STUDENT COUNCIL"
     const endContent = "모든 건 적당히 하는 것이 좋다"
 
     return (
         <div>
             {!showEnding ? (
-                <Dialogue routeData={End} onDialogueEnd={handleDialogueEnd} />
+                <EndingDialogue routeData={End} onDialogueEnd={handleDialogueEnd} />
             ) : (
-                <Ending endTitle={endTitle} endContent={endContent} />
+                <Ending endTitle={endTitle} endContent={endContent} background={background}/>
             )}
         </div>
     );

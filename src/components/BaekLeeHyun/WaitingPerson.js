@@ -10,6 +10,7 @@ function WaitingPerson() {
         setShowEnding(true);
     };
 
+    const background = "WaitingPerson";
     const endTitle = "END(1/9) - WAITING PERSON";
     const endContent = "인연은 만드는 것이다";
 
@@ -18,7 +19,7 @@ function WaitingPerson() {
             {!showEnding ? (
                 <EndingDialogue routeData={End} onDialogueEnd={handleDialogueEnd} />
             ) : (
-                <Ending endTitle={endTitle} endContent={endContent} />
+                <Ending endTitle={endTitle} endContent={endContent} background={background}/>
             )}
         </div>
     );
