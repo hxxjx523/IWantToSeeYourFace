@@ -3,57 +3,12 @@ import { useNavigate, useLocation } from "react-router-dom";
 import styles from "./css/Dialogue.module.css";
 
 function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
-    const [confirmation, setConfirmation] = useState(false);
-
-    useEffect(() => {
-        const interval = setInterval(async () => {
-            try {
-                const response = await fetch('/status');
-                if (response.ok) {
-                    const data = await response.json();
-                    if (data.bothChecked) {
-                        setConfirmation(true);
-                        clearInterval(interval); 
-                    }
-                } else {
-                    console.error('상태 확인 실패');
-                }
-            } catch (error) {
-                console.error('에러 -> ', error);
-            }
-        }, 3000); 
-
-        return () => clearInterval(interval); 
-    }, []);
-
-    async function sendSign() {
-        try {
-            const response = await fetch('/send', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ message: 'sign' })
-            });
-
-            if (response.ok) {
-                console.log('전송 성공');
-            } else {
-                console.error('전송 실패');
-            }
-        } catch (error) {
-            console.error('에러 -> ', error);
-        }
-    }
-
-
     const [showImage, setShowImage] = useState(true);
-    const [showButtons, setShowButtons] = useState(false); 
+    const [showButtons, setShowButtons] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isExiting, setIsExiting] = useState(false);
-    const [showContainer2, setShowContainer2] = useState(false); // 추가된 상태
+    const [showContainer2, setShowContainer2] = useState(false);
     const [bothChecked, setBothChecked] = useState(false);
-
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -96,16 +51,6 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
         }
     };
 
-
-    //     // 이벤트 핸들러 등록
-    //     document.addEventListener('keydown', handleKeyPress);
-
-    //     // 컴포넌트가 언마운트될 때 이벤트 핸들러 제거
-    //     return () => {
-    //         document.removeEventListener('keydown', handleKeyPress);
-    //     };
-    // }, [navigate, routeData, chapter]);
-
     useEffect(() => {
         document.addEventListener('keydown', handleKeyPress);
         return () => {
@@ -133,7 +78,6 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
 
         return () => clearInterval(interval); 
     }, []);
-
 
     const getNextDialogue = () => {
         const nextDialogue = routeData[currentIndex];
