@@ -20,5 +20,5 @@
     {"name": "학생회 임원2", "text": "아현 선배랑 같이 들어가 있어~~", "img": "", "window": "./images/dialogueWindow/Extra_dialogueWindow.png", "background": ""},
     {"name": "ㅤ", "text": "학생회실에 아현 선배와 단둘이 들어가게 되었다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "", "background": "./images/StudentCouncilRoom.png"},
     {"name": "백이현", "text": "후후, 애들이 좀 짓궂지", "img": "./images/Baekleehyun/Baekleehyun_face3-1.png", "window": "./images/dialogueWindow/Baekleehyun_dialogueWindow.png", "background": ""},
-    {"name": "김여주", "text": "@아니요 진짜 재밌는 것 같아요!  @하하, 저는 그런 거에 관여하지 않습니다, 선배님.", "img": "./images/Kimyeoju/Kimyeoju_face9.png", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": ""}
+    {"select": true}
 ]

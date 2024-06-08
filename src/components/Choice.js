@@ -16,37 +16,46 @@ export default function ChoiceContainer() {
     };
 
     const root = getRouteFromQuery();
-    console.log(root)
-    let choice;
-    if (root === "baekleehyunRoute") {
-        choice = Choice[currentIndex];
-        currentIndex++
-    } else if (root === "doYoonRoute") {
-        choice = Choice[currentIndex]; 
-        currentIndex++
-    } else if (root === "choijaeyulRoute") {
-        choice = Choice[currentIndex]; 
-        currentIndex++
-    } 
+    console.log(root);
 
+    useEffect(() => {
+        let initialIndex = 0;
+        if (root === "baekleehyunRoute") {
+            initialIndex = 0;
+        } else if (root === "doYoonRoute") {
+            initialIndex = 2;
+        } else if (root === "choijaeyulRoute") {
+            initialIndex = 4;
+        }
+        setCurrentIndex(initialIndex);
+    }, [root]);
+
+    
+    const choice = Choice[currentIndex];
+    
     const handleButtonClick = (event) => {
+        if (currentIndex < Choice.length) {
+            setCurrentIndex(prevIndex=> prevIndex);
+        }
         const btnValue = event.target.value;
         console.log(btnValue);
 
-        // 버튼 클릭에 따라 리다이렉션 또는 다른 액션 수행
-        // 여기에 적절한 로직 추가
-
-        // 예시로 리다이렉션을 수행
-        navigate("/waitingPerson");
+        if (root === "baekleehyunRoute") {
+            setCurrentIndex(0);
+        } else if (root === "doYoonRoute") {
+            setCurrentIndex(2);
+        } else if (root === "choijaeyulRoute") {
+            setCurrentIndex(4);
+        }
     };
 
     return (
         <div className={styles.selectButtons}>
             <button className={styles.selectButton} onClick={handleButtonClick} value={"select1"}>
-                <p>{root === choice.name ? choice.text1 : choice.text2}</p>
+                <p>{choice ? choice.text1 : ""}</p>
             </button>
             <button className={styles.selectButton} onClick={handleButtonClick} value={"select2"}>
-                <p>{root === choice.name ? choice.text2 : choice.text1}</p>
+                <p>{choice ? choice.text2 : ""}</p>
             </button>
         </div>
     );
