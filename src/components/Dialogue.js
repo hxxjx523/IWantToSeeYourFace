@@ -4,60 +4,14 @@ import styles from "./css/Dialogue.module.css";
 
 function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
     const [showImage, setShowImage] = useState(true);
-    const [showButtons, setShowButtons] = useState(false); 
+    const [showButtons, setShowButtons] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isExiting, setIsExiting] = useState(false);
-    const [showContainer2, setShowContainer2] = useState(false); // 추가된 상태
-    const [bothChecked, setBothChecked] = useState(false);
+    const [showContainer2, setShowContainer2] = useState(false);
     const [confirmation, setConfirmation] = useState(false);
 
     const navigate = useNavigate();
     const location = useLocation();
 
-
-    useEffect(() => {
-        const interval = setInterval(async () => {
-            try {
-                const response = await fetch('/status');
-                if (response.ok) {
-                    const data = await response.json();
-                    if (data.bothChecked) {
-                        setConfirmation(true);
-                        clearInterval(interval); 
-                    }
-                } else {
-                    console.error('상태 확인 실패');
-                }
-            } catch (error) {
-                console.error('에러 -> ', error);
-            }
-        }, 3000); 
-
-        return () => clearInterval(interval); 
-    }, []);
-
-    async function sendSign() {
-        try {
-            const response = await fetch('/send', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ message: 'sign' })
-            });
-
-            if (response.ok) {
-                console.log('전송 성공');
-            } else {
-                console.error('전송 실패');
-            }
-        } catch (error) {
-            console.error('에러 -> ', error);
-        }
-    }
-
-
-    
     const getRouteFromQuery = () => {
         const params = new URLSearchParams(location.search);
         return params.get('route');
@@ -75,10 +29,13 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
     useEffect(() => {
         const handleKeyPress = (event) => {
             const { key } = event;
+            const currentDialogue = routeData[currentIndex];
 
-            if (!bothChecked && routeData[currentIndex].text === "어??? 민들레?!!") {
-                return; // 아무것도 안하도록 이벤트 기본 동작 방지
-            } else if (key === 'Enter' || key === ' ' || key === 'ArrowRight') {
+            if (!confirmation && currentDialogue.text === "어??? 민들레?!!") {
+                return;
+            }
+
+            if (key === 'Enter' || key === ' ' || key === 'ArrowRight') {
                 setCurrentIndex(prevIndex => {
                     const newIndex = Math.min(prevIndex + 1, routeData.length - 1);
                     if (routeData[newIndex]?.select) {
@@ -94,18 +51,16 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
             }
         };
 
-        // 이벤트 핸들러 등록
         document.addEventListener('keydown', handleKeyPress);
 
-        // 컴포넌트가 언마운트될 때 이벤트 핸들러 제거
         return () => {
             document.removeEventListener('keydown', handleKeyPress);
         };
-    }, [navigate, routeData, chapter]);
+    }, [navigate, routeData, chapter, currentIndex, confirmation]);
 
     const getNextDialogue = () => {
         const nextDialogue = routeData[currentIndex];
-        if (nextDialogue.text === "어??? 민들레?!!" && !bothChecked) {
+        if (nextDialogue.text === "어??? 민들레?!!" && !confirmation) {
             return {
                 name: "",
                 text: "핸드폰을 봐주세요!",
@@ -124,6 +79,49 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
         }
     };
 
+    useEffect(() => {
+        const interval = setInterval(async () => {
+            try {
+                const response = await fetch('/status');
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.bothChecked) {
+                        setConfirmation(true);
+                        clearInterval(interval);
+                    }
+                } else {
+                    console.error('Failed to check status');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }, 3000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    async function sendSign() {
+        try {
+            const response = await fetch('/send', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: 'sign' })
+            });
+
+            if (response.ok) {
+                console.log('Message sent successfully');
+            } else {
+                console.error('Failed to send message');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+    
+
     const { name, text, img, window, background } = getNextDialogue();
 
     const handleChoice = (event) => {
@@ -135,15 +133,14 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
             setShowContainer2(false);
             setShowButtons(false);
             setShowImage(true);
-            setCurrentIndex(prevIndex => prevIndex + 1); // 'select:true' 다음으로 이동
+            setCurrentIndex(prevIndex => prevIndex + 1);
             if (lastThreeChars === "End") {
-                navigate(goodEnd); // Good Ending으로 이동
+                navigate(goodEnd);
             }
         } else if (value === "select2") {
-            navigate(end); // end에 해당하는 주소로 이동
+            navigate(end);
         }
     };
-
 
     useEffect(() => {
         if (text === "(핸드폰을 보자)") {
@@ -154,7 +151,7 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
     return (
         <>
             {!showContainer2 ? (
-                <div className={`${styles.container1} ${isExiting ? styles.fadeOut : ''}`}>
+                <div className={styles.container1}>
                     <img src={background} className={styles.background} alt="Background" />
                     <img src={img} className={styles.kimyeojuImg} alt="Character" />
                     <img src={window} className={styles.dialogueWindow1} alt="Dialogue Window" />
@@ -164,26 +161,23 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
                     </div>
                 </div>
             ) : (
-
                 <div className={styles.container2}>
-                    <img src="./images/Baekleehyun/Baekleehyun_silhouette.png" className={styles.silhouette} alt="실루엣" />
-
+                    <img src="./images/Baekleehyun/Baekleehyun_silhouette.png" className={styles.silhouette} alt="Silhouette" />
                     <div className={styles.selectImgDiv}>
                         {showImage && (
                             <img
                                 src="./images/optionImg.png"
                                 className={`${styles.selectImg} ${showImage ? 'show' : ''}`}
-                                alt="선택지 발생"
+                                alt="Option Image"
                             />
                         )}
                     </div>
-
                     {showButtons && (
                         <div className={styles.selectButtons}>
-                            <button className={styles.selectButton} onClick={handleChoice} value={"select1"}>
+                            <button className={styles.selectButton} onClick={handleChoice} value="select1">
                                 <p>{select1}</p>
                             </button>
-                            <button className={styles.selectButton} onClick={handleChoice} value={"select2"}>
+                            <button className={styles.selectButton} onClick={handleChoice} value="select2">
                                 <p>{select2}</p>
                             </button>
                         </div>
