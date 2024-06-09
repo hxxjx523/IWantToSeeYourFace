@@ -4,7 +4,7 @@ import "./css/all.css";
 import styles from "./css/start.module.css";
 
 export default function Start() {
-    const movePage = useNavigate();
+    const naviage = useNavigate();
     const [audioPlayed, setAudioPlayed] = useState(false);
     const audioRef = useRef(null);
 
@@ -28,7 +28,11 @@ export default function Start() {
             audioRef.current.currentTime = 0; 
             setAudioPlayed(false); 
         }
-        movePage('/question');
+        naviage('/question');
+    }
+
+    const handleEndingCount = () => {
+        naviage("/endingCount")
     }
 
     return (
@@ -36,7 +40,7 @@ export default function Start() {
                 <button className={styles.MusicBtn} onClick={handleMusicClick}><img src="./images/music-note-beamed.svg" alt="" width="30px"/></button>
             <div className={styles.btn}>
                 <button className={styles.StartBtn} onClick={handleStartClick}></button>
-                <button className={styles.EndingCntBtn}></button>
+                <button className={styles.EndingCntBtn} onClick={handleEndingCount}></button>
             </div>
         </div>
     );

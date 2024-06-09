@@ -1,5 +1,6 @@
 [
-    {"name": "ㅤ", "text": "뭐.. 친하지도 않은데 기다릴 필요가 없겠지", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": ""},
-    {"name": "ㅤ", "text": "그냥 나는 바로 교실로 갔다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": ""},
-    {"name": "ㅤ", "text": "그렇게 백이현 선배와의 접점은 더 이상 없었다", "img": "./images/dialogueWindow/Nomal_dialogueWindow.png", "window": "", "background": ""}
+    {"name": "ㅤ", "text": "뭐.. 친하지도 않은데 기다릴 필요가 없겠지", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_school.png"},
+    {"name": "ㅤ", "text": "그냥 나는 바로 교실로 갔다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_school.png"},
+    {"name": "ㅤ", "text": "그렇게 백이현 선배와의 접점은 더 이상 없었다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_school.png"},
+    {"name": "ㅤ", "text": "", "img": "", "window": "", "background": ""}
 ]

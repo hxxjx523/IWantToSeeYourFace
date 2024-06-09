@@ -1,8 +1,10 @@
 [
-    {"name": "도윤", "text": "그래, 그렇게 설정해서 해볼게", "img": "./images/Doyoon/Doyoon_face2-1.png", "window": "./images/dialogueWindow/Doyoon_dialogueWindow.png", "background": ""},
-    {"name": "ㅤ", "text": "250도에 10분을 구웠다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": ""},
-    {"name": "ㅤ", "text": "뭔가… 심상치 않다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": ""},
-    {"name": "ㅤ", "text": "오븐이 원래 저렇게 까만가?", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": ""},
-    {"name": "도윤", "text": "꺼내볼게", "img": "./images/Doyoon/Doyoon_face2-1.png", "window": "./images/dialogueWindow/Doyoon_dialogueWindow.png", "background": ""},
-    {"name": "ㅤ", "text": "억.. 새까만 석탄이 보이고, 재로 인해 자욱한 연기가 보인다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": ""}
+    {"name": "도윤", "text": "그래, 그렇게 설정해서 해볼게", "img": "./images/Doyoon/Doyoon_face2-1.png", "window": "./images/dialogueWindow/Doyoon_dialogueWindow.png", "background": "./images/background/background_kitchen.png"},
+    {"name": "ㅤ", "text": "250도에 10분을 구웠다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_kitchen.png"},
+    {"name": "ㅤ", "text": "뭔가… 심상치 않다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_kitchen.png"},
+    {"name": "ㅤ", "text": "오븐이 원래 저렇게 까만가?", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_kitchen.png"},
+    {"name": "도윤", "text": "꺼내볼게", "img": "./images/Doyoon/Doyoon_face2-1.png", "window": "./images/dialogueWindow/Doyoon_dialogueWindow.png", "background": "./images/background/background_kitchen.png"},
+    {"name": "ㅤ", "text": "억.. 새까만 석탄이 보이고, 재로 인해 자욱한 연기가 보인다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_kitchen.png"},
+    {"name": "ㅤ", "text": "", "img": "", "window": "", "background": ""}
+    
 ]

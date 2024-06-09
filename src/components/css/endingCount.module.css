@@ -1,0 +1,60 @@
+.background{
+    background-image: url(/public/images/background/background_EndCount.png);
+    width: 100vw;
+    height: 100vh;
+    /* text-align: center; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    color: #fff;
+}
+
+.start{
+    background-image: url(/public/images/button/home.png);
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 0;
+    margin: 40px;
+}
+
+.title{
+    width: auto;
+    font-size: 48px;
+    margin-top: 95px;
+    padding-right: 25px;
+}
+
+.subTitle{
+    width: 1500px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 48px;
+    position: relative;
+    margin-top: 100px;
+}
+
+.elements{
+    font-size: 48px;
+    width: 1500px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.data{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.right{
+    background-image: url(/public/images/button/leftBtn.svg);
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    right: 0;
+    margin-top: 25%;
+}

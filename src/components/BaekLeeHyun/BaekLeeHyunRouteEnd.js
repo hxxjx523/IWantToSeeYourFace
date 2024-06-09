@@ -10,9 +10,10 @@ function BaekLeeHyunRouteEnd() {
 
     const end = "/GoodStudentCouncil"
     const goodEnd = "/BaekLeeHyunGoodEnding"
+    const silhouette = "baekLeeHyun"
     return (
         <>
-            <Dialogue routeData={baekLeeHyunRoute} select1={select1} select2={select2} end={end} goodEnd={goodEnd}/>
+            <Dialogue routeData={baekLeeHyunRoute} select1={select1} select2={select2} end={end} goodEnd={goodEnd} silhouette={silhouette}/>
         </>
     );
 

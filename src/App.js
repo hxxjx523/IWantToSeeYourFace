@@ -1,4 +1,8 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { doc, getDoc, setDoc, updateDoc, increment } from 'firebase/firestore';
+import { db } from './firebase';
+
 import Start from './components/Start.js';
 import Question from './components/Question';
 import Opening from './components/Opening'
@@ -8,10 +12,6 @@ import BaekLeeHyunRouteEnd from './components/BaekLeeHyun/BaekLeeHyunRouteEnd.js
 import Chapter1 from './components/Chapter/Chapter1';
 import Chapter2 from './components/Chapter/Chapter2';
 import Chapter3 from './components/Chapter/Chapter3';
-
-
-
-
 import GoodStudentCouncil from './components/BaekLeeHyun/GoodStudentCouncil'
 import WaitingPerson from './components/BaekLeeHyun/WaitingPerson'
 import BaekLeeHyunGoodEnding from './components/BaekLeeHyun/BaekLeeHyunGoodEnding.js';
@@ -28,25 +28,54 @@ import ChoiJaeYulRouteEnd from './components/ChoiJaeYul/ChoiJaeYulRouteEnd.js';
 import DoULikeGame from './components/ChoiJaeYul/DoULikeGame.js';
 import WorstGuest from './components/ChoiJaeYul/WorstGuest.js';
 import ChoiJaeYulGoodEnding from './components/ChoiJaeYul/ChoiJaeYulGoodEnding.js';
+import EndingCount from './EndingCount';
 
+const updateRouteCount = async (route) => {
+  try {
+    const routeRef = doc(db, 'Ending', route);
+    const routeSnap = await getDoc(routeRef);
 
+    if (routeSnap.exists()) {
+      await updateDoc(routeRef, {
+        count: increment(1),
+      });
+    } else {
+      await setDoc(routeRef, { count: 1 });
+    }
+    console.log(`Successfully updated count for ${route}`);
+  } catch (error) {
+    console.error(`Error updating count for ${route}:`, error);
+  }
+};
 
+const RouteCounter = () => {
+  const location = useLocation();
 
+    useEffect(() => {
+      const route = location.pathname.slice(1);
+      if (route === 'notMe' || route === 'badCook' || route === 'doYoonGoodEnding' || route === 'choiJaeYulGoodEnding' 
+    || route === 'doULikeGame' || route === 'worstGuest' || route === 'goodStudentCouncil' || route === 'waitingPerson' || route === 'baekLeeHyunGoodEnding'){
+        updateRouteCount(route);
+      }
+    }, [location]);
+  
+    return null;
 
-// import MiniGame from './components/MiniGame';
+};
 
-
-  export default function App() {
+const App = () => {
   
   return (
     <div className="App">
      
-    <BrowserRouter>
+    <Router>
+      <RouteCounter />
           <Routes>
               <Route path={"/"} element={<Start />}></Route>
               <Route path={"/question"} element={<Question />}></Route>
               <Route path={"/opening"} element={<Opening />}></Route>
               <Route path={"/firstStory"} element={<FirstStory />}></Route>
+              <Route path={"/endingCount"} element={<EndingCount />}></Route>
 
 
               <Route path={"/baekLeeHyunRoute1"} element={<BaekLeeHyunRoute1 />}></Route>
@@ -76,9 +105,10 @@ import ChoiJaeYulGoodEnding from './components/ChoiJaeYul/ChoiJaeYulGoodEnding.j
               <Route path={"/chapter1"} element={<Chapter1 />}></Route>
               <Route path={"/chapter2"} element={<Chapter2 />}></Route>
               <Route path={"/chapter3"} element={<Chapter3 />}></Route>
-              
-          </Routes>
-        </BrowserRouter>
+            </Routes>
+        </Router>
       </div>
   );
 }
+
+export default App

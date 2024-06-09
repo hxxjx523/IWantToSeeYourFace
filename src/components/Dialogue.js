@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import styles from "./css/Dialogue.module.css";
 
-function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
+function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouette }) {
     const [showImage, setShowImage] = useState(true);
     const [showButtons, setShowButtons] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -18,13 +18,17 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
     };
 
     useEffect(() => {
-        const timeout = setTimeout(() => {
-            setShowImage(false);
-            setShowButtons(true);
-        }, 2000);
+        if (showContainer2) {
+            const timeout = setTimeout(() => {
+                setShowImage(false);
+                setTimeout(() => {
+                    setShowButtons(true);
+                }, 100);
+            }, 3000); 
 
-        return () => clearTimeout(timeout);
-    }, []);
+            return () => clearTimeout(timeout);
+        }
+    }, [showContainer2]);
 
     useEffect(() => {
         //키보드 값 받기
@@ -32,9 +36,9 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
             const { key } = event;
             const currentDialogue = routeData[currentIndex];
 
-            if (!confirmation && currentDialogue.text === "어??? 민들레?!!") {
-                return;
-            }
+            // if (!confirmation && currentDialogue.text === "어??? 민들레?!!") {
+            //     return;
+            // }
 
             if (key === 'Enter' || key === ' ' || key === 'ArrowRight') {
                 setCurrentIndex(prevIndex => {
@@ -166,30 +170,30 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
                 </div>
             ) : (
                 <div className={styles.container2}>
-                    <img src="./images/Baekleehyun/Baekleehyun_silhouette.png" className={styles.silhouette} alt="Silhouette" />
-                    <div className={styles.selectImgDiv}>
-                        {showImage && (
-                            <img
-                                src="./images/optionImg.png"
-                                className={`${styles.selectImg} ${showImage ? 'show' : ''}`}
-                                alt="Option Image"
-                            />
-                        )}
-                    </div>
-                    {showButtons && (
-                        <div className={styles.selectButtons}>
-                            <button className={styles.selectButton} onClick={handleChoice} value="select1">
-                                <p>{select1}</p>
-                            </button>
-                            <button className={styles.selectButton} onClick={handleChoice} value="select2">
-                                <p>{select2}</p>
-                            </button>
-                        </div>
-                    )}
-                </div>
+          <img src={`./images/${silhouette}/${silhouette}_silhouette.png`} className={styles.silhouette} alt="실루엣" />
+          <div className={styles.selectImgDiv}>
+            {showImage && (
+              <img src="./images/effect/optionImg.png" className={`${styles.selectImg} ${showImage ? 'show' : ''}`} alt="선택지 발생" />
+            )}
+          </div>
+          {showButtons && (
+            <div className={styles.selectButtons}>
+              <button className={styles.selectButton} onClick={handleChoice} value={'select1'}>
+                <p>{select1}</p>
+              </button>
+              <button className={styles.selectButton} onClick={handleChoice} value={'select2'}>
+                <p>{select2}</p>
+              </button>
+            </div>
+          )}
+        </div>
             )}
         </>
     );
 }
+
+
+
+
 
 export default Dialogue;

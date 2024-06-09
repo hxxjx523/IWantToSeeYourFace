@@ -1,6 +1,6 @@
 [
-    {"name": "최재율", "text": "…어? 아니다 됐어", "img": "./images/Choijaeyul/Choijaeyul_face2-1.png", "window": "./images/dialogueWindow/Choijaeyul_dialogueWindow.png", "background": ""},
-    {"name": "최재율", "text": "나 갑자기 해야 되는 게 있어 가지고", "img": "./images/Choijaeyul/Choijaeyul_face2-1.png", "window": "./images/dialogueWindow/Choijaeyul_dialogueWindow.png", "background": ""},
-    {"name": "최재율", "text": "최재율은 더이상 내게 말을 걸어오지 않았다", "img": "./images/Choijaeyul/Choijaeyul_face2-1.png", "window": "./images/dialogueWindow/Choijaeyul_dialogueWindow.png", "background": ""},
-    {"name": "최재율", "text": "최재율은 더이상 내게 말을 걸어오지 않았다", "img": "./images/Choijaeyul/Choijaeyul_face2-1.png", "window": "./images/dialogueWindow/Choijaeyul_dialogueWindow.png", "background": ""}
+    {"name": "최재율", "text": "…어? 아니다 됐어", "img": "./images/Choijaeyul/Choijaeyul_face2-1.png", "window": "./images/dialogueWindow/Choijaeyul_dialogueWindow.png", "background": "./images/background/background_class.png"},
+    {"name": "최재율", "text": "나 갑자기 해야 되는 게 있어 가지고", "img": "./images/Choijaeyul/Choijaeyul_face2-1.png", "window": "./images/dialogueWindow/Choijaeyul_dialogueWindow.png", "background": "./images/background/background_class.png"},
+    {"name": "ㅤ", "text": "최재율은 더이상 내게 말을 걸어오지 않았다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_class.png"},
+    {"name": "ㅤ", "text": "", "img": "", "window": "", "background": ""}
 ]

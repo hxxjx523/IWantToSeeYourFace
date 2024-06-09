@@ -8,10 +8,11 @@ function DoYoonRoute2(){
     const select2 = "아닌데.."
 
     const end = "/NotMe"
+    const silhouette = "Doyoon"
 
     return (
         <>
-            <Dialogue routeData={DoYoonRoute} chapter={"chapter3"} select1={select1} select2={select2} end={end}/>
+            <Dialogue routeData={DoYoonRoute} chapter={"chapter3"} select1={select1} select2={select2} end={end} silhouette={silhouette}/>
         </>
     );
 }

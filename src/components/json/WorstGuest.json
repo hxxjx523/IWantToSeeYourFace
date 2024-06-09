@@ -1,8 +1,9 @@
 [
-    {"name": "김여주", "text": "책장 앞에 가서 그 책을 꺼냈다", "img": "./images/Kimyeoju/Kimyeoju_face6.png", "window": "./images/dialogueWindow/Kimyeoju_dialogueWindow1.png", "background": ""},
-    {"name": "김여주", "text": "덜컥", "img": "./images/Kimyeoju/Kimyeoju_face6.png", "window": "./images/dialogueWindow/Kimyeoju_dialogueWindow1.png", "background": ""},
-    {"name": "김여주", "text": "방 문이 열렸다 그리고 최재율과 눈이 마주쳤다", "img": "./images/Kimyeoju/Kimyeoju_face6.png", "window": "./images/dialogueWindow/Kimyeoju_dialogueWindow1.png", "background": ""},
-    {"name": "최재율", "text": "…뭐 하는 거야?", "img": "./images/Choijaeyul/Choijaeyul_face3-4.png", "window": "./images/dialogueWindow/Choijaeyul_dialogueWindow.png", "background": ""},
-    {"name": "김여주", "text": "…", "img": "./images/Kimyeoju/Kimyeoju_face6.png", "window": "./images/dialogueWindow/Kimyeoju_dialogueWindow1.png", "background": ""},
-    {"name": "김여주", "text": "그렇게 난 최악의 손님이 되었다", "img": "./images/Kimyeoju/Kimyeoju_face6.png", "window": "./images/dialogueWindow/Kimyeoju_dialogueWindow1.png", "background": ""}
+    {"name": "ㅤ", "text": "책장 앞에 가서 그 책을 꺼냈다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_ChoijaeyulRoom.png"},
+    {"name": "ㅤ", "text": "덜컥", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_ChoijaeyulRoom.png"},
+    {"name": "ㅤ", "text": "방 문이 열렸다 그리고 최재율과 눈이 마주쳤다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_ChoijaeyulRoom.png"},
+    {"name": "최재율", "text": "…뭐 하는 거야?", "img": "./images/Choijaeyul/Choijaeyul_face3-4.png", "window": "./images/dialogueWindow/Choijaeyul_dialogueWindow.png", "background": "./images/background/background_ChoijaeyulRoom.png"},
+    {"name": "김여주", "text": "…", "img": "./images/Kimyeoju/Kimyeoju_face6.png", "window": "./images/dialogueWindow/Kimyeoju_dialogueWindow1.png", "background": "./images/background/background_ChoijaeyulRoom.png"},
+    {"name": "ㅤ", "text": "그렇게 난 최악의 손님이 되었다", "img": "png", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_ChoijaeyulRoom.png"},
+    {"name": "ㅤ", "text": "", "img": "", "window": "", "background": ""}
 ]

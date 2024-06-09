@@ -19,10 +19,10 @@ export default function Question() {
   const getNextQuestion = () => {
     const nextQuestion = questions[currentIndex];
     return {
-        q1: nextQuestion.q1,
-        a1: nextQuestion.a1,
-        a2: nextQuestion.a2,
-        a3: nextQuestion.a3
+      q1: nextQuestion.q1,
+      a1: nextQuestion.a1,
+      a2: nextQuestion.a2,
+      a3: nextQuestion.a3,
     };
   };
 
@@ -36,16 +36,16 @@ export default function Question() {
       setAnswers([...answers, selectedAnswer]);
       if (currentIndex < questions.length - 1) {
         setCurrentIndex(currentIndex + 1);
-        setSelectedAnswer('');
+        setSelectedAnswer("");
         setIsButtonVisible(false);
       } else {
         const sum = answers.reduce((total, current) => total + parseInt(current), 0);
         let route = "";
-        if (sum >= 1 && sum <= 3) {
+        if (sum >= 3 && sum <= 5) {
           route = "baekLeeHyunRoute";
-        } else if (sum >= 4 && sum <= 6) {
+        } else if (sum >= 6 && sum <= 7) {
           route = "doYoonRoute";
-        } else if (sum >= 7 && sum <= 9) {
+        } else if (sum >= 8 && sum <= 9) {
           route = "choiJaeYulRoute";
         }
         console.log(sum);
@@ -56,29 +56,34 @@ export default function Question() {
 
   useEffect(() => {
     const radioButtons = document.querySelectorAll("input[name='answer']");
-    radioButtons.forEach(radio => radio.checked = false);
+    radioButtons.forEach((radio) => (radio.checked = false));
   }, [currentIndex]);
-
+  
   const question = getNextQuestion();
 
   return (
-    <div className={styles.qbackground}>
-      <div className={styles.questionImg}>
-        <img src='./images/Mindlerea/Mindlerea_silhouette.png' alt=''/>
-      </div>
-      <div className={styles.question}>
-        <div className={styles.questionTitle}>{question.q1}</div>
-        <div className={styles.qRadio}>
-          <span className={styles.radio}>{question.a1}<input type="radio" name="answer" value={1} onChange={handleRadioValue}/></span> <br />
-          <span className={styles.radio}>{question.a2}<input type="radio" name="answer" value={2} onChange={handleRadioValue}/></span> <br />
-          <span className={styles.radio}>{question.a3}<input type="radio" name="answer" value={3} onChange={handleRadioValue}/></span>
+    <div className={styles.background}>
+        <div className={styles.radio}>
+          <label className={styles.radioLabel}>
+            <input type="radio" name="answer" value="1" checked={selectedAnswer === "1"} onChange={handleRadioValue} />
+            <span className={selectedAnswer === "1" ? styles.selectedAnswer : styles.radioText}>{question.a1}</span>
+          </label>
+          <label className={styles.radioLabel}>
+            <input type="radio" name="answer" value="2" checked={selectedAnswer === "2"} onChange={handleRadioValue} />
+            <span className={selectedAnswer === "2" ? styles.selectedAnswer : styles.radioText}>{question.a2}</span>
+          </label>
+          <label className={styles.radioLabel}>
+            <input type="radio" name="answer" value="3" checked={selectedAnswer === "3"} onChange={handleRadioValue} />
+            <span className={selectedAnswer === "3" ? styles.selectedAnswer : styles.radioText}>{question.a3}</span>
+          </label>
         </div>
-        {isButtonVisible && (
-          <button onClick={handleNextQuestion} className="nextBtn">
-            <img src='./images/nextBtn.png' alt=''/>
-          </button>
-        )}
+        <div className={styles.magicHat}></div>
+        <div className={styles.questionTitle}>
+          {question.q1}
+          {isButtonVisible && (
+            <button className={styles.nextButton} onClick={handleNextQuestion}></button>
+          )}
+        </div>
       </div>
-    </div>
   );
-};
+}

@@ -1,5 +1,5 @@
 [
-    {"name": "도윤", "text": "아.. 그래..?", "img": "./images/Doyoon/Doyoon_face2-1.png", "window": "./images/dialogueWindow/Doyoon_dialogueWindow.png", "background": "부엌"},
-    {"name": "ㅤ", "text": "묘하게 인상을 찌푸리는 것 같았다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": ""},
-    {"name": "ㅤ", "text": "", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": ""}
+    {"name": "도윤", "text": "아.. 그래..?", "img": "./images/Doyoon/Doyoon_face2-1.png", "window": "./images/dialogueWindow/Doyoon_dialogueWindow.png", "background": "./images/background/background_class.png"},
+    {"name": "ㅤ", "text": "묘하게 인상을 찌푸리는 것 같았다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_class.png"},
+    {"name": "ㅤ", "text": "", "img": "", "window": "", "background": ""}
 ]

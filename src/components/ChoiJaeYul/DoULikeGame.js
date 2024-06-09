@@ -13,14 +13,14 @@ function DoULikeGame(){
 
     const background = "DoULikeGame";
     const endTitle = "END(7/9) - DO U LIKE GAME?";
-    // const endContent = "인연은 만드는 것이다";
+    const endContent = "오타쿠라...";
 
     return (
         <div>
             {!showEnding ? (
                 <EndingDialogue routeData={End} onDialogueEnd={handleDialogueEnd} />
             ) : (
-                <Ending endTitle={endTitle}  background={background}/>
+                <Ending endTitle={endTitle} endContent={endContent} background={background}/>
             )}
         </div>
     );

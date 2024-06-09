@@ -7,9 +7,10 @@ function ChoiJaeYulRoute2() {
     const select1 = "아니, 안 해봤어"; // 선택지 1
     const select2 = "윽.. 오타쿠야?"; // 선택지 2
     const end = "/DoULikeGame"
+    const silhouette = "choiJaeYul"
     return (
         <>
-            <Dialogue routeData={choiJaeYulRoute} chapter={"chapter3"} select1={select1} select2={select2} end={end}/>
+            <Dialogue routeData={choiJaeYulRoute} chapter={"chapter3"} select1={select1} select2={select2} end={end} silhouette={silhouette}/>
         </>
     );
 }

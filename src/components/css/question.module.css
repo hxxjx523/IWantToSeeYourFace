@@ -1,61 +1,56 @@
-.qbackground{
+.background{
     width: 100vw;
     height: 100vh;
     background: linear-gradient( #2341AA, #08102B);
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    color: #fff;
 }
 
-.question{
-    color: white;
-    /* float: right; */
-    text-align: center;  
+.magicHat{
+    background-image: url(/public/images/magicHat.png);
+    width: 850px;
+    height: 700px;
 }
 
-.questionImg{
-    width: 600px;
-    height: 600px;
-    /* background-color: aquamarine; */
-    margin: 30px;
-}
-
-.questionTitle{
-    width: 700px;
-    height: auto;
+.radioLabel {
+    color: #726445;
     font-size: 40px;
-    padding: 20px;
-    border: solid white;
-    border-left: 2px;
-    border-right: 2px;
+    margin: 0 40px;
 }
 
-.qRadio{
-    font-size: 35px;
-    margin: 50px;
+.radioLabel input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
 }
 
-
-input[type='radio']{
-    -webkit-appearance: none; 
-    -moz-appearance: none; 
-    appearance: none; 
-    width: 20px;
-    height: 20px;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    margin-left: 50px;
-    margin-top: 5%;
+.radioLabel::before {
+    content: "";
 }
 
-input[type='radio']:checked {
-    border: 3px solid #2341AA; 
-    background-color: white;
-    box-shadow: 0 0 0 2px white;
+.radioLabel input[type="radio"]:checked + span {
+    color: #fff;
 }
-
-button{
+  
+.questionTitle {
+    font-size: 45px;
+    text-align: center;
+    /* margin-bottom: 20px; */
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  
+  .nextButton {
+    background-image: url(/public/images/button/nextBtn.png);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+    border: 0;
     width: 100px;
-    height: 40px;
-    background-color: #fff;
-}
+    height: 100px;
+  }

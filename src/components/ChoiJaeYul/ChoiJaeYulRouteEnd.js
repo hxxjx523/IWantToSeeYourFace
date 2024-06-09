@@ -9,9 +9,10 @@ function ChoiJaeYulRouteEnd() {
 
     const end = "/WorstGuest"
     const goodEnd = "/ChoiJaeYulGoodEnding"
+    const silhouette = "choiJaeYul"
     return (
         <>
-            <Dialogue routeData={choiJaeYulRoute} select1={select1} select2={select2} end={end} goodEnd={goodEnd}/>
+            <Dialogue routeData={choiJaeYulRoute} select1={select1} select2={select2} end={end} goodEnd={goodEnd} silhouette={silhouette}/>
         </>
     );
 }

@@ -7,9 +7,10 @@ function BaekLeeHyunRoute2() {
     const select1 = "기다린다"; // 선택지 1
     const select2 = "기다리지 않는다"; // 선택지 2
     const end = "/WaitingPerson"
+    const silhouette = "baekLeeHyun"
     return (
         <>
-            <Dialogue routeData={baekLeeHyunRoute} chapter={"chapter3"} select1={select1} select2={select2} end={end}/>
+            <Dialogue routeData={baekLeeHyunRoute} chapter={"chapter3"} select1={select1} select2={select2} end={end} silhouette={silhouette}/>
         </>
     );
 }
