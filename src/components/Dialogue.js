@@ -64,7 +64,7 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
         const nextDialogue = routeData[currentIndex];
         if (nextDialogue.text === "어??? 민들레?!!" && !confirmation) {
             return {
-                name: "",
+                name: "ㅤ",
                 text: "핸드폰을 봐주세요!",
                 img: "",
                 window: "./images/dialogueWindow/Nomal_dialogueWindow.png",

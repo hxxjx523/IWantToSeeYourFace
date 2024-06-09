@@ -18,7 +18,21 @@ import BaekLeeHyunGoodEnding from './components/BaekLeeHyun/BaekLeeHyunGoodEndin
 import FirstStory from './components/FirstStory.js';
 import DoYoonRoute1 from './components/DoYoon/DoYoonRoute1.js';
 import DoYoonRoute2 from './components/DoYoon/DoYoonRoute2.js';
+import DoYoonRouteEnd from './components/DoYoon/DoYoonRouteEnd.js';
 import NotMe from './components/DoYoon/NotMe.js';
+import BadCook from './components/DoYoon/BadCook.js';
+import DoYoonGoodEnding from './components/DoYoon/DoYoonGoodEnding.js';
+import ChoiJaeYulRoute1 from './components/ChoiJaeYul/ChoiJaeYulRoute1.js';
+import ChoiJaeYulRoute2 from './components/ChoiJaeYul/ChoiJaeYulRoute2.js';
+import ChoiJaeYulRouteEnd from './components/ChoiJaeYul/ChoiJaeYulRouteEnd.js';
+import DoULikeGame from './components/ChoiJaeYul/DoULikeGame.js';
+import WorstGuest from './components/ChoiJaeYul/WorstGuest.js';
+import ChoiJaeYulGoodEnding from './components/ChoiJaeYul/ChoiJaeYulGoodEnding.js';
+
+
+
+
+
 // import MiniGame from './components/MiniGame';
 
 
@@ -44,8 +58,17 @@ import NotMe from './components/DoYoon/NotMe.js';
 
               <Route path={"/doYoonRoute1"} element={<DoYoonRoute1 />}></Route>
               <Route path={"/doYoonRoute2"} element={<DoYoonRoute2 />}></Route>
+              <Route path={"/doYoonRouteEnd"} element={<DoYoonRouteEnd />}></Route>
               <Route path={"/notMe"} element={<NotMe />}></Route>
+              <Route path={"/badCook"} element={<BadCook />}></Route>
+              <Route path={"/doYoonGoodEnding"} element={<DoYoonGoodEnding />}></Route>
 
+              <Route path={"/choiJaeYulRoute1"} element={<ChoiJaeYulRoute1 />}></Route>
+              <Route path={"/choiJaeYulRoute2"} element={<ChoiJaeYulRoute2   />}></Route>
+              <Route path={"/choiJaeYulRouteEnd"} element={<ChoiJaeYulRouteEnd />}></Route>
+              <Route path={"/doULikeGame"} element={<DoULikeGame />}></Route>
+              <Route path={"/worstGuest"} element={<WorstGuest />}></Route>
+              <Route path={"/choiJaeYulGoodEnding"} element={<ChoiJaeYulGoodEnding />}></Route>
 
 
 

@@ -1,0 +1,14 @@
+[
+    {"name": "도윤", "text": "그래, 그렇게 설정해서 해볼게", "img": "./images/Doyoon/Doyoon_face2-1.png", "window": "./images/dialogueWindow/Doyoon_dialogueWindow.png", "background": ""},
+    {"name": "ㅤ", "text": "150도에 15분 구웠다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": ""},
+    {"name": "ㅤ", "text": "오오..! 뭔가 완성 된 것 같다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": ""},
+    {"name": "도윤", "text": "음.. 잘 된 것 같네", "img": "./images/Doyoon/Doyoon_face3-1.png", "window": "./images/dialogueWindow/Doyoon_dialogueWindow.png", "background": ""},
+    {"name": "ㅤ", "text": "와작와작", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": ""},
+    {"name": "ㅤ", "text": "쿠키는 생각보다 더 맛있었다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": ""},
+    {"name": "김여주", "text": "오.. 맛있어", "img": "./images/Kimyeoju/Kimyeoju_face15.png", "window": "./images/dialogueWindow/Kimyeoju_dialogueWindow1.png", "background": ""},
+    {"name": "ㅤ", "text": "오랜만에 보는 도윤의 선명한 얼굴이 낯설지 않았다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": ""},
+    {"name": "도윤", "text": "이렇게 먹으니깐 옛날 생각도 난다", "img": "./images/Doyoon/Doyoon_face3-2.png", "window": "./images/dialogueWindow/Doyoon_dialogueWindow.png", "background": ""},
+    {"name": "김여주", "text": "그러게~", "img": "./images/Kimyeoju/Kimyeoju_face9.png", "window": "./images/dialogueWindow/Kimyeoju_dialogueWindow1.png", "background": ""},
+    {"name": "ㅤ", "text": "도윤과의 베이킹은 성공적이었다!", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": ""},
+    {"name": "ㅤ", "text": "도윤과의 베이킹은 성공적이었다!", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": ""}
+]

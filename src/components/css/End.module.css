@@ -7,7 +7,13 @@
 
 .GoodStudentCouncil, 
 .WaitingPerson,
-.BaekLeeHyunGoodEnding{
+.BaekLeeHyunGoodEnding,
+.BadCook,
+.NotMe,
+.DoYoonGoodEnding,
+.DoULikeGame,
+.WorstGuest,
+.ChoiJaeYulGoodEnding{
     width: 100vw;
     height: 100vh;
     background-size: cover;
@@ -22,7 +28,17 @@
 
 .BaekLeeHyunGoodEnding{background-image: url(/public/images/END/END_BaekleehyunGoodEnding.png);}
 
+.BadCook{background-image: url(/public/images/END/END_BadCook.png);}
+
 .NotMe{background-image: url(/public/images/END/END_NotMe.png);}
+
+.DoYoonGoodEnding{background-image: url(/public/images/END/END_DoyoonGoodEnding.png);}
+
+.DoULikeGame{background-image: url(/public/images/END/END_DoULikeGame.png);}
+
+.WorstGuest{background-image: url(/public/images/END/END_WorstGuest.png);}
+
+.ChoiJaeYulGoodEnding{background-image: url(/public/images/END/END_ChoijaeyulGoodEnding.png);}
 
 .endingTitle{
     position: absolute;

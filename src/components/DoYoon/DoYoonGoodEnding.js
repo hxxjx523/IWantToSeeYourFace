@@ -1,23 +1,18 @@
-// import "../css/all.css";
 import { useState } from "react";
-
-import End from '../json/BadCook.json'
+import End from '../json/DoYoonGoodEnding.json';
+import Ending from '../Ending';
 import EndingDialogue from '../EndingDialogue'
 
-import Ending from '../Ending'
-
-
-function BadCook(){
-
+function DoYoonGoodEnding() {
     const [showEnding, setShowEnding] = useState(false);
 
     const handleDialogueEnd = () => {
         setShowEnding(true);
     };
 
-    const background = "BadCook"
-    const endTitle = "END(5/9) - BAD COOK"
-    const endContent = "이런.. 주방을 망치고 말았다"
+    const background = "DoYoonGoodEnding";
+    const endTitle = "END(6/9) - DO YOON GOOD ENDING";
+    const endContent = "그렇게 인연이 되었다는 것";
 
     return (
         <div>
@@ -28,6 +23,6 @@ function BadCook(){
             )}
         </div>
     );
-} 
+}
 
-export default BadCook
+export default DoYoonGoodEnding;

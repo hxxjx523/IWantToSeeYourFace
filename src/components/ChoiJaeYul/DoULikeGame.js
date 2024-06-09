@@ -1,13 +1,9 @@
-// import "../css/all.css";
 import { useState } from "react";
-
-import End from '../json/BadCook.json'
+import End from '../json/DoULikeGame.json';
+import Ending from '../Ending';
 import EndingDialogue from '../EndingDialogue'
 
-import Ending from '../Ending'
-
-
-function BadCook(){
+function DoULikeGame(){
 
     const [showEnding, setShowEnding] = useState(false);
 
@@ -15,19 +11,19 @@ function BadCook(){
         setShowEnding(true);
     };
 
-    const background = "BadCook"
-    const endTitle = "END(5/9) - BAD COOK"
-    const endContent = "이런.. 주방을 망치고 말았다"
+    const background = "DoULikeGame";
+    const endTitle = "END(7/9) - DO U LIKE GAME?";
+    // const endContent = "인연은 만드는 것이다";
 
     return (
         <div>
             {!showEnding ? (
                 <EndingDialogue routeData={End} onDialogueEnd={handleDialogueEnd} />
             ) : (
-                <Ending endTitle={endTitle} endContent={endContent} background={background}/>
+                <Ending endTitle={endTitle}  background={background}/>
             )}
         </div>
     );
-} 
+}
 
-export default BadCook
+export default DoULikeGame
