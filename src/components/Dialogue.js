@@ -27,6 +27,7 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
     }, []);
 
     useEffect(() => {
+        //키보드 값 받기
         const handleKeyPress = (event) => {
             const { key } = event;
             const currentDialogue = routeData[currentIndex];
@@ -59,6 +60,7 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
     }, [navigate, routeData, chapter, currentIndex, confirmation]);
 
     const getNextDialogue = () => {
+        // 핸드폰 확인 유도
         const nextDialogue = routeData[currentIndex];
         if (nextDialogue.text === "어??? 민들레?!!" && !confirmation) {
             return {
@@ -69,6 +71,7 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
                 background: ""
             };
         } else {
+            //핸드폰 확인한 경우 진행
             return {
                 name: nextDialogue.name,
                 text: nextDialogue.text,
@@ -101,6 +104,7 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
     }, []);
 
     async function sendSign() {
+        //서버 연결
         try {
             const response = await fetch('/send', {
                 method: 'POST',
