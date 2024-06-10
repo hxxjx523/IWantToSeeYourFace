@@ -30,38 +30,39 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
         }
     }, [showContainer2]);
 
+    const handleKeyPress = (event) => {
+        const key = event.key || event;  // 버튼 클릭에서는 event가 문자열로 전달됨
+        const currentDialogue = routeData[currentIndex];
+
+        if (key === 'Enter' || key === ' ' || key === 'ArrowRight' || key === "button") {
+            setCurrentIndex(prevIndex => {
+                const newIndex = Math.min(prevIndex + 1, routeData.length - 1);
+                if (routeData[newIndex]?.select) {
+                    setShowContainer2(true);
+                } else if (newIndex === routeData.length - 1) {
+                    const route = getRouteFromQuery();
+                    navigate(`/${chapter}?route=${route}`);
+                }
+                return newIndex;
+            });
+        } else if (key === 'ArrowLeft') {
+            setCurrentIndex(prevIndex => Math.max(prevIndex - 1, 0));
+        }
+    };
+
+    // 키보드 이벤트 리스너 등록
     useEffect(() => {
-        //키보드 값 받기
-        const handleKeyPress = (event) => {
-            const { key } = event;
-            const currentDialogue = routeData[currentIndex];
-
-            // if (!confirmation && currentDialogue.text === "어??? 민들레?!!") {
-            //     return;
-            // }
-
-            if (key === 'Enter' || key === ' ' || key === 'ArrowRight') {
-                setCurrentIndex(prevIndex => {
-                    const newIndex = Math.min(prevIndex + 1, routeData.length - 1);
-                    if (routeData[newIndex]?.select) {
-                        setShowContainer2(true);
-                    } else if (newIndex === routeData.length - 1) {
-                        const route = getRouteFromQuery();
-                        navigate(`/${chapter}?route=${route}`);
-                    }
-                    return newIndex;
-                });
-            } else if (key === 'ArrowLeft') {
-                setCurrentIndex(prevIndex => Math.max(prevIndex - 1, 0));
-            }
-        };
-
         document.addEventListener('keydown', handleKeyPress);
 
         return () => {
             document.removeEventListener('keydown', handleKeyPress);
         };
     }, [navigate, routeData, chapter, currentIndex, confirmation]);
+
+    // 버튼 클릭 이벤트 핸들러
+    const handleButtonClick = () => {
+        handleKeyPress("button");
+    };
 
     const getNextDialogue = () => {
         // 핸드폰 확인 유도
@@ -166,6 +167,7 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
                     <div className={styles.nameAndDialogue}>
                         <div className={styles.name}>{name}</div>
                         <div className={styles.dialogue}>{text}</div>
+                        <button className={styles.next} onClick={handleButtonClick}></button>
                     </div>
                 </div>
             ) : (
