@@ -1,91 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
-import styles from "./css/Dialogue.module.css";
+import styles from "./css/Dialogue.module.css"; // Import your CSS module
 
-function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouette }) {
+function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
     const [showImage, setShowImage] = useState(true);
     const [showButtons, setShowButtons] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showContainer2, setShowContainer2] = useState(false);
     const [confirmation, setConfirmation] = useState(false);
 
+    const currentIndexRef = useRef(currentIndex);
+    currentIndexRef.current = currentIndex;
+
     const navigate = useNavigate();
     const location = useLocation();
-
-    const getRouteFromQuery = () => {
-        const params = new URLSearchParams(location.search);
-        return params.get('route');
-    };
-
-    useEffect(() => {
-        if (showContainer2) {
-            const timeout = setTimeout(() => {
-                setShowImage(false);
-                setTimeout(() => {
-                    setShowButtons(true);
-                }, 100);
-            }, 3000); 
-
-            return () => clearTimeout(timeout);
-        }
-    }, [showContainer2]);
-
-    const handleKeyPress = (event) => {
-        const key = event.key || event;  // 버튼 클릭에서는 event가 문자열로 전달됨
-        const currentDialogue = routeData[currentIndex];
-
-        if (key === 'Enter' || key === ' ' || key === 'ArrowRight' || key === "button") {
-            setCurrentIndex(prevIndex => {
-                const newIndex = Math.min(prevIndex + 1, routeData.length - 1);
-                if (routeData[newIndex]?.select) {
-                    setShowContainer2(true);
-                } else if (newIndex === routeData.length - 1) {
-                    const route = getRouteFromQuery();
-                    navigate(`/${chapter}?route=${route}`);
-                }
-                return newIndex;
-            });
-        } else if (key === 'ArrowLeft') {
-            setCurrentIndex(prevIndex => Math.max(prevIndex - 1, 0));
-        }
-    };
-
-    // 키보드 이벤트 리스너 등록
-    useEffect(() => {
-        document.addEventListener('keydown', handleKeyPress);
-
-        return () => {
-            document.removeEventListener('keydown', handleKeyPress);
-        };
-    }, [navigate, routeData, chapter, currentIndex, confirmation]);
-
-    // 버튼 클릭 이벤트 핸들러
-    const handleButtonClick = () => {
-        handleKeyPress("button");
-    };
-
-    const getNextDialogue = () => {
-        // 핸드폰 확인 유도
-        const nextDialogue = routeData[currentIndex];
-        if (nextDialogue.text === "어??? 민들레?!!" && !confirmation) {
-            return {
-                name: "ㅤ",
-                text: "핸드폰을 봐주세요!",
-                img: "",
-                window: "./images/dialogueWindow/Nomal_dialogueWindow.png",
-                background: ""
-            };
-        } else {
-            //핸드폰 확인한 경우 진행
-            return {
-                name: nextDialogue.name,
-                text: nextDialogue.text,
-                img: nextDialogue.img,
-                window: nextDialogue.window,
-                background: nextDialogue.background
-            };
-        }
-    };
 
     useEffect(() => {
         const interval = setInterval(async () => {
@@ -108,14 +36,11 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
         return () => clearInterval(interval);
     }, []);
 
-    async function sendSign() {
-        //서버 연결
+    const sendSign = async () => {
         try {
             const response = await fetch('/send', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: 'sign' })
             });
 
@@ -127,9 +52,80 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
         } catch (error) {
             console.error('Error:', error);
         }
-    }
+    };
 
-    
+    const getRouteFromQuery = useCallback(() => {
+        const params = new URLSearchParams(location.search);
+        return params.get('route');
+    }, [location]);
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setShowImage(false);
+            setShowButtons(true);
+        }, 2000);
+
+        return () => clearTimeout(timeout);
+    }, []);
+
+    const advanceDialogue = useCallback(() => {
+        setCurrentIndex(prevIndex => {
+            const newIndex = Math.min(prevIndex + 1, routeData.length - 1);
+            if (routeData[newIndex]?.select) {
+                setShowContainer2(true);
+            } else if (newIndex === routeData.length - 1) {
+                const route = getRouteFromQuery();
+                navigate(`/${chapter}?route=${route}`);
+            }
+            return newIndex;
+        });
+    }, [routeData, getRouteFromQuery, navigate, chapter]);
+
+    const retreatDialogue = useCallback(() => {
+        setCurrentIndex(prevIndex => Math.max(prevIndex - 1, 0));
+    }, []);
+
+    useEffect(() => {
+        const handleKeyPress = (event) => {
+            const { key } = event;
+            const currentDialogue = routeData[currentIndexRef.current];
+
+            if (!confirmation && currentDialogue.text === "어??? 민들레?!!") return;
+
+            if (key === 'Enter' || key === ' ' || key === 'ArrowRight') {
+                advanceDialogue();
+            } else if (key === 'ArrowLeft') {
+                retreatDialogue();
+            }
+        };
+
+        document.addEventListener('keydown', handleKeyPress);
+
+        return () => {
+            document.removeEventListener('keydown', handleKeyPress);
+        };
+    }, [advanceDialogue, retreatDialogue, confirmation]);
+
+    const getNextDialogue = () => {
+        const nextDialogue = routeData[currentIndex];
+        if (nextDialogue.text === "어??? 민들레?!!" && !confirmation) {
+            return {
+                name: "",
+                text: "",
+                img: "",
+                window: "",
+                background: "./images/background/background_phoneGuide.png"
+            };
+        } else {
+            return {
+                name: nextDialogue.name,
+                text: nextDialogue.text,
+                img: nextDialogue.img,
+                window: nextDialogue.window,
+                background: nextDialogue.background
+            };
+        }
+    };
 
     const { name, text, img, window, background } = getNextDialogue();
 
@@ -167,35 +163,35 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
                     <div className={styles.nameAndDialogue}>
                         <div className={styles.name}>{name}</div>
                         <div className={styles.dialogue}>{text}</div>
-                        <button className={styles.next} onClick={handleButtonClick}></button>
+                        <button className={styles.next}></button>
                     </div>
                 </div>
             ) : (
                 <div className={styles.container2}>
-          <img src={`./images/${silhouette}/${silhouette}_silhouette.png`} className={styles.silhouette} alt="실루엣" />
-          <div className={styles.selectImgDiv}>
-            {showImage && (
-              <img src="./images/effect/optionImg.png" className={`${styles.selectImg} ${showImage ? 'show' : ''}`} alt="선택지 발생" />
-            )}
-          </div>
-          {showButtons && (
-            <div className={styles.selectButtons}>
-              <button className={styles.selectButton} onClick={handleChoice} value={'select1'}>
-                <p>{select1}</p>
-              </button>
-              <button className={styles.selectButton} onClick={handleChoice} value={'select2'}>
-                <p>{select2}</p>
-              </button>
-            </div>
-          )}
-        </div>
+                    <img src="./images/Baekleehyun/Baekleehyun_silhouette.png" className={styles.silhouette} alt="Silhouette" />
+                    <div className={styles.selectImgDiv}>
+                        {showImage && (
+                            <img
+                                src="./images/optionImg.png"
+                                className={`${styles.selectImg} ${showImage ? 'show' : ''}`}
+                                alt="Option Image"
+                            />
+                        )}
+                    </div>
+                    {showButtons && (
+                        <div className={styles.selectButtons}>
+                            <button className={styles.selectButton} onClick={handleChoice} value="select1">
+                                <p>{select1}</p>
+                            </button>
+                            <button className={styles.selectButton} onClick={handleChoice} value="select2">
+                                <p>{select2}</p>
+                            </button>
+                        </div>
+                    )}
+                </div>
             )}
         </>
     );
 }
-
-
-
-
 
 export default Dialogue;
