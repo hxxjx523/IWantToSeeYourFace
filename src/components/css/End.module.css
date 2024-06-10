@@ -117,3 +117,15 @@
     z-index: 2;
     right: 0;
 }
+
+.home{
+    background-image: url(/public/images/button/nextBtn.png);
+    background-color: transparent;
+    border: 0;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+}

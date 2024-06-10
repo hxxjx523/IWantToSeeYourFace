@@ -52,9 +52,22 @@
 
 .right{
     background-image: url(/public/images/button/leftBtn.svg);
+    background-color: transparent;
+    border: 0;
     width: 100px;
     height: 100px;
     position: absolute;
     right: 0;
     margin-top: 25%;
+}
+.left{
+    background-image: url(/public/images/button/rightBtn.svg);
+    background-color: transparent;
+    border: 0;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 0;
+    margin-top: 25%;
+    margin-left: 40px;
 }
