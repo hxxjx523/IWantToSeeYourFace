@@ -3,8 +3,11 @@
 
 ## 🎵Music
 < 브금대통령 ><br/>
-Pink Rabbit : https://www.youtube.com/watch?v=lnEC-0NaGWM<br/>
-치즈케이크 : https://www.youtube.com/watch?v=MLwAPVzrRkw
+Pink Rabbit : https://youtu.be/lnEC-0NaGWM<br/>
+치즈케이크 : https://youtu.be/MLwAPVzrRkw<br/>
+딱따구리 : https://youtu.be/gm7u5qrYSH0<br/>
+선량한 시민이 죽었습니다 : https://youtu.be/UmXoV2Rhku8<br/>
+공포라디오 : https://youtu.be/Ck1150pvBg0<br/>
 <br/><br/>
 
 ## 🎨Image
