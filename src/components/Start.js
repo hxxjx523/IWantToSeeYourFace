@@ -37,7 +37,7 @@ export default function Start() {
 
     return (
         <div id={styles.background}>
-                <button className={styles.MusicBtn} onClick={handleMusicClick}><img src="./images/music-note-beamed.svg" alt="" width="30px"/></button>
+                <button className={styles.MusicBtn} onClick={handleMusicClick}><img src="./images/music-note-beamed.svg"width="30px"/></button>
             <div className={styles.btn}>
                 <button className={styles.StartBtn} onClick={handleStartClick}></button>
                 <button className={styles.EndingCntBtn} onClick={handleEndingCount}></button>

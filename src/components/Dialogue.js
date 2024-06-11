@@ -157,9 +157,9 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
         <>
             {!showContainer2 ? (
                 <div className={styles.container1}>
-                    <img src={background} className={styles.background} alt="Background" />
-                    <img src={img} className={styles.kimyeojuImg} alt="Character" />
-                    <img src={window} className={styles.dialogueWindow1} alt="Dialogue Window" />
+                    <img src={background} className={styles.background}/>
+                    <img src={img} className={styles.kimyeojuImg}/>
+                    <img src={window} className={styles.dialogueWindow1}/>
                     <div className={styles.nameAndDialogue}>
                         <div className={styles.name}>{name}</div>
                         <div className={styles.dialogue}>{text}</div>
@@ -168,10 +168,10 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
                 </div>
             ) : (
                 <div className={styles.container2}>
-                    <img src={`./images/${silhouette}/${silhouette}_silhouette.png`} className={styles.silhouette} alt="실루엣" />
+                    <img src={`./images/${silhouette}/${silhouette}_silhouette.png`} className={styles.silhouette}/>
                     <div className={styles.selectImgDiv}>
                         {showImage && (
-                        <img src="./images/effect/optionImg.png" className={`${styles.selectImg} ${showImage ? 'show' : ''}`} alt="선택지 발생" />
+                        <img src="./images/effect/optionImg.png" className={`${styles.selectImg} ${showImage ? 'show' : ''}`}/>
                         )}
                     </div>
                     {showButtons && (

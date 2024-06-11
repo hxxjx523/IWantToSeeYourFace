@@ -48,9 +48,9 @@ function EndingDialogue({ routeData, onDialogueEnd }) {
 
     return (
         <div className={`${styles.container1} ${isExiting ? styles.fadeOut : ''}`}>
-            <img src={background} className={styles.background} alt="Background" />
-            <img src={img} className={styles.kimyeojuImg} alt="Character" />
-            <img src={window} className={styles.dialogueWindow1} alt="Dialogue Window" />
+            <img src={background} className={styles.background}/>
+            <img src={img} className={styles.kimyeojuImg}/>
+            <img src={window} className={styles.dialogueWindow1}/>
             <div className={styles.nameAndDialogue}>
                 <div className={styles.name}>{name}</div>
                 <div className={styles.dialogue}>{text}</div>
