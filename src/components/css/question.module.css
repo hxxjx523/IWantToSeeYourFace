@@ -13,6 +13,7 @@
     background-image: url(/public/images/extra/magicHat.png);
     width: 850px;
     height: 700px;
+    margin: 30px 0;
 }
 
 .radioLabel {
@@ -32,6 +33,10 @@
 }
 
 .radioLabel input[type="radio"]:checked + span {
+    color: #fff;
+}
+
+.radioLabel input[type="radio"]:hover + span {
     color: #fff;
 }
   

@@ -8,6 +8,36 @@
   position: absolute;
 }
 
+.gameStart{
+  background-image: url(/public/images/background/background_gameStart.png);
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.button{
+  width: 394px;
+  height: 123px;
+  color: #fff;
+  font-size: 70px;
+  border-radius: 10px;
+  border: 0;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 100px
+  }
+  
+.button.playBtn1{
+  background-color: #380F6D;
+}
+  
+.button.playBtn2{
+  background-color: #acacac;
+  font-size: 50px;
+}
+
 .btn{
   position: absolute;
   left: 3em;
