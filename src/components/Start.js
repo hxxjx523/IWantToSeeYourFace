@@ -32,18 +32,25 @@ export default function Start() {
             audioRef.current.currentTime = 0; 
             setAudioPlayed(false); 
         }
+
+        setShowBackground(true);
+        setTimer(5); // 타이머 초기화 및 시작
+        setIsButtonEnabled(false); // 버튼 비활성화
         
-        setShowBackground(true)
-        if (timer > 0) {
-            const countdown = setTimeout(() => {
-              setTimer(timer - 1);
-            }, 1000);
-      
-            return () => clearTimeout(countdown);
-          } else {
-            setIsButtonEnabled(true);
-          }
+       
     }
+    
+    useEffect(() => {
+        let countdown;
+        if (showBackground && timer > 0) {
+          countdown = setTimeout(() => {
+            setTimer(timer - 1);
+          }, 1000);
+        } else if (timer === 0) {
+          setIsButtonEnabled(true);
+        }
+        return () => clearTimeout(countdown);
+      }, [showBackground, timer]);
         
         const handleGameStart = () => {
             setShowBackground(false)
