@@ -29,6 +29,7 @@ import DoULikeGame from './components/ChoiJaeYul/DoULikeGame.js';
 import WorstGuest from './components/ChoiJaeYul/WorstGuest.js';
 import ChoiJaeYulGoodEnding from './components/ChoiJaeYul/ChoiJaeYulGoodEnding.js';
 import EndingCount from './EndingCount';
+import Pixel from './components/Pixel.js';
 
 const updateRouteCount = async (route) => {
   try {
@@ -76,6 +77,7 @@ const App = () => {
               <Route path={"/opening"} element={<Opening />}></Route>
               <Route path={"/firstStory"} element={<FirstStory />}></Route>
               <Route path={"/endingCount"} element={<EndingCount />}></Route>
+              <Route path={"/pixel"} element={<Pixel />}></Route>
 
 
               <Route path={"/baekLeeHyunRoute1"} element={<BaekLeeHyunRoute1 />}></Route>

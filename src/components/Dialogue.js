@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import styles from "./css/Dialogue.module.css"; // Import your CSS module
+import Pixel from './Pixel';
 
 function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouette }) {
     const [showImage, setShowImage] = useState(true);
@@ -8,6 +9,7 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showContainer2, setShowContainer2] = useState(false);
     const [confirmation, setConfirmation] = useState(false);
+    const [showPixel, setShowPixel] = useState(false);
 
     const currentIndexRef = useRef(currentIndex);
     currentIndexRef.current = currentIndex;
@@ -15,26 +17,26 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
     const navigate = useNavigate();
     const location = useLocation();
 
-    useEffect(() => {
-        const interval = setInterval(async () => {
-            try {
-                const response = await fetch('/status');
-                if (response.ok) {
-                    const data = await response.json();
-                    if (data.bothChecked) {
-                        setConfirmation(true);
-                        clearInterval(interval);
-                    }
-                } else {
-                    console.error('Failed to check status');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        }, 3000);
+    // useEffect(() => {
+    //     const interval = setInterval(async () => {
+    //         try {
+    //             const response = await fetch('/status');
+    //             if (response.ok) {
+    //                 const data = await response.json();
+    //                 if (data.bothChecked) {
+    //                     setConfirmation(true);
+    //                     clearInterval(interval);
+    //                 }
+    //             } else {
+    //                 console.error('Failed to check status');
+    //             }
+    //         } catch (error) {
+    //             console.error('Error:', error);
+    //         }
+    //     }, 3000);
 
-        return () => clearInterval(interval);
-    }, []);
+    //     return () => clearInterval(interval);
+    // }, []);
 
     const sendSign = async () => {
         try {
@@ -129,6 +131,47 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
 
     const { name, text, img, window, background } = getNextDialogue();
 
+    //선택지 발생 이미지가 나오면 이미지는 숨기고 버튼이 보이게
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setShowImage(false);
+            setShowButtons(true);
+        }, 2000);
+
+        return () => clearTimeout(timeout);
+    }, []);
+
+
+    //json의 text가 {픽셀이 지나가는 가는 효과}이면 픽셀 컴포넌트를 보여줌
+    useEffect(() => {
+        const currentDialogue = getNextDialogue();
+        if (currentDialogue && currentDialogue.text === "{픽셀이 지나가는 가는 효과}") {
+            console.log(currentDialogue.text)
+            setShowPixel(true);
+            const timer = setTimeout(() => {
+                setShowPixel(false);
+                advanceDialogue();
+            }, 1000); 
+            return () => clearTimeout(timer);
+        }
+    }, [currentIndex, routeData]);
+
+    // 픽셀 지나가는 효과의 이미지를 가져오기 (뒤에 5글자 자름)
+    const route = getRouteFromQuery();
+    const lastThreeChars = route.slice(0, -5);
+
+    let pixelImg = ""
+
+    if(lastThreeChars === "baekLeeHyun"){
+        pixelImg = lastThreeChars
+    }else if(lastThreeChars === "doYoon"){
+        pixelImg = lastThreeChars
+    }else{
+        pixelImg = lastThreeChars
+    }
+
+
+    //현재 루트의 뒤 3글자가 End
     const handleChoice = (event) => {
         const { value } = event.target;
         const currentRoute = location.pathname;
@@ -156,33 +199,41 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
     return (
         <>
             {!showContainer2 ? (
-                <div className={styles.container1}>
-                    <img src={background} className={styles.background} alt="Background" />
-                    <img src={img} className={styles.kimyeojuImg} alt="Character" />
-                    <img src={window} className={styles.dialogueWindow1} alt="Dialogue Window" />
-                    <div className={styles.nameAndDialogue}>
-                        <div className={styles.name}>{name}</div>
-                        <div className={styles.dialogue}>{text}</div>
-                        <button className={styles.next}></button>
+                !showPixel ? (
+                    <div className={styles.container1}>
+                        <img src={background} className={styles.background}/>
+                        <img src={img} className={styles.kimyeojuImg}/>
+                        <img src={window} className={styles.dialogueWindow1}/>
+                        <div className={styles.nameAndDialogue}>
+                            <div className={styles.name}>{name}</div>
+                            <div className={styles.dialogue}>{text}</div>
+                            <button className={styles.next}></button>
+                        </div>
                     </div>
-                </div>
+                ):(  
+                    
+                    <Pixel pixelImg={pixelImg}/>
+                )
             ) : (
                 <div className={styles.container2}>
-                    <img src={`./images/${silhouette}/${silhouette}_silhouette.png`} className={styles.silhouette} alt="실루엣" />
+                    <img src={`./images/${silhouette}/${silhouette}_silhouette.png`} className={styles.silhouette}/>
                     <div className={styles.selectImgDiv}>
                         {showImage && (
-                        <img src="./images/effect/optionImg.png" className={`${styles.selectImg} ${showImage ? 'show' : ''}`} alt="선택지 발생" />
+                            <img
+                                src="./images/optionImg.png"
+                                className={`${styles.selectImg} ${showImage ? 'show' : ''}`}
+                            />
                         )}
                     </div>
                     {showButtons && (
                         <div className={styles.selectButtons}>
-                        <button className={styles.selectButton} onClick={handleChoice} value={'select1'}>
-                            <p>{select1}</p>
-                        </button>
-                        <button className={styles.selectButton} onClick={handleChoice} value={'select2'}>
-                            <p>{select2}</p>
-                        </button>
-                    </div>
+                            <button className={styles.selectButton} onClick={handleChoice} value="select1">
+                                <p>{select1}</p>
+                            </button>
+                            <button className={styles.selectButton} onClick={handleChoice} value="select2">
+                                <p>{select2}</p>
+                            </button>
+                        </div>
                     )}
                 </div>
             )}
