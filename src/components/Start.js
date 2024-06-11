@@ -34,7 +34,16 @@ export default function Start() {
         }
         
         setShowBackground(true)
-        }
+        if (timer > 0) {
+            const countdown = setTimeout(() => {
+              setTimer(timer - 1);
+            }, 1000);
+      
+            return () => clearTimeout(countdown);
+          } else {
+            setIsButtonEnabled(true);
+          }
+    }
         
         const handleGameStart = () => {
             setShowBackground(false)
@@ -45,18 +54,6 @@ export default function Start() {
         const handleEndingCount = () => {
             naviage("/endingCount")
         }
-
-        useEffect(() => {
-            if (timer > 0) {
-              const countdown = setTimeout(() => {
-                setTimer(timer - 1);
-              }, 1000);
-        
-              return () => clearTimeout(countdown);
-            } else {
-              setIsButtonEnabled(true);
-            }
-          }, [timer]);
 
     return (
         <>
