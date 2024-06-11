@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import styles from "./css/Dialogue.module.css"; // Import your CSS module
 
-function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
+function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouette }) {
     const [showImage, setShowImage] = useState(true);
     const [showButtons, setShowButtons] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -168,25 +168,21 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd }) {
                 </div>
             ) : (
                 <div className={styles.container2}>
-                    <img src="./images/Baekleehyun/Baekleehyun_silhouette.png" className={styles.silhouette} alt="Silhouette" />
+                    <img src={`./images/${silhouette}/${silhouette}_silhouette.png`} className={styles.silhouette} alt="실루엣" />
                     <div className={styles.selectImgDiv}>
                         {showImage && (
-                            <img
-                                src="./images/optionImg.png"
-                                className={`${styles.selectImg} ${showImage ? 'show' : ''}`}
-                                alt="Option Image"
-                            />
+                        <img src="./images/effect/optionImg.png" className={`${styles.selectImg} ${showImage ? 'show' : ''}`} alt="선택지 발생" />
                         )}
                     </div>
                     {showButtons && (
                         <div className={styles.selectButtons}>
-                            <button className={styles.selectButton} onClick={handleChoice} value="select1">
-                                <p>{select1}</p>
-                            </button>
-                            <button className={styles.selectButton} onClick={handleChoice} value="select2">
-                                <p>{select2}</p>
-                            </button>
-                        </div>
+                        <button className={styles.selectButton} onClick={handleChoice} value={'select1'}>
+                            <p>{select1}</p>
+                        </button>
+                        <button className={styles.selectButton} onClick={handleChoice} value={'select2'}>
+                            <p>{select2}</p>
+                        </button>
+                    </div>
                     )}
                 </div>
             )}
