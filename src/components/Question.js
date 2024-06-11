@@ -62,7 +62,7 @@ export default function Question() {
   const question = getNextQuestion();
 
   return (
-    <div className={styles.background}>
+        <div className={styles.background}>
         <div className={styles.radio}>
           <label className={styles.radioLabel}>
             <input type="radio" name="answer" value="1" checked={selectedAnswer === "1"} onChange={handleRadioValue} />

@@ -17,26 +17,26 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
     const navigate = useNavigate();
     const location = useLocation();
 
-    // useEffect(() => {
-    //     const interval = setInterval(async () => {
-    //         try {
-    //             const response = await fetch('/status');
-    //             if (response.ok) {
-    //                 const data = await response.json();
-    //                 if (data.bothChecked) {
-    //                     setConfirmation(true);
-    //                     clearInterval(interval);
-    //                 }
-    //             } else {
-    //                 console.error('Failed to check status');
-    //             }
-    //         } catch (error) {
-    //             console.error('Error:', error);
-    //         }
-    //     }, 3000);
+    useEffect(() => {
+        const interval = setInterval(async () => {
+            try {
+                const response = await fetch('/status');
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.bothChecked) {
+                        setConfirmation(true);
+                        clearInterval(interval);
+                    }
+                } else {
+                    console.error('Failed to check status');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }, 3000);
 
-    //     return () => clearInterval(interval);
-    // }, []);
+        return () => clearInterval(interval);
+    }, []);
 
     const sendSign = async () => {
         try {
