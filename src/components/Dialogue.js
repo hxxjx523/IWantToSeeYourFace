@@ -65,11 +65,16 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
     }, [location]);
 
     useEffect(() => {
+        // 선택지 발생 이미지가 나온 후 3초 후에 이미지를 숨기고 버튼을 표시하기 위해 setTimeout 사용
         const timeout = setTimeout(() => {
             setShowImage(false);
-            setShowButtons(true);
-        }, 2000);
+            // 선택지 발생 이미지가 완전히 사라진 후에 버튼을 표시하도록 setTimeout 사용
+            setTimeout(() => {
+                setShowButtons(true);
+            }, 1000); // 1초 뒤에 버튼을 표시
+        }, 3000); // 3초 뒤에 선택지 발생 이미지를 숨김
 
+        // 컴포넌트가 언마운트될 때 timeout을 클리어하여 메모리 누수를 방지
         return () => clearTimeout(timeout);
     }, []);
 
@@ -95,7 +100,7 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
             const { key } = event;
             const currentDialogue = routeData[currentIndexRef.current];
 
-            if (!confirmation && currentDialogue.text === "어??? 민들레?!!") return;
+            // if (!confirmation && currentDialogue.text === "어??? 민들레?!!") return;
             if(flag === true) return;
 
             if (key === 'Enter' || key === ' ' || key === 'ArrowRight') {
@@ -135,16 +140,6 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
 
     const { name, text, img, window, background } = getNextDialogue();
 
-    //선택지 발생 이미지가 나오면 이미지는 숨기고 버튼이 보이게
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-            setShowImage(false);
-            setShowButtons(true);
-        }, 2000);
-
-        return () => clearTimeout(timeout);
-    }, []);
-
 
     //json의 text가 {픽셀이 지나가는 가는 효과}이면 픽셀 컴포넌트를 보여줌
     useEffect(() => {
@@ -177,17 +172,25 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
     }
 
 
-    //현재 루트의 뒤 3글자가 End
     const handleChoice = (event) => {
+        
+        //버튼 클릭 효과음
+        const audio = new Audio('./music/selectionOccurred_music.mp3');
+        audio.play();
+
+        // 선택지 값 가져오기
         const { value } = event.target;
+
+        //루트값 가져오기 (End)
         const currentRoute = location.pathname;
         const lastThreeChars = currentRoute.slice(-3);
-
+        
         if (value === "select1") {
             setShowContainer2(false);
             setShowButtons(false);
             setShowImage(true);
             setCurrentIndex(prevIndex => prevIndex + 1);
+            //현재 루트의 뒤 3글자가 End
             if (lastThreeChars === "End") {
                 navigate(goodEnd);
             }
@@ -202,12 +205,18 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
         }
     }, [text]);
 
+    //홈화면으로
+    const goStart = () => {
+        navigate("/")
+      }
+
     return (
         <>
             {!showContainer2 ? (
                 !showPixel ? (
                     <div className={styles.container1}>
                         <img src={background} className={styles.background}/>
+                        <div className={styles.start} onClick={goStart}></div>
                         <img src={img} className={styles.kimyeojuImg}/>
                         <img src={window} className={styles.dialogueWindow1}/>
                         <div className={styles.nameAndDialogue}>
@@ -220,8 +229,9 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
                     
                     <Pixel pixelImg={pixelImg}/>
                 )
-            ) : (
+                ) : (
                 <div className={styles.container2}>
+                    <div className={styles.start} onClick={goStart}></div>
                     <img src={`./images/${silhouette}/${silhouette}_silhouette.png`} className={styles.silhouette}/>
                     <div className={styles.selectImgDiv}>
                         {showImage && (

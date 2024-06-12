@@ -41,6 +41,20 @@ function Pixel({ pixelImg }) {
         update();
       };
     }, []);
+
+    useEffect(() => {
+      const handleKeyDown = (event) => {
+        // 키보드 입력을 무시
+        event.stopPropagation();
+        event.preventDefault();
+      };
+  
+      window.addEventListener('keydown', handleKeyDown, true);
+  
+      return () => {
+        window.removeEventListener('keydown', handleKeyDown, true);
+      };
+    }, []);
   
     return <canvas ref={canvasRef}></canvas>;
 }
