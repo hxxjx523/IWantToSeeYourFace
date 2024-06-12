@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import styles from "./css/Dialogue.module.css"; // Import your CSS module
 import Pixel from './Pixel';
+import { keyboard } from '@testing-library/user-event/dist/keyboard';
 
 function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouette }) {
     const [showImage, setShowImage] = useState(true);
@@ -16,6 +17,8 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
 
     const navigate = useNavigate();
     const location = useLocation();
+
+    let flag = false;
 
     useEffect(() => {
         const interval = setInterval(async () => {
@@ -93,6 +96,7 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
             const currentDialogue = routeData[currentIndexRef.current];
 
             if (!confirmation && currentDialogue.text === "어??? 민들레?!!") return;
+            if(flag === true) return;
 
             if (key === 'Enter' || key === ' ' || key === 'ArrowRight') {
                 advanceDialogue();
@@ -151,7 +155,9 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
             const timer = setTimeout(() => {
                 setShowPixel(false);
                 advanceDialogue();
+                flag = true;
             }, 1000); 
+            flag = false;
             return () => clearTimeout(timer);
         }
     }, [currentIndex, routeData]);
