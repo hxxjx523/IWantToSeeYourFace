@@ -11,6 +11,8 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
     const [showContainer2, setShowContainer2] = useState(false);
     const [confirmation, setConfirmation] = useState(false);
     const [showPixel, setShowPixel] = useState(false);
+    const [displayText, setDisplayText] = useState('');
+    const [isTyping, setIsTyping] = useState(false);
 
     const currentIndexRef = useRef(currentIndex);
     currentIndexRef.current = currentIndex;
@@ -103,8 +105,6 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
         setCurrentIndex(prevIndex => Math.max(prevIndex - 1, 0));
     }, []);
 
-    
-
     useEffect(() => {
         const handleKeyPress = (event) => {
             const { key } = event;
@@ -113,7 +113,11 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
             // if (!confirmation && currentDialogue.text === "어??? 민들레?!!") return;
 
             if (key === 'Enter' || key === ' ' || key === 'ArrowRight') {
-                advanceDialogue();
+                if (!isTyping) {
+                    advanceDialogue();
+                } else {
+                    setIsTyping(false); // 현재 타이핑 중이면 전체 텍스트를 바로 표시
+                }
             } else if (key === 'ArrowLeft') {
                 retreatDialogue();
             }
@@ -124,7 +128,7 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
         return () => {
             document.removeEventListener('keydown', handleKeyPress);
         };
-    }, [advanceDialogue, retreatDialogue, confirmation]);
+    }, [advanceDialogue, retreatDialogue, confirmation, isTyping]);
 
     const getNextDialogue = () => {
         const nextDialogue = routeData[currentIndex];
@@ -147,7 +151,32 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
         }
     };
 
-    const { name, text, img, window, background } = getNextDialogue();
+    const typeText = useCallback((text) => {
+        setIsTyping(true);
+        let index = 0;
+        const interval = setInterval(() => {
+            if (!isTyping) {
+                clearInterval(interval);
+                setDisplayText(text);
+                return;
+            }
+            if (index < text.length) {
+                setDisplayText(prev => prev + text.charAt(index));
+                index++;
+            } else {
+                clearInterval(interval);
+                setIsTyping(false);
+            }
+        }, 50); // 글자가 출력되는 속도 조정
+    }, [isTyping]);
+
+    useEffect(() => {
+        const { text } = getNextDialogue();
+        setDisplayText(''); // 이전 텍스트 초기화
+        typeText(text);
+    }, [currentIndex, typeText]);
+
+    const { name, img, window, background } = getNextDialogue();
 
 
     //json의 text가 {픽셀이 지나가는 가는 효과}이면 픽셀 컴포넌트를 보여줌
@@ -228,7 +257,7 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
                         <img src={window} className={styles.dialogueWindow1}/>
                         <div className={styles.nameAndDialogue}>
                             <div className={styles.name}>{name}</div>
-                            <div className={styles.dialogue}>{text}</div>
+                            <div className={styles.dialogue}>{displayText}</div>
                             <button className={styles.next}></button>
                         </div>
                     </div>
