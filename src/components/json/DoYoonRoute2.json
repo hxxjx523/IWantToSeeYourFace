@@ -15,7 +15,7 @@
     {"name": "ㅤ", "text": "시끄러운 소리에 깨서 눈을 떴다.", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_KimyeojuRoom.png"},
     {"name": "ㅤ", "text": "어?", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_KimyeojuRoom.png"},
     {"name": "ㅤ", "text": "아침 햇살이 내 얼굴을 내리쬔다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_KimyeojuRoom.png"},
-    {"name": "알람시계", "text": "삐비빅! 삐비빅!", "img": "", "window": "./images/dialogueWindow/Extra_dialogueWindow.png", "background": "./images/background/background_KimyeojuRoom.png"},
+    {"name": "알람시계", "text": "삐비빅! 삐비빅!", "img": "./images/alarm/alarmclock.png", "window": "./images/dialogueWindow/Extra_dialogueWindow.png", "background": "./images/background/background_KimyeojuRoom.png"},
     {"name": "ㅤ", "text": "어????? 이건 알람소리???", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_KimyeojuRoom.png"},
     {"name": "ㅤ", "text": "아침이다.. 나 밥 먹고 바로 잠든거야?", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_KimyeojuRoom.png"},
     {"name": "ㅤ", "text": "하.. 그래도 학교는 가야겠지?", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_KimyeojuRoom.png"},
@@ -72,7 +72,7 @@
     {"name": "도윤", "text": "음.. 어쩌지", "img": "./images/Doyoon/Doyoon_face2-1.png", "window": "./images/dialogueWindow/Doyoon_dialogueWindow.png", "background": "./images/background/background_DoyoonRoom.png"},
     {"name": "김여주", "text": "만들어 먹을래? 어릴 때 자주 했잖아", "img": "./images/Kimyeoju/Kimyeoju_face1.png", "window": "./images/dialogueWindow/Kimyeoju_dialogueWindow1.png", "background": "./images/background/background_DoyoonRoom.png"},
     {"name": "도윤", "text": "응? 그래", "img": "./images/Doyoon/Doyoon_face2-1.png", "window": "./images/dialogueWindow/Doyoon_dialogueWindow.png", "background": "./images/background/background_DoyoonRoom.png"},
-    {"name": "도윤", "text": "도윤은 쿨하게 수락하고 부엌으로 안내했다", "img": "./images/Doyoon/Doyoon_face2-1.png", "window": "./images/dialogueWindow/Doyoon_dialogueWindow.png", "background": "./images/background/background_DoyoonRoom.png"},
+    {"name": "", "text": "도윤은 쿨하게 수락하고 부엌으로 안내했다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_DoyoonRoom.png"},
     {"name": "도윤", "text": "여기 앞치마", "img": "./images/Doyoon/Doyoon_face2-1.png", "window": "./images/dialogueWindow/Doyoon_dialogueWindow.png", "background": "./images/background/background_kitchen.png"},
     {"name": "ㅤ", "text": "", "img": "", "window": "", "background": ""}
 ]

@@ -25,8 +25,8 @@ function Ending({ endTitle, endContent, background }) {
         };
     }, []);
 
-    const handleHome = () => {
-        navigate("/")
+    const endingCount = () => {
+        navigate("/endingCount")
     }
 
     return (
@@ -40,7 +40,7 @@ function Ending({ endTitle, endContent, background }) {
                 </div>
             )}
             {buttonVisible && (
-                <button className={styles.home} onClick={handleHome}></button>
+                <button className={styles.home} onClick={endingCount}></button>
             )}
         </div>
     );

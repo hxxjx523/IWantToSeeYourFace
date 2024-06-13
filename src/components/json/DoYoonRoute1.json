@@ -13,7 +13,7 @@
     {"name": "ㅤ", "text": "지각은 아닌 것 같다!", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background":"./images/background/background_class.png"},
     {"name": "ㅤ", "text": "재빨리 내 이름이 적힌 책상에 앉았다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background":"./images/background/background_class.png"},
     {"name": "ㅤ", "text": "자리에 앉으니 담임으로 보이는 선생님이 들어왔다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background":"./images/background/background_class.png"},
-    {"name": "담임 선생", "text": "자~ 여러분 앉으시고, 저는 이번 담임을 맡은 …", "img": "", "window": "./images/dialogueWindow/Extra_dialogueWindow.png", "background":"./images/background/background_class.png"},
+    {"name": "담임선생", "text": "자~ 여러분 앉으시고, 저는 이번 담임을 맡은 …", "img": "./images/extra/extra.png", "window": "./images/dialogueWindow/Extra_dialogueWindow.png", "background":"./images/background/background_class.png"},
     {"name": "ㅤ", "text": "이렇게 다사다난한 하루가 지나가 새학기가 시작되었다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background":"./images/background/background_class.png"},
     {"name": "ㅤ", "text": "", "img": "", "window": "", "background":"./images/background/background_school.png"}
 ]

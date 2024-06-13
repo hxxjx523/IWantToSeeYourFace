@@ -18,46 +18,44 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
     const navigate = useNavigate();
     const location = useLocation();
 
-    let flag = false;
+    // useEffect(() => {
+    //     const interval = setInterval(async () => {
+    //         try {
+    //             const response = await fetch('/status');
+    //             if (response.ok) {
+    //                 const data = await response.json();
+    //                 if (data.bothChecked) {
+    //                     setConfirmation(true);
+    //                     clearInterval(interval);
+    //                 }
+    //             } else {
+    //                 console.error('Failed to check status');
+    //             }
+    //         } catch (error) {
+    //             console.error('Error:', error);
+    //         }
+    //     }, 3000);
 
-    useEffect(() => {
-        const interval = setInterval(async () => {
-            try {
-                const response = await fetch('/status');
-                if (response.ok) {
-                    const data = await response.json();
-                    if (data.bothChecked) {
-                        setConfirmation(true);
-                        clearInterval(interval);
-                    }
-                } else {
-                    console.error('Failed to check status');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        }, 3000);
+    //     return () => clearInterval(interval);
+    // }, []);
 
-        return () => clearInterval(interval);
-    }, []);
+    // const sendSign = async () => {
+    //     try {
+    //         const response = await fetch('/send', {
+    //             method: 'POST',
+    //             headers: { 'Content-Type': 'application/json' },
+    //             body: JSON.stringify({ message: 'sign' })
+    //         });
 
-    const sendSign = async () => {
-        try {
-            const response = await fetch('/send', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message: 'sign' })
-            });
-
-            if (response.ok) {
-                console.log('Message sent successfully');
-            } else {
-                console.error('Failed to send message');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    };
+    //         if (response.ok) {
+    //             console.log('Message sent successfully');
+    //         } else {
+    //             console.error('Failed to send message');
+    //         }
+    //     } catch (error) {
+    //         console.error('Error:', error);
+    //     }
+    // };
 
     const getRouteFromQuery = useCallback(() => {
         const params = new URLSearchParams(location.search);
@@ -65,21 +63,31 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
     }, [location]);
 
     useEffect(() => {
-        // 선택지 발생 이미지가 나온 후 3초 후에 이미지를 숨기고 버튼을 표시하기 위해 setTimeout 사용
-        const timeout = setTimeout(() => {
-            setShowImage(false);
-            // 선택지 발생 이미지가 완전히 사라진 후에 버튼을 표시하도록 setTimeout 사용
-            setTimeout(() => {
-                setShowButtons(true);
-            }, 1000); // 1초 뒤에 버튼을 표시
-        }, 3000); // 3초 뒤에 선택지 발생 이미지를 숨김
+        if (showContainer2) {
+            // 선택지 발생 이미지가 나온 후 3초 후에 이미지를 숨기고 버튼을 표시하기 위해 setTimeout 사용
+            const timeout1 = setTimeout(() => {
+                setShowImage(false);
 
-        // 컴포넌트가 언마운트될 때 timeout을 클리어하여 메모리 누수를 방지
-        return () => clearTimeout(timeout);
-    }, []);
+                // 선택지 발생 이미지가 완전히 사라진 후에 버튼을 표시하도록 setTimeout 사용
+                const timeout2 = setTimeout(() => {
+                    setShowButtons(true);
+                }, 1000); // 1초 뒤에 버튼을 표시
+              
+                // 컴포넌트가 언마운트될 때 두 번째 timeout을 클리어하여 메모리 누수를 방지
+                return () => clearTimeout(timeout2);
+            }, 3000); // 3초 뒤에 선택지 발생 이미지를 숨김
+
+            // 컴포넌트가 언마운트될 때 첫 번째 timeout을 클리어하여 메모리 누수를 방지
+            return () => clearTimeout(timeout1);
+        }
+    }, [showContainer2]);
 
     const advanceDialogue = useCallback(() => {
         setCurrentIndex(prevIndex => {
+            if (showContainer2) {
+                return prevIndex; // showContainer2가 true인 경우 인덱스 증가하지 않음
+            }
+
             const newIndex = Math.min(prevIndex + 1, routeData.length - 1);
             if (routeData[newIndex]?.select) {
                 setShowContainer2(true);
@@ -89,11 +97,13 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
             }
             return newIndex;
         });
-    }, [routeData, getRouteFromQuery, navigate, chapter]);
+    }, [showContainer2, routeData, getRouteFromQuery, navigate, chapter]);
 
     const retreatDialogue = useCallback(() => {
         setCurrentIndex(prevIndex => Math.max(prevIndex - 1, 0));
     }, []);
+
+    
 
     useEffect(() => {
         const handleKeyPress = (event) => {
@@ -101,7 +111,6 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
             const currentDialogue = routeData[currentIndexRef.current];
 
             // if (!confirmation && currentDialogue.text === "어??? 민들레?!!") return;
-            if(flag === true) return;
 
             if (key === 'Enter' || key === ' ' || key === 'ArrowRight') {
                 advanceDialogue();
@@ -150,9 +159,7 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
             const timer = setTimeout(() => {
                 setShowPixel(false);
                 advanceDialogue();
-                flag = true;
             }, 1000); 
-            flag = false;
             return () => clearTimeout(timer);
         }
     }, [currentIndex, routeData]);
@@ -201,14 +208,14 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
 
     useEffect(() => {
         if (text === "(핸드폰을 보자)") {
-            sendSign();
+            // sendSign();
         }
     }, [text]);
 
     //홈화면으로
     const goStart = () => {
         navigate("/")
-      }
+    }
 
     return (
         <>
@@ -237,17 +244,17 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
                         {showImage && (
                         <img src="./images/effect/optionImg.png" className={`${styles.selectImg} ${showImage ? 'show' : ''}`}/>
                         )}
+                        {showButtons && (
+                            <div className={styles.selectButtons}>
+                                <button className={styles.selectButton} onClick={handleChoice} value="select1">
+                                    <p>{select1}</p>
+                                </button>
+                                <button className={styles.selectButton} onClick={handleChoice} value="select2">
+                                    <p>{select2}</p>
+                                </button>
+                            </div>
+                        )}
                     </div>
-                    {showButtons && (
-                        <div className={styles.selectButtons}>
-                            <button className={styles.selectButton} onClick={handleChoice} value="select1">
-                                <p>{select1}</p>
-                            </button>
-                            <button className={styles.selectButton} onClick={handleChoice} value="select2">
-                                <p>{select2}</p>
-                            </button>
-                        </div>
-                    )}
                 </div>
             )}
         </>
