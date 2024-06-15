@@ -36,8 +36,6 @@ export default function Start() {
         setShowBackground(true);
         setTimer(5); // 타이머 초기화 및 시작
         setIsButtonEnabled(false); // 버튼 비활성화
-        
-       
     }
     
     useEffect(() => {
@@ -59,6 +57,11 @@ export default function Start() {
 
 
         const handleEndingCount = () => {
+            if(audioPlayed){
+                audioRef.current.pause();
+                audioRef.current.currentTime = 0; 
+                setAudioPlayed(false); 
+            }
             naviage("/endingCount")
         }
 

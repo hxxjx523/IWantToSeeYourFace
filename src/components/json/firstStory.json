@@ -12,8 +12,5 @@
     {"name":"ㅤ","text":"저게 뭐야.. 픽셀? 픽셀아니야?","img":"","window":"./images/dialogueWindow/Nomal_dialogueWindow.png","background":"./images/background/background_school.png"},
     {"name":"ㅤ","text":"{픽셀이 지나가는 가는 효과}","img":"","window":"","background":""},
     {"name":"ㅤ","text":"이거 그 저주인가 뭐시기인가?","img":"","window":"./images/dialogueWindow/Nomal_dialogueWindow.png","background":"./images/background/background_school.png"},
-    {"name":"ㅤ","text":"하… 실화냐고…","img":"","window":"./images/dialogueWindow/Nomal_dialogueWindow.png","background":"./images/background/background_school.png"},
-    {"name":"ㅤ","text":"입학식이라 그런지 학교가 빨리 끝났다.","img":"","window":"./images/dialogueWindow/Nomal_dialogueWindow.png","background":"./images/background/background_school.png"},
-    {"name":"ㅤ","text":"나는 집에 가서 내 방 침대에 누웠다.","img":"","window":"./images/dialogueWindow/Nomal_dialogueWindow.png","background":"./images/background/background_KimyeojuRoom.png"},
-    {"name": "ㅤ", "text": "", "img": "", "window": "", "background": ""}
+    {"name":"ㅤ","text":"하… 실화냐고…","img":"","window":"./images/dialogueWindow/Nomal_dialogueWindow.png","background":"./images/background/background_school.png"}
 ]
