@@ -3,14 +3,6 @@ import "./css/all.css";
 import opening from './json/opening.json'; 
 import Dialogue from "./Dialogue";
 function Opening() {
-    useEffect(() => {
-      if (audioRef.current) {
-        audioRef.current.play().catch(error => {
-          console.error('자동 재생 실패:', error);
-        });
-      }
-    }, []);
-
     return (
           <Dialogue routeData={opening} chapter={"firstStory"}/>
     );
