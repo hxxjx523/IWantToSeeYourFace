@@ -9,7 +9,7 @@ function BaekLeeHyunRouteEnd() {
     const select2 = "하하, 저는 그런 거에 관여하지 않습니다, 선배님.";
 
     const end = "/GoodStudentCouncil"
-    const goodEnd = "/BaekLeeHyunGoodEnding"
+    const goodEnd = "/baekLeeHyunGoodEnding"
     const silhouette = "baekLeeHyun"
     return (
         <>

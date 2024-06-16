@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-route
 import { doc, getDoc, setDoc, updateDoc, increment } from 'firebase/firestore';
 import { db } from './firebase';
 
+import AutoRedirect from './components/AutoRedirect';
+
 import Start from './components/Start.js';
 import Question from './components/Question';
 import Opening from './components/Opening'
@@ -70,6 +72,7 @@ const App = () => {
     <div className="App">
      
     <Router>
+      <AutoRedirect>
       <RouteCounter />
           <Routes>
               <Route path={"/"} element={<Start />}></Route>
@@ -104,6 +107,7 @@ const App = () => {
               <Route path={"/chapter2"} element={<Chapter2 />}></Route>
               <Route path={"/chapter3"} element={<Chapter3 />}></Route>
             </Routes>
+            </AutoRedirect>
         </Router>
       </div>
   );

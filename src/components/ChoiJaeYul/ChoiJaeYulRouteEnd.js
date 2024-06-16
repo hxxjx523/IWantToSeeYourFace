@@ -8,7 +8,7 @@ function ChoiJaeYulRouteEnd() {
     const select2 = "궁금하니깐 책장의 책을 본다";
 
     const end = "/WorstGuest"
-    const goodEnd = "/ChoiJaeYulGoodEnding"
+    const goodEnd = "/choiJaeYulGoodEnding"
     const silhouette = "choiJaeYul"
     return (
         <>

@@ -9,7 +9,7 @@ function DoYoonRouteEnd() {
     const select2 = "250도에 10분";
 
     const end = "/badCook"
-    const goodEnd = "/DoyoonGoodEnding"
+    const goodEnd = "/doYoonGoodEnding"
     const silhouette = "Doyoon"
 
     return (
