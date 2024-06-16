@@ -3,8 +3,6 @@ import "./css/all.css";
 import opening from './json/opening.json'; 
 import Dialogue from "./Dialogue";
 function Opening() {
-    const audioRef = useRef(null);
-
     useEffect(() => {
       if (audioRef.current) {
         audioRef.current.play().catch(error => {
@@ -14,10 +12,7 @@ function Opening() {
     }, []);
 
     return (
-        <>
-        <Dialogue routeData={opening} chapter={"firstStory"}/>
-        <audio ref={audioRef} src="./music/story_music1.mp3" />
-        </>
+          <Dialogue routeData={opening} chapter={"firstStory"}/>
     );
 }
 

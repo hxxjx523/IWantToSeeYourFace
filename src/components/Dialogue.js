@@ -5,6 +5,7 @@ import Pixel from './Pixel';
 import { keyboard } from '@testing-library/user-event/dist/keyboard';
 
 function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouette }) {
+    
     const [showImage, setShowImage] = useState(true);
     const [showButtons, setShowButtons] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -20,44 +21,38 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
     const navigate = useNavigate();
     const location = useLocation();
 
-    // useEffect(() => {
-    //     const interval = setInterval(async () => {
-    //         try {
-    //             const response = await fetch('/status');
-    //             if (response.ok) {
-    //                 const data = await response.json();
-    //                 if (data.bothChecked) {
-    //                     setConfirmation(true);
-    //                     clearInterval(interval);
-    //                 }
-    //             } else {
-    //                 console.error('Failed to check status');
-    //             }
-    //         } catch (error) {
-    //             console.error('Error:', error);
-    //         }
-    //     }, 3000);
+    useEffect(() => {
+        const interval = setInterval(async () => {
+            try {
+                const response = await fetch('/status');
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.bothChecked) {
+                        setConfirmation(true);
+                        clearInterval(interval);
+                    }
+                } else {
+                    console.error('Failed to check status');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }, 3000);
 
-    //     return () => clearInterval(interval);
-    // }, []);
+        return () => clearInterval(interval);
+    }, []);
 
-    // const sendSign = async () => {
-    //     try {
-    //         const response = await fetch('/send', {
-    //             method: 'POST',
-    //             headers: { 'Content-Type': 'application/json' },
-    //             body: JSON.stringify({ message: 'sign' })
-    //         });
-
-    //         if (response.ok) {
-    //             console.log('Message sent successfully');
-    //         } else {
-    //             console.error('Failed to send message');
-    //         }
-    //     } catch (error) {
-    //         console.error('Error:', error);
-    //     }
-    // };
+    const sendSign = async () => {
+        try {
+            const response = await fetch('/send', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: 'sign' })
+            });
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
 
     const getRouteFromQuery = useCallback(() => {
         const params = new URLSearchParams(location.search);
@@ -110,7 +105,7 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
             const { key } = event;
             const currentDialogue = routeData[currentIndexRef.current];
 
-            // if (!confirmation && currentDialogue.text === "어??? 민들레?!!") return;
+            if (!confirmation && currentDialogue.text === "어??? 민들레?!!") return;
 
             if (key === 'Enter' || key === ' ' || key === 'ArrowRight') {
                 advanceDialogue();
@@ -204,11 +199,11 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
         }
     };
 
-    // useEffect(() => {
-    //     if (text === "(핸드폰을 보자)") {
-    //         // sendSign();
-    //     }
-    // }, [text]);
+    useEffect(() => {
+        if (text === "(핸드폰을 보자)") {
+            sendSign();
+        }
+    }, [text]);
 
     //홈화면으로
     const goStart = () => {

@@ -32,7 +32,8 @@ export default function Start() {
             audioRef.current.currentTime = 0; 
             setAudioPlayed(false); 
         }
-
+        sendReset1();
+        sendReset2();
         setShowBackground(true);
         setTimer(5); // 타이머 초기화 및 시작
         setIsButtonEnabled(false); // 버튼 비활성화
@@ -64,6 +65,30 @@ export default function Start() {
             }
             naviage("/endingCount")
         }
+
+        const sendReset1 = async () => {
+            try {
+                const response = await fetch('/send', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: '' })
+                });
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+
+        const sendReset2 = async () => {
+            try {
+                const response = await fetch('/sign', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: '' })
+                });
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
 
     return (
         <>

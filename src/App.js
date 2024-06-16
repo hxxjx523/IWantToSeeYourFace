@@ -79,7 +79,6 @@ const App = () => {
               <Route path={"/endingCount"} element={<EndingCount />}></Route>
               <Route path={"/pixel"} element={<Pixel />}></Route>
 
-
               <Route path={"/baekLeeHyunRoute1"} element={<BaekLeeHyunRoute1 />}></Route>
               <Route path={"/baekLeeHyunRoute2"} element={<BaekLeeHyunRoute2 />}></Route>
               <Route path={"/baekLeeHyunRouteEnd"} element={<BaekLeeHyunRouteEnd />}></Route>
@@ -100,9 +99,6 @@ const App = () => {
               <Route path={"/doULikeGame"} element={<DoULikeGame />}></Route>
               <Route path={"/worstGuest"} element={<WorstGuest />}></Route>
               <Route path={"/choiJaeYulGoodEnding"} element={<ChoiJaeYulGoodEnding />}></Route>
-
-
-
 
               <Route path={"/chapter1"} element={<Chapter1 />}></Route>
               <Route path={"/chapter2"} element={<Chapter2 />}></Route>
