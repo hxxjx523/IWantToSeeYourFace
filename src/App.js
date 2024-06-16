@@ -30,7 +30,7 @@ import ChoiJaeYulRouteEnd from './components/ChoiJaeYul/ChoiJaeYulRouteEnd.js';
 import DoULikeGame from './components/ChoiJaeYul/DoULikeGame.js';
 import WorstGuest from './components/ChoiJaeYul/WorstGuest.js';
 import ChoiJaeYulGoodEnding from './components/ChoiJaeYul/ChoiJaeYulGoodEnding.js';
-import EndingCount from './EndingCount';
+import EndingCount from './components/EndingCount';
 import Pixel from './components/Pixel.js';
 
 const updateRouteCount = async (route) => {

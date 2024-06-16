@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { doc, getDoc, collection, getDocs } from 'firebase/firestore';
-import { db } from './firebase';
+import { db } from '../firebase';
 
-import styles from './components/css/endingCount.module.css'
+import styles from '../components/css/endingCount.module.css'
 import { useNavigate } from 'react-router-dom';
 
 function EndingCount(){
