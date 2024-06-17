@@ -5,33 +5,12 @@ import styles from "./css/start.module.css";
 
 export default function Start() {
     const naviage = useNavigate();
-    const [audioPlayed, setAudioPlayed] = useState(false);
-    const audioRef = useRef(null);
     
   const [showBackground, setShowBackground] = useState(false)
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
   const [timer, setTimer] = useState(5);
 
-    const handleMusicClick = () => {
-        if (!audioPlayed) {
-            const audio = new Audio('./music/title_music.mp3'); 
-            audio.loop = true; 
-            audio.play(); 
-            audioRef.current = audio; 
-            setAudioPlayed(true); 
-        }else{
-            audioRef.current.pause();
-            audioRef.current.currentTime = 0; 
-            setAudioPlayed(false); 
-        }
-    };
-
     const handleStartClick = () => {
-        if(audioPlayed){
-            audioRef.current.pause();
-            audioRef.current.currentTime = 0; 
-            setAudioPlayed(false); 
-        }
         sendReset1();
         sendReset2();
         setShowBackground(true);
@@ -58,11 +37,6 @@ export default function Start() {
 
 
         const handleEndingCount = () => {
-            if(audioPlayed){
-                audioRef.current.pause();
-                audioRef.current.currentTime = 0; 
-                setAudioPlayed(false); 
-            }
             naviage("/endingCount")
         }
 
@@ -94,7 +68,6 @@ export default function Start() {
         <>
             {!showBackground ? (
                 <div id={styles.background}>
-                        <button className={styles.MusicBtn} onClick={handleMusicClick}><img src="./images/music-note-beamed.svg" alt="" width="30px"/></button>
                     <div className={styles.btn}>
                         <button className={styles.StartBtn} onClick={handleStartClick}></button>
                         <button className={styles.EndingCntBtn} onClick={handleEndingCount}></button>

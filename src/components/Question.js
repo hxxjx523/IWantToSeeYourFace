@@ -54,16 +54,6 @@ export default function Question() {
     }
   };
 
-  const audioRef = useRef(null);
-
-    useEffect(() => {
-      if (audioRef.current) {
-        audioRef.current.play().catch(error => {
-          console.error('자동 재생 실패:', error);
-        });
-      }
-    }, []);
-
   useEffect(() => {
     const radioButtons = document.querySelectorAll("input[name='answer']");
     radioButtons.forEach((radio) => (radio.checked = false));
@@ -73,7 +63,6 @@ export default function Question() {
 
   return (
         <div className={styles.background}>
-          <audio ref={audioRef} src="./music/question_music.mp3" />
         <div className={styles.radio}>
           <label className={styles.radioLabel}>
             <input type="radio" name="answer" value="1" checked={selectedAnswer === "1"} onChange={handleRadioValue} />
