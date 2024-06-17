@@ -2,7 +2,7 @@
     {"name": "ㅤ", "text": "그렇게 진짜 최재율의 집에 왔다..", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_ChoijaeyulRoom.png"},
     {"name": "ㅤ", "text": "그리고 최재율의 얼굴이 선명하게 보인다..!", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_ChoijaeyulRoom.png"},
     {"name": "최재율", "text": "잠깐 앉아있어", "img": "./images/Choijaeyul/Choijaeyul_face3-2.png", "window": "./images/dialogueWindow/Choijaeyul_dialogueWindow.png", "background": "./images/background/background_ChoijaeyulRoom.png"},
-    {"name": "김여주", "text": "응..!", "img": "./images/Kimyeoju/Kimyeoju_face5.png", "window": "./images/dialogueWindow/Kimyeoju_dialogueWindow1.png", "background": "./images/background/background_ChoijaeyulRoom.png"},
+    {"name": "김여주", "text": "응..!", "img": "./images/Kimyeoju/Kimyeoju_face5.png", "window": "./images/dialogueWindow/Kimyeoju_dialogueWindow2.png", "background": "./images/background/background_ChoijaeyulRoom.png"},
     {"name": "ㅤ", "text": "최재율은 자신의 방 의자에 나를 앉히고 거실로 나갔다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_ChoijaeyulRoom.png"},
     {"name": "ㅤ", "text": "허.. 저런 얼굴을 가지고 있는지 몰랐다.. 좀 색다른 기분이다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_ChoijaeyulRoom.png"},
     {"name": "ㅤ", "text": "그렇게 가만히 앉아서 방 안을 살펴봤다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_ChoijaeyulRoom.png"},
@@ -10,6 +10,6 @@
     {"name": "ㅤ", "text": "햇빛이 들어오고, 시원한 우디 향이 나고 있다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_ChoijaeyulRoom.png"},
     {"name": "ㅤ", "text": "책장에 수많은 책들이 꽂혀있다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_ChoijaeyulRoom.png"},
     {"name": "ㅤ", "text": "그중에서도 눈에 띄는 파란색의 책이 있다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_ChoijaeyulRoom.png"},
-    {"name": "김여주", "text": "한 번 보고 싶다..!", "img": "./images/Kimyeoju/Kimyeoju_face5.png", "window": "./images/dialogueWindow/Kimyeoju_dialogueWindow1.png", "background": "./images/background/background_ChoijaeyulRoom.png"},
+    {"name": "김여주", "text": "한 번 보고 싶다..!", "img": "./images/Kimyeoju/Kimyeoju_face5.png", "window": "./images/dialogueWindow/Kimyeoju_dialogueWindow3.png", "background": "./images/background/background_ChoijaeyulRoom.png"},
     {"select": true}
 ]

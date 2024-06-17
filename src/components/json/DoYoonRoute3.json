@@ -1,10 +1,10 @@
 [
-    {"name": "김여주", "text": "고마워", "img": "./images/Kimyeoju/Kimyeoju_face1.png", "window": "./images/dialogueWindow/Kimyeoju_dialogueWindow1.png", "background": "./images/background/background_kitchen.png"},
+    {"name": "김여주", "text": "고마워", "img": "./images/Kimyeoju/Kimyeoju_face1.png", "window": "./images/dialogueWindow/Kimyeoju_dialogueWindow2.png", "background": "./images/background/background_kitchen.png"},
     {"name": "ㅤ", "text": "그렇게 요리가 시작됐다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_kitchen.png"},
     {"name": "도윤", "text": "이거 좀 섞어줘", "img": "./images/Doyoon/Doyoon_face2-1.png", "window": "./images/dialogueWindow/Doyoon_dialogueWindow.png", "background": "./images/background/background_kitchen.png"},
-    {"name": "김여주", "text": "어..어 근데 우리 뭐 만드는 거야?", "img": "./images/Kimyeoju/Kimyeoju_face5.png", "window": "./images/dialogueWindow/Kimyeoju_dialogueWindow1.png", "background": "./images/background/background_kitchen.png"},
+    {"name": "김여주", "text": "어..어 근데 우리 뭐 만드는 거야?", "img": "./images/Kimyeoju/Kimyeoju_face5.png", "window": "./images/dialogueWindow/Kimyeoju_dialogueWindow3.png", "background": "./images/background/background_kitchen.png"},
     {"name": "도윤", "text": "쿠키, 간단하게 먹고 엄마한테 부탁하려고", "img": "./images/Doyoon/Doyoon_face2-1.png", "window": "./images/dialogueWindow/Doyoon_dialogueWindow.png", "background": "./images/background/background_kitchen.png"},
-    {"name": "김여주", "text": "오? 그래..", "img": "./images/Kimyeoju/Kimyeoju_face5.png", "window": "./images/dialogueWindow/Kimyeoju_dialogueWindow1.png", "background": "./images/background/background_kitchen.png"},
+    {"name": "김여주", "text": "오? 그래..", "img": "./images/Kimyeoju/Kimyeoju_face5.png", "window": "./images/dialogueWindow/Kimyeoju_dialogueWindow5.png", "background": "./images/background/background_kitchen.png"},
     {"name": "ㅤ", "text": "그렇게 반죽을 하고 틀에 맞춰 모양을 찍은 다음, 오븐에 넣었다", "img": "", "window": "./images/dialogueWindow/Nomal_dialogueWindow.png", "background": "./images/background/background_kitchen.png"},
     {"name": "도윤", "text": "근데 이거 얼마나 구워야 되는 지 알아?", "img": "./images/Doyoon/Doyoon_face2-1.png", "window": "./images/dialogueWindow/Doyoon_dialogueWindow.png", "background": "./images/background/background_kitchen.png"},
     {"select": true}
