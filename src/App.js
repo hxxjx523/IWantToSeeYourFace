@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import { doc, getDoc, setDoc, updateDoc, increment } from 'firebase/firestore';
 import { db } from './firebase';
@@ -7,15 +7,15 @@ import AutoRedirect from './components/AutoRedirect';
 
 import Start from './components/Start.js';
 import Question from './components/Question';
-import Opening from './components/Opening'
-import BaekLeeHyunRoute1 from './components/BaekLeeHyun/BaekLeeHyunRoute1'
-import BaekLeeHyunRoute2 from './components/BaekLeeHyun/BaekLeeHyunRoute2'
-import BaekLeeHyunRouteEnd from './components/BaekLeeHyun/BaekLeeHyunRouteEnd.js'
+import Opening from './components/Opening';
+import BaekLeeHyunRoute1 from './components/BaekLeeHyun/BaekLeeHyunRoute1';
+import BaekLeeHyunRoute2 from './components/BaekLeeHyun/BaekLeeHyunRoute2';
+import BaekLeeHyunRouteEnd from './components/BaekLeeHyun/BaekLeeHyunRouteEnd.js';
 import Chapter1 from './components/Chapter/Chapter1';
 import Chapter2 from './components/Chapter/Chapter2';
 import Chapter3 from './components/Chapter/Chapter3';
-import GoodStudentCouncil from './components/BaekLeeHyun/GoodStudentCouncil'
-import WaitingPerson from './components/BaekLeeHyun/WaitingPerson'
+import GoodStudentCouncil from './components/BaekLeeHyun/GoodStudentCouncil';
+import WaitingPerson from './components/BaekLeeHyun/WaitingPerson';
 import BaekLeeHyunGoodEnding from './components/BaekLeeHyun/BaekLeeHyunGoodEnding.js';
 import FirstStory from './components/FirstStory.js';
 import DoYoonRoute1 from './components/DoYoon/DoYoonRoute1.js';
@@ -33,84 +33,90 @@ import ChoiJaeYulGoodEnding from './components/ChoiJaeYul/ChoiJaeYulGoodEnding.j
 import EndingCount from './components/EndingCount';
 import Pixel from './components/Pixel.js';
 
-const updateRouteCount = async (route) => {
-  try {
-    const routeRef = doc(db, 'Ending', route);
-    const routeSnap = await getDoc(routeRef);
+const App = () => {
+  const audioRef = useRef(null);
 
-    if (routeSnap.exists()) {
-      await updateDoc(routeRef, {
-        count: increment(1),
-      });
-    } else {
-      await setDoc(routeRef, { count: 1 });
+  useEffect(() => {
+    audioRef.current.play();
+  }, []);
+
+  const updateRouteCount = async (route) => {
+    try {
+      const routeRef = doc(db, 'Ending', route);
+      const routeSnap = await getDoc(routeRef);
+
+      if (routeSnap.exists()) {
+        await updateDoc(routeRef, {
+          count: increment(1),
+        });
+      } else {
+        await setDoc(routeRef, { count: 1 });
+      }
+      console.log(`Successfully updated count for ${route}`);
+    } catch (error) {
+      console.error(`Error updating count for ${route}:`, error);
     }
-    console.log(`Successfully updated count for ${route}`);
-  } catch (error) {
-    console.error(`Error updating count for ${route}:`, error);
-  }
-};
+  };
 
-const RouteCounter = () => {
-  const location = useLocation();
+  const RouteCounter = () => {
+    const location = useLocation();
 
     useEffect(() => {
       const route = location.pathname.slice(1);
       if (route === 'notMe' || route === 'badCook' || route === 'doYoonGoodEnding' || route === 'choiJaeYulGoodEnding' 
-    || route === 'doULikeGame' || route === 'worstGuest' || route === 'goodStudentCouncil' || route === 'waitingPerson' || route === 'baekLeeHyunGoodEnding'){
+        || route === 'doULikeGame' || route === 'worstGuest' || route === 'goodStudentCouncil' || route === 'waitingPerson' || route === 'baekLeeHyunGoodEnding'){
         updateRouteCount(route);
       }
     }, [location]);
   
     return null;
+  };
 
-};
-
-const App = () => {
-  
   return (
     <div className="App">
-     
-    <Router>
-      <AutoRedirect>
-      <RouteCounter />
+      <audio ref={audioRef} loop>
+        <source src={`${process.env.PUBLIC_URL}/music/back_music.mp3`} type="audio/mpeg" />
+      </audio>
+      <Router>
+        <AutoRedirect>
+          <RouteCounter />
           <Routes>
-              <Route path={"/"} element={<Start />}></Route>
-              <Route path={"/question"} element={<Question />}></Route>
-              <Route path={"/opening"} element={<Opening />}></Route>
-              <Route path={"/firstStory"} element={<FirstStory />}></Route>
-              <Route path={"/endingCount"} element={<EndingCount />}></Route>
-              <Route path={"/pixel"} element={<Pixel />}></Route>
+            <Route path={"/"} element={<Start />}></Route>
+            <Route path={"/question"} element={<Question />}></Route>
+            <Route path={"/opening"} element={<Opening />}></Route>
+            <Route path={"/firstStory"} element={<FirstStory />}></Route>
+            <Route path={"/endingCount"} element={<EndingCount />}></Route>
+            <Route path={"/pixel"} element={<Pixel />}></Route>
 
-              <Route path={"/baekLeeHyunRoute1"} element={<BaekLeeHyunRoute1 />}></Route>
-              <Route path={"/baekLeeHyunRoute2"} element={<BaekLeeHyunRoute2 />}></Route>
-              <Route path={"/baekLeeHyunRouteEnd"} element={<BaekLeeHyunRouteEnd />}></Route>
-              <Route path={"/goodStudentCouncil"} element={<GoodStudentCouncil />}></Route>
-              <Route path={"/waitingPerson"} element={<WaitingPerson />}></Route>
-              <Route path={"/baekLeeHyunGoodEnding"} element={<BaekLeeHyunGoodEnding />}></Route>
+            <Route path={"/baekLeeHyunRoute1"} element={<BaekLeeHyunRoute1 />}></Route>
+            <Route path={"/baekLeeHyunRoute2"} element={<BaekLeeHyunRoute2 />}></Route>
+            <Route path={"/baekLeeHyunRouteEnd"} element={<BaekLeeHyunRouteEnd />}></Route>
+            <Route path={"/goodStudentCouncil"} element={<GoodStudentCouncil />}></Route>
+            <Route path={"/waitingPerson"} element={<WaitingPerson />}></Route>
+            <Route path={"/baekLeeHyunGoodEnding"} element={<BaekLeeHyunGoodEnding />}></Route>
 
-              <Route path={"/doYoonRoute1"} element={<DoYoonRoute1 />}></Route>
-              <Route path={"/doYoonRoute2"} element={<DoYoonRoute2 />}></Route>
-              <Route path={"/doYoonRouteEnd"} element={<DoYoonRouteEnd />}></Route>
-              <Route path={"/notMe"} element={<NotMe />}></Route>
-              <Route path={"/badCook"} element={<BadCook />}></Route>
-              <Route path={"/doYoonGoodEnding"} element={<DoYoonGoodEnding />}></Route>
+            <Route path={"/doYoonRoute1"} element={<DoYoonRoute1 />}></Route>
+            <Route path={"/doYoonRoute2"} element={<DoYoonRoute2 />}></Route>
+            <Route path={"/doYoonRouteEnd"} element={<DoYoonRouteEnd />}></Route>
+            <Route path={"/notMe"} element={<NotMe />}></Route>
+            <Route path={"/badCook"} element={<BadCook />}></Route>
+            <Route path={"/doYoonGoodEnding"} element={<DoYoonGoodEnding />}></Route>
 
-              <Route path={"/choiJaeYulRoute1"} element={<ChoiJaeYulRoute1 />}></Route>
-              <Route path={"/choiJaeYulRoute2"} element={<ChoiJaeYulRoute2   />}></Route>
-              <Route path={"/choiJaeYulRouteEnd"} element={<ChoiJaeYulRouteEnd />}></Route>
-              <Route path={"/doULikeGame"} element={<DoULikeGame />}></Route>
-              <Route path={"/worstGuest"} element={<WorstGuest />}></Route>
-              <Route path={"/choiJaeYulGoodEnding"} element={<ChoiJaeYulGoodEnding />}></Route>
+            <Route path={"/choiJaeYulRoute1"} element={<ChoiJaeYulRoute1 />}></Route>
+            <Route path={"/choiJaeYulRoute2"} element={<ChoiJaeYulRoute2   />}></Route>
+            <Route path={"/choiJaeYulRouteEnd"} element={<ChoiJaeYulRouteEnd />}></Route>
+            <Route path={"/doULikeGame"} element={<DoULikeGame />}></Route>
+            <Route path={"/worstGuest"} element={<WorstGuest />}></Route>
+            <Route path={"/choiJaeYulGoodEnding"} element={<ChoiJaeYulGoodEnding />}></Route>
 
-              <Route path={"/chapter1"} element={<Chapter1 />}></Route>
-              <Route path={"/chapter2"} element={<Chapter2 />}></Route>
-              <Route path={"/chapter3"} element={<Chapter3 />}></Route>
-            </Routes>
-            </AutoRedirect>
-        </Router>
-      </div>
+            <Route path={"/chapter1"} element={<Chapter1 />}></Route>
+            <Route path={"/chapter2"} element={<Chapter2 />}></Route>
+            <Route path={"/chapter3"} element={<Chapter3 />}></Route>
+          </Routes>
+        </AutoRedirect>
+      </Router>
+    </div>
   );
-}
+};
 
-export default App
+export default App;
