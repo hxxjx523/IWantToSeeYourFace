@@ -147,7 +147,6 @@ function Dialogue({ routeData, chapter, select1, select2, end, goodEnd, silhouet
     useEffect(() => {
         const currentDialogue = getNextDialogue();
         if (currentDialogue && currentDialogue.text === "{픽셀이 지나가는 가는 효과}") {
-            console.log(currentDialogue.text)
             setShowPixel(true);
             const timer = setTimeout(() => {
                 setShowPixel(false);

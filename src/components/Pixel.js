@@ -7,11 +7,9 @@ function Pixel({ pixelImg }) {
     useEffect(() => {
       const canvas = canvasRef.current;
       const ctx = canvas.getContext('2d');
-      console.log(pixelImg)
       const img = new Image()
       
       img.src = `./images/${pixelImg}/${pixelImg}_face1-1.png`
-      console.log(img)
   
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;

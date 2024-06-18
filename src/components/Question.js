@@ -48,7 +48,6 @@ export default function Question() {
         } else if (sum >= 8 && sum <= 9) {
           route = "choiJaeYulRoute";
         }
-        console.log(sum);
         navigate(`/opening?route=${route}`);
       }
     }

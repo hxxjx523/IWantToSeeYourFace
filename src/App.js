@@ -54,7 +54,6 @@ const App = () => {
       } else {
         await setDoc(routeRef, { count: 1 });
       }
-      console.log(`Successfully updated count for ${route}`);
     } catch (error) {
       console.error(`Error updating count for ${route}:`, error);
     }
