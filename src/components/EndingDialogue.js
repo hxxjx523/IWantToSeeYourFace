@@ -54,6 +54,7 @@ function EndingDialogue({ routeData, onDialogueEnd }) {
             <div className={styles.nameAndDialogue}>
                 <div className={styles.name}>{name}</div>
                 <div className={styles.dialogue}>{text}</div>
+                <button className={styles.next}></button>
             </div>
         </div>
     );
