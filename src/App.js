@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import { doc, getDoc, setDoc, updateDoc, increment } from 'firebase/firestore';
 import { db } from './firebase';
@@ -35,10 +35,11 @@ import Pixel from './components/Pixel.js';
 
 const App = () => {
   const audioRef = useRef(null);
+  const isAudioPlaying = useRef(false);
 
-  useEffect(() => {
-    audioRef.current.play();
-  }, []);
+  const handleClick = () => {
+      audioRef.current.play();
+  };
 
   const updateRouteCount = async (route) => {
     try {
@@ -61,10 +62,11 @@ const App = () => {
   const RouteCounter = () => {
     const location = useLocation();
 
-    useEffect(() => {
+    React.useEffect(() => {
       const route = location.pathname.slice(1);
+      // 특정 경로에 따라 라우트 카운트를 업데이트합니다.
       if (route === 'notMe' || route === 'badCook' || route === 'doYoonGoodEnding' || route === 'choiJaeYulGoodEnding' 
-        || route === 'doULikeGame' || route === 'worstGuest' || route === 'goodStudentCouncil' || route === 'waitingPerson' || route === 'baekLeeHyunGoodEnding'){
+        || route === 'doULikeGame' || route === 'worstGuest' || route === 'goodStudentCouncil' || route === 'waitingPerson' || route === 'baekLeeHyunGoodEnding') {
         updateRouteCount(route);
       }
     }, [location]);
@@ -73,45 +75,47 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <div className="App" onClick={handleClick}>
+      {/* 오디오 요소를 추가하여 배경 음악을 재생합니다. */}
       <audio ref={audioRef} loop>
         <source src={`${process.env.PUBLIC_URL}/music/back_music.mp3`} type="audio/mpeg" />
       </audio>
+      
       <Router>
         <AutoRedirect>
           <RouteCounter />
           <Routes>
-            <Route path={"/"} element={<Start />}></Route>
-            <Route path={"/question"} element={<Question />}></Route>
-            <Route path={"/opening"} element={<Opening />}></Route>
-            <Route path={"/firstStory"} element={<FirstStory />}></Route>
-            <Route path={"/endingCount"} element={<EndingCount />}></Route>
-            <Route path={"/pixel"} element={<Pixel />}></Route>
+            <Route path="/" element={<Start />} />
+            <Route path="/question" element={<Question />} />
+            <Route path="/opening" element={<Opening />} />
+            <Route path="/firstStory" element={<FirstStory />} />
+            <Route path="/endingCount" element={<EndingCount />} />
+            <Route path="/pixel" element={<Pixel />} />
 
-            <Route path={"/baekLeeHyunRoute1"} element={<BaekLeeHyunRoute1 />}></Route>
-            <Route path={"/baekLeeHyunRoute2"} element={<BaekLeeHyunRoute2 />}></Route>
-            <Route path={"/baekLeeHyunRouteEnd"} element={<BaekLeeHyunRouteEnd />}></Route>
-            <Route path={"/goodStudentCouncil"} element={<GoodStudentCouncil />}></Route>
-            <Route path={"/waitingPerson"} element={<WaitingPerson />}></Route>
-            <Route path={"/baekLeeHyunGoodEnding"} element={<BaekLeeHyunGoodEnding />}></Route>
+            <Route path="/baekLeeHyunRoute1" element={<BaekLeeHyunRoute1 />} />
+            <Route path="/baekLeeHyunRoute2" element={<BaekLeeHyunRoute2 />} />
+            <Route path="/baekLeeHyunRouteEnd" element={<BaekLeeHyunRouteEnd />} />
+            <Route path="/goodStudentCouncil" element={<GoodStudentCouncil />} />
+            <Route path="/waitingPerson" element={<WaitingPerson />} />
+            <Route path="/baekLeeHyunGoodEnding" element={<BaekLeeHyunGoodEnding />} />
 
-            <Route path={"/doYoonRoute1"} element={<DoYoonRoute1 />}></Route>
-            <Route path={"/doYoonRoute2"} element={<DoYoonRoute2 />}></Route>
-            <Route path={"/doYoonRouteEnd"} element={<DoYoonRouteEnd />}></Route>
-            <Route path={"/notMe"} element={<NotMe />}></Route>
-            <Route path={"/badCook"} element={<BadCook />}></Route>
-            <Route path={"/doYoonGoodEnding"} element={<DoYoonGoodEnding />}></Route>
+            <Route path="/doYoonRoute1" element={<DoYoonRoute1 />} />
+            <Route path="/doYoonRoute2" element={<DoYoonRoute2 />} />
+            <Route path="/doYoonRouteEnd" element={<DoYoonRouteEnd />} />
+            <Route path="/notMe" element={<NotMe />} />
+            <Route path="/badCook" element={<BadCook />} />
+            <Route path="/doYoonGoodEnding" element={<DoYoonGoodEnding />} />
 
-            <Route path={"/choiJaeYulRoute1"} element={<ChoiJaeYulRoute1 />}></Route>
-            <Route path={"/choiJaeYulRoute2"} element={<ChoiJaeYulRoute2   />}></Route>
-            <Route path={"/choiJaeYulRouteEnd"} element={<ChoiJaeYulRouteEnd />}></Route>
-            <Route path={"/doULikeGame"} element={<DoULikeGame />}></Route>
-            <Route path={"/worstGuest"} element={<WorstGuest />}></Route>
-            <Route path={"/choiJaeYulGoodEnding"} element={<ChoiJaeYulGoodEnding />}></Route>
+            <Route path="/choiJaeYulRoute1" element={<ChoiJaeYulRoute1 />} />
+            <Route path="/choiJaeYulRoute2" element={<ChoiJaeYulRoute2 />} />
+            <Route path="/choiJaeYulRouteEnd" element={<ChoiJaeYulRouteEnd />} />
+            <Route path="/doULikeGame" element={<DoULikeGame />} />
+            <Route path="/worstGuest" element={<WorstGuest />} />
+            <Route path="/choiJaeYulGoodEnding" element={<ChoiJaeYulGoodEnding />} />
 
-            <Route path={"/chapter1"} element={<Chapter1 />}></Route>
-            <Route path={"/chapter2"} element={<Chapter2 />}></Route>
-            <Route path={"/chapter3"} element={<Chapter3 />}></Route>
+            <Route path="/chapter1" element={<Chapter1 />} />
+            <Route path="/chapter2" element={<Chapter2 />} />
+            <Route path="/chapter3" element={<Chapter3 />} />
           </Routes>
         </AutoRedirect>
       </Router>
